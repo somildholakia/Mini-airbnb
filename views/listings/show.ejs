@@ -12,5 +12,7 @@
     <p> &#8377; <%=  singleListing.price.toLocaleString("en-IN") %></p>
     <p> <%= singleListing.location %></p>
     <p> <%= singleListing.country %></p>
+
+    <a href="/listings/<%= singleListing._id %>/edit">Edit this listing</a>
 </body>
 </html>

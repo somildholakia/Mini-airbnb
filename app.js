@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
+const methodOverride = require("method-override");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wandersSite";
 
@@ -70,6 +71,7 @@ app.get("/listings/new", (req,res) => {
 })
 
 
+
 //show route
 app.get("/listings/:id", async (req,res) => {
     let {id} = req.params;
@@ -78,9 +80,9 @@ app.get("/listings/:id", async (req,res) => {
    res.render("listings/show.ejs", {singleListing});
 })
 
-app.post("/listings",(req,res) => {
+app.post("/listings", async (req,res) => {
     let {title,description,price,location,country} = req.body;
-   let oneList = Listing.insertOne({
+   let oneList = await Listing.insertOne({
         title: title,
         description: description,
         price: price,
@@ -90,4 +92,13 @@ app.post("/listings",(req,res) => {
 
     console.log(oneList);
     res.redirect("/listings");
+})
+
+
+//edit route
+
+app.get("/listings/:id/edit", async (req,res) =>{
+     let {id} = req.params;
+     let listing = await Listing.findById(id);
+    res.render("listings/edit.ejs",{listing});
 })
