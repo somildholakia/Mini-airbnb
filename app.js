@@ -33,7 +33,7 @@ app.listen(port, () => {
     console.log(`Listening at port:${port}`);
 })
 
-// root route
+// root routee
 
 app.get("/",(req,res) => {
     res.send(" Root working");
