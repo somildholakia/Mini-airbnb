@@ -42,16 +42,32 @@ app.get("/",(req,res) => {
 
 //listing sample
 
-app.get("/testListing", async (req,res) => {
-    let sampleListing = new Listing({
-        title: "My new home",
-        description: "By the Beach",
-        price: 1200,
-        location: "goa",
-        country: "India",
-    });
+// app.get("/testListing", async (req,res) => {
+//     let sampleListing = new Listing({
+//         title: "My new home",
+//         description: "By the Beach",
+//         price: 1200,
+//         location: "goa",
+//         country: "India",
+//     });
 
-   await sampleListing.save()
-   console.log("Sample was saved");
-   res.send("successful testing");
+//    await sampleListing.save()
+//    console.log("Sample was saved");
+//    res.send("successful testing");
+// })
+
+//Index route
+
+app.get("/listings", async (req,res) => {
+  const allListings = await Listing.find({})
+    res.render("listings/index.ejs",({allListings}));
+})
+
+
+//show route
+app.get("/listings/:id", async (req,res) => {
+    let {id} = req.params;
+   let singleListing = await Listing.findById(id);
+   console.log(singleListing);
+   res.render("listings/show.ejs", {singleListing});
 })
