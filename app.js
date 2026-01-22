@@ -64,10 +64,30 @@ app.get("/listings", async (req,res) => {
 })
 
 
+//new route 
+app.get("/listings/new", (req,res) => {
+    res.render("listings/new.ejs");
+})
+
+
 //show route
 app.get("/listings/:id", async (req,res) => {
     let {id} = req.params;
    let singleListing = await Listing.findById(id);
    console.log(singleListing);
    res.render("listings/show.ejs", {singleListing});
+})
+
+app.post("/listings",(req,res) => {
+    let {title,description,price,location,country} = req.body;
+   let oneList = Listing.insertOne({
+        title: title,
+        description: description,
+        price: price,
+        location: location,
+        country: country,
+    });
+
+    console.log(oneList);
+    res.redirect("/listings");
 })
