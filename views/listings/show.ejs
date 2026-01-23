@@ -14,5 +14,9 @@
     <p> <%= singleListing.country %></p>
 
     <a href="/listings/<%= singleListing._id %>/edit">Edit this listing</a>
+
+    <form method="post" action="/listings/<%= singleListing._id %>?_method=DELETE"> 
+        <button>DELETE</button>
+    </form>
 </body>
 </html>
