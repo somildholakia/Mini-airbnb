@@ -24,6 +24,7 @@ const port = 8080;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(methodOverride("_method"));
 
 
 app.set("view engine","ejs");
@@ -101,4 +102,12 @@ app.get("/listings/:id/edit", async (req,res) =>{
      let {id} = req.params;
      let listing = await Listing.findById(id);
     res.render("listings/edit.ejs",{listing});
+})
+
+//update route
+
+app.put("/listings/:id", async (req,res) => {
+     let {id} = req.params;
+    await Listing.findByIdAndUpdate(id, {...req.body.listing});
+    res.redirect("/listings");
 })
