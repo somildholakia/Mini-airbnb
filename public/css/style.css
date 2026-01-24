@@ -97,3 +97,24 @@ body {
  background-color: #fe424d;
  margin-top: 20px;
 }
+
+
+/* show page  */
+
+.show-img {
+    height: 30vh;
+
+}
+
+.btns {
+    display: flex;
+}
+
+.edit-btn {
+ background-color: #fe424d;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
