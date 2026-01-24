@@ -74,3 +74,13 @@ body {
 .listing-link {
     text-decoration: none;
 }
+
+/* cards effect */
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.3;
+    background-color: white;
+}
