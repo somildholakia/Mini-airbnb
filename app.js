@@ -6,6 +6,7 @@ const Listing = require("./models/listing.js");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js")
+const ExpressError = require("./utils/ExpressError.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wandersSite";
 
@@ -130,5 +131,6 @@ app.delete("/listings/:id", async (req, res) => {
 })
 
 app.use((err, req, res, next) => {
-    res.send("something went wrong!");
+    let {statusCode,message} = err;
+    res.status(statusCode).send(message);
 })
