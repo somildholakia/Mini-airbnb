@@ -64,7 +64,7 @@ app.get("/", (req, res) => {
 
 //Index route
 
-app.get("/listings", wrapAsync( async (req, res) => {
+app.get("/listings", wrapAsync(async (req, res) => {
     const allListings = await Listing.find({})
     res.render("listings/index.ejs", ({ allListings }));
 }));
@@ -78,7 +78,7 @@ app.get("/listings/new", (req, res) => {
 
 
 //show route
-app.get("/listings/:id", wrapAsync( async (req, res) => {
+app.get("/listings/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
     let singleListing = await Listing.findById(id);
     console.log(singleListing);
@@ -87,27 +87,29 @@ app.get("/listings/:id", wrapAsync( async (req, res) => {
 
 
 // Create Route 
-app.post("/listings", wrapAsync( async(req, res,next) => {
+app.post("/listings", wrapAsync(async (req, res, next) => {
 
-   
 
-        let { title, description, price, location, country } = req.body;
-        let oneList = await Listing.insertOne({
-            title: title,
-            description: description,
-            price: price,
-            location: location,
-            country: country,
-        });
+    if (!req.body.listing) {
+        throw new ExpressError(400, "Send Valid data for listing");
+    }
+    let { title, description, price, location, country } = req.body;
+    let oneList = await Listing.insertOne({
+        title: title,
+        description: description,
+        price: price,
+        location: location,
+        country: country,
+    });
 
-        console.log(oneList);
-        res.redirect("/listings");
-    
+    console.log(oneList);
+    res.redirect("/listings");
+
 }));
 
 //edit route
 
-app.get("/listings/:id/edit", wrapAsync( async (req, res) => {
+app.get("/listings/:id/edit", wrapAsync(async (req, res) => {
     let { id } = req.params;
     let listing = await Listing.findById(id);
     res.render("listings/edit.ejs", { listing });
@@ -115,7 +117,11 @@ app.get("/listings/:id/edit", wrapAsync( async (req, res) => {
 
 //update route
 
-app.put("/listings/:id", wrapAsync( async (req, res) => {
+app.put("/listings/:id", wrapAsync(async (req, res) => {
+
+    if (!req.body.listing) {
+        throw new ExpressError(400, "Send Valid data for listing");
+    }
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
     res.redirect("/listings");
@@ -123,18 +129,18 @@ app.put("/listings/:id", wrapAsync( async (req, res) => {
 
 //DELETE route
 
-app.delete("/listings/:id", wrapAsync( async (req, res) => {
+app.delete("/listings/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndDelete(id);
     res.redirect("/listings");
     console.log("Deleted successfully");
 }));
 
-app.all("*", (req,res,next) => {
-    next(new ExpressError(404,"page not found"));
+app.use((req, res, next) => {
+    next(new ExpressError(404, "page not found"));
 })
 
 app.use((err, req, res, next) => {
-    let {statusCode=500,message="Something went Wrong"} = err;
+    let { statusCode = 500, message = "Something went Wrong" } = err;
     res.status(statusCode).send(message);
 })
