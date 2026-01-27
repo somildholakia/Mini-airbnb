@@ -56,7 +56,6 @@ const validateListing = (req, res, next) => {
         next();
     }
 };
-
 //listing sample
 
 // app.get("/testListing", async (req,res) => {
