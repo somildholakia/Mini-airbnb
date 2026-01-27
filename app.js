@@ -7,6 +7,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js")
 const ExpressError = require("./utils/ExpressError.js");
+const { listingSchema } = require("./schema.js")
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wandersSite";
 
@@ -45,6 +46,16 @@ app.get("/", (req, res) => {
     res.send(" Root working");
 })
 
+const validateListing = (req, res, next) => {
+    let {error} = listingSchema.validate(req.body);
+
+    if (error) {
+        let errMsg = error.details.map((el) => el.message).join(",");
+        throw new ExpressError(400,error);
+    } else {
+        next();
+    }
+};
 
 //listing sample
 
@@ -87,12 +98,8 @@ app.get("/listings/:id", wrapAsync(async (req, res) => {
 
 
 // Create Route 
-app.post("/listings", wrapAsync(async (req, res, next) => {
+app.post("/listings", validateListing ,wrapAsync(async (req, res, next) => {
 
-
-    if (!req.body.listing) {
-        throw new ExpressError(400, "Send Valid data for listing");
-    }
     let { title, description, price, location, country } = req.body;
     let oneList = await Listing.insertOne({
         title: title,
@@ -142,5 +149,5 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
     let { statusCode = 500, message = "Something went Wrong" } = err;
-    res.status(statusCode).render("error.ejs", {message})
+    res.status(statusCode).render("error.ejs", { message })
 })
