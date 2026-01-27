@@ -46,6 +46,7 @@ app.get("/", (req, res) => {
     res.send(" Root working");
 })
 
+
 const validateListing = (req, res, next) => {
     let {error} = listingSchema.validate(req.body);
 
