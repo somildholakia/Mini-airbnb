@@ -8,6 +8,7 @@ const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js")
 const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema } = require("./schema.js")
+const Review = require("./models/review.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wandersSite";
 
@@ -142,6 +143,27 @@ app.delete("/listings/:id", wrapAsync(async (req, res) => {
     res.redirect("/listings");
     console.log("Deleted successfully");
 }));
+
+
+
+// Reviews POST
+app.post("/listings/:id/reviews", async (req,res) => {
+
+  let listing = await Listing.findById(req.params.id);
+    let newReview = new Review(req.body.review);
+
+    listing.reviews.push(newReview);
+
+    await newReview.save();
+    await listing.save();
+
+    console.log("new review Saved");
+    res.send("review Saved");
+});
+
+
+
+
 
 app.use((req, res, next) => {
     next(new ExpressError(404, "page not found"));
