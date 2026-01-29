@@ -57,5 +57,14 @@
                 <div class="invalid-feedback">Please add some comments for review</div>
             </div>
             <button class="btn btn-outline-dark">Submit</button>
+
+            <hr> 
+
+            <h4>All reviews</h4>
+            <ul>
+            <% for(review of singleListing.reviews) { %>
+                <li> <%= review.comment %>, <%= review.rating %> Stars </li>
+            <% } %>
+            </ul>
         </form>
     </div>

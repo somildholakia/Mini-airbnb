@@ -103,7 +103,7 @@ app.get("/listings/new", (req, res) => {
 //show route
 app.get("/listings/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
-    let singleListing = await Listing.findById(id);
+    let singleListing = await Listing.findById(id).populate("reviews");
     console.log(singleListing);
     res.render("listings/show.ejs", { singleListing });
 }));
@@ -169,7 +169,7 @@ app.post("/listings/:id/reviews", validateReview ,wrapAsync( async (req,res) => 
     await listing.save();
 
     console.log("new review Saved");
-    res.send("review Saved");
+    res.redirect(`/listings/${req.params.id}`);
 }));
 
 
