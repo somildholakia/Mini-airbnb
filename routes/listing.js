@@ -4,21 +4,21 @@ const router = express.Router();
 
 //Index route
 
-app.get("/listings", wrapAsync(async (req, res) => {
+router.get("/listings", wrapAsync(async (req, res) => {
     const allListings = await Listing.find({})
     res.render("listings/index.ejs", ({ allListings }));
 }));
 
 
 //new route 
-app.get("/listings/new", (req, res) => {
+router.get("/listings/new", (req, res) => {
     res.render("listings/new.ejs");
 })
 
 
 
 //show route
-app.get("/listings/:id", wrapAsync(async (req, res) => {
+router.get("/listings/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
     let singleListing = await Listing.findById(id).populate("reviews");
     console.log(singleListing);
@@ -26,7 +26,7 @@ app.get("/listings/:id", wrapAsync(async (req, res) => {
 }));
 
 // Create Route 
-app.post("/listings", validateListing ,wrapAsync(async (req, res, next) => {
+router.post("/listings", validateListing ,wrapAsync(async (req, res, next) => {
 
     let { title, description, price, location, country } = req.body;
     let oneList = await Listing.insertOne({
@@ -44,7 +44,7 @@ app.post("/listings", validateListing ,wrapAsync(async (req, res, next) => {
 
 //edit route
 
-app.get("/listings/:id/edit", wrapAsync(async (req, res) => {
+router.get("/listings/:id/edit", wrapAsync(async (req, res) => {
     let { id } = req.params;
     let listing = await Listing.findById(id);
     res.render("listings/edit.ejs", { listing });
@@ -52,7 +52,7 @@ app.get("/listings/:id/edit", wrapAsync(async (req, res) => {
 
 //update route
 
-app.put("/listings/:id", wrapAsync(async (req, res) => {
+router.put("/listings/:id", wrapAsync(async (req, res) => {
 
     if (!req.body.listing) {
         throw new ExpressError(400, "Send Valid data for listing");
@@ -64,9 +64,10 @@ app.put("/listings/:id", wrapAsync(async (req, res) => {
 
 //DELETE route
 
-app.delete("/listings/:id", wrapAsync(async (req, res) => {
+router.delete("/listings/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndDelete(id);
     res.redirect("/listings");
     console.log("Deleted successfully");
 }));
+
