@@ -3,6 +3,7 @@ const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
 const { listingSchema, reviewSchema } = require("../schema.js");
+const review = require("../models/review.js");
 const ExpressError = require("../utils/ExpressError.js");
 
 
@@ -17,8 +18,6 @@ const validateListing = (req, res, next) => {
         next();
     }
 };
-
-
 
 
 //Index route
