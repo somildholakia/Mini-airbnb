@@ -20,8 +20,6 @@ const validateReview = (req,res,next) => {
 };
 
 
-
-
 // Reviews POST
 router.post("/", validateReview ,wrapAsync( async (req,res) => {
 
