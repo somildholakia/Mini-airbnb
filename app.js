@@ -13,6 +13,7 @@ const listings = require("./routes/listing.js");
 // const reviews = require("./routes/review.js");
 const review = require("./models/review.js");
 const session = require("express-session");
+const flash = require("connect-flash");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wandersSite";
 
