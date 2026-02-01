@@ -8,12 +8,13 @@ const ExpressError = require("../utils/ExpressError.js");
 
 
 
+
 const validateListing = (req, res, next) => {
-    let { error } = listingSchema.validate(req.body);
+    let { error } = Listing.validate(req.body.listing);
 
     if (error) {
         let errMsg = error.details.map((el) => el.message).join(",");
-        throw new ExpressError(400, error);
+        throw new ExpressError(400, errMsg);
     } else {
         next();
     }
@@ -44,21 +45,19 @@ router.get("/:id", wrapAsync(async (req, res) => {
 }));
 
 // Create Route 
-router.post("/", validateListing, wrapAsync(async (req, res, next) => {
+router.post("/", validateListing, wrapAsync(async (req, res) => {
+    console.log(req.body);
+    req.body.listing.image = {
+        filename: "default",
+        url: "https://images.unsplash.com/photo-1505691938895-1758d7feb511"
+    };
 
-    let { title, description, price, location, country } = req.body;
-    let oneList = await Listing.insertOne({
-        title: title,
-        description: description,
-        price: price,
-        location: location,
-        country: country,
-    });
-    req.flash("success","new Listing created");
+    
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
 
-    console.log(oneList);
+    req.flash("success", "New listing created");
     res.redirect("/listings");
-
 }));
 
 //edit route

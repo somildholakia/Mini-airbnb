@@ -5,13 +5,14 @@ const mongoose = require("mongoose");
 // const Listing = require("./models/listing.js");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-// const wrapAsync = require("./utils/wrapAsync.js")
+const wrapAsync = require("./utils/wrapAsync.js")
 const ExpressError = require("./utils/ExpressError.js");
-// const { listingSchema, reviewSchema } = require("./schema.js");
+const { listingSchema, reviewSchema } = require("./schema.js");
 // const Review = require("./models/review.js");
-const listings = require("./routes/listing.js");
-// const reviews = require("./routes/review.js");
-const review = require("./models/review.js");
+const listing = require("./routes/listing.js");
+const reviews = require("./routes/review.js");
+// const review = require("../models/review.js");
+
 const session = require("express-session");
 const flash = require("connect-flash");
 
@@ -73,8 +74,9 @@ app.use((req,res,next) => {
     next();
 })
 
-app.use("/listings", listings);
-app.use("/listing/:id/reviews",review);
+app.use("/listings", listing);
+app.use("/listings/:id/reviews", reviews);
+
 
 
 
