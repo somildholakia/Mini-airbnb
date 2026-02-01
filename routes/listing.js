@@ -54,6 +54,7 @@ router.post("/", validateListing, wrapAsync(async (req, res, next) => {
         location: location,
         country: country,
     });
+    req.flash("success","new Listing created");
 
     console.log(oneList);
     res.redirect("/listings");

@@ -57,9 +57,6 @@ const sessionOptions = {
     }
 };
 
-app.use(session(sessionOptions));
-
-
 
 // root routee
 
@@ -68,8 +65,13 @@ app.get("/", (req, res) => {
 })
 
 
+app.use(session(sessionOptions));
+app.use(flash());
 
-
+app.use((req,res,next) => {
+    res.locals.success = req.flash("success");
+    next();
+})
 
 app.use("/listings", listings);
 app.use("/listing/:id/reviews",review);
