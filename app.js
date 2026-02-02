@@ -15,6 +15,9 @@ const reviews = require("./routes/review.js");
 
 const session = require("express-session");
 const flash = require("connect-flash");
+const passport = require("passport");
+const localStrategy = require("passport-local");
+const User = require("./models/user.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wandersSite";
 
