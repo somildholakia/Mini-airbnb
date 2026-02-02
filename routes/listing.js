@@ -77,6 +77,8 @@ router.put("/:id", wrapAsync(async (req, res) => {
     }
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+        req.flash("success", "listing Updated");
+
     res.redirect("/listings");
 }));
 
