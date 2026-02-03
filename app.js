@@ -12,12 +12,12 @@ const { listingSchema, reviewSchema } = require("./schema.js");
 const listing = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
 // const review = require("../models/review.js");
-
 const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+const userRouter = require("./routes/user.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wandersSite";
 
@@ -99,6 +99,7 @@ app.get("/demo", async (req,res) => {
 
 app.use("/listings", listing);
 app.use("/listings/:id/reviews", reviews);
+app.use("/", userRouter);
 
 
 
