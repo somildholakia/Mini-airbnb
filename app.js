@@ -86,15 +86,15 @@ app.use((req,res,next) => {
     next();
 });
 
-app.get("/demo", async (req,res) => {
-    let fakeUser = new User({
-        email: "student@gmail.com",
-        username: "Somil",
-    });
+// app.get("/demo", async (req,res) => {
+//     let fakeUser = new User({
+//         email: "student@gmail.com",
+//         username: "Somil",
+//     });
 
-  let registeredUser = await User.register(fakeUser,"Hello");
-  res.send(registeredUser);
-});
+//   let registeredUser = await User.register(fakeUser,"Hello");
+//   res.send(registeredUser);
+// });
 
 
 app.use("/listings", listing);
