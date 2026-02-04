@@ -46,7 +46,7 @@ router.get("/:id", wrapAsync(async (req, res) => {
 }));
 
 // Create Route 
-router.post("/", validateListing, wrapAsync(async (req, res) => {
+router.post("/", isLoggedIn, validateListing, wrapAsync(async (req, res) => {
     console.log(req.body);
     req.body.listing.image = {
         filename: "default",
@@ -63,7 +63,7 @@ router.post("/", validateListing, wrapAsync(async (req, res) => {
 
 //edit route
 
-router.get("/:id/edit", wrapAsync(async (req, res) => {
+router.get("/:id/edit", isLoggedIn, wrapAsync(async (req, res) => {
     let { id } = req.params;
     let listing = await Listing.findById(id);
     res.render("listings/edit.ejs", { listing });
@@ -71,7 +71,7 @@ router.get("/:id/edit", wrapAsync(async (req, res) => {
 
 //update route
 
-router.put("/:id", wrapAsync(async (req, res) => {
+router.put("/:id", isLoggedIn, wrapAsync(async (req, res) => {
 
     if (!req.body.listing) {
         throw new ExpressError(400, "Send Valid data for listing");
@@ -85,7 +85,7 @@ router.put("/:id", wrapAsync(async (req, res) => {
 
 //DELETE route
 
-router.delete("/:id", wrapAsync(async (req, res) => {
+router.delete("/:id", isLoggedIn, wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndDelete(id);
     res.redirect("/listings");
