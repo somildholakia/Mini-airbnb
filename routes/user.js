@@ -32,7 +32,8 @@ router.get("/login", (req,res) => {
 })
 
 router.post("/login", passport.authenticate("local",{failureRedirect: "/login", failureFlash: true}) ,async(req,res) => {
-    res.send("welcome to wandersSite");
+    req.flash("success","Welcome Back to WandersSite.");
+    res.redirect("/listings");
 })
 
 module.exports = router;
