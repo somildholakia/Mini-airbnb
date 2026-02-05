@@ -40,7 +40,7 @@ router.get("/new", isLoggedIn, (req, res) => {
 //show route
 router.get("/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
-    let singleListing = await Listing.findById(id).populate("reviews");
+    let singleListing = await Listing.findById(id).populate("reviews").populate("owner");
     console.log(singleListing);
     res.render("listings/show.ejs", { singleListing });
 }));
@@ -55,6 +55,7 @@ router.post("/", isLoggedIn, validateListing, wrapAsync(async (req, res) => {
 
     
     const newListing = new Listing(req.body.listing);
+    newListing.owner = req.user._id;
     await newListing.save();
 
     req.flash("success", "New listing created");
