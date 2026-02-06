@@ -94,7 +94,6 @@ app.use((req,res,next) => {
 //         email: "student@gmail.com",
 //         username: "Somil",
 //     });
-
 //   let registeredUser = await User.register(fakeUser,"Hello");
 //   res.send(registeredUser);
 // });
