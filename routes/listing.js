@@ -5,7 +5,7 @@ const Listing = require("../models/listing.js");
 const { listingSchema, reviewSchema } = require("../schema.js");
 const review = require("../models/review.js");
 const ExpressError = require("../utils/ExpressError.js");
-const {isLoggedIn} = require("../middleware.js");
+const {isLoggedIn, isOwner} = require("../middleware.js");
 
 
 
@@ -46,7 +46,7 @@ router.get("/:id", wrapAsync(async (req, res) => {
 }));
 
 // Create Route 
-router.post("/", isLoggedIn, validateListing, wrapAsync(async (req, res) => {
+router.post("/", isLoggedIn,isOwner, validateListing, wrapAsync(async (req, res) => {
     console.log(req.body);
     req.body.listing.image = {
         filename: "default",
@@ -72,7 +72,7 @@ router.get("/:id/edit", isLoggedIn, wrapAsync(async (req, res) => {
 
 //update route
 
-router.put("/:id", isLoggedIn, wrapAsync(async (req, res) => {
+router.put("/:id", isLoggedIn,validateListing, wrapAsync(async (req, res) => {
 
     if (!req.body.listing) {
         throw new ExpressError(400, "Send Valid data for listing");
