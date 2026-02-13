@@ -78,10 +78,18 @@ router.put("/:id", isLoggedIn, wrapAsync(async (req, res) => {
         throw new ExpressError(400, "Send Valid data for listing");
     }
     let { id } = req.params;
+   let listing = await Listing.findById(id);
+    if(!listing.owner.equals(res.locals.currUser._id)){
+        req.flash("error", "You don't have permission to edit");
+      return res.redirect(`/listings/${id}`);
+
+    }
+    else {
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
         req.flash("success", "listing Updated");
 
-    res.redirect("/listings");
+    res.redirect(`/listings/${id}`);
+    }
 }));
 
 //DELETE route
