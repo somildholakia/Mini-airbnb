@@ -7,7 +7,7 @@ const review = require("../models/review.js");
 const ExpressError = require("../utils/ExpressError.js");
 const {isLoggedIn, isOwner} = require("../middleware.js");
 
-
+const listingController = require("../controllers/listing.js");
 
 
 const validateListing = (req, res, next) => {
@@ -24,82 +24,31 @@ const validateListing = (req, res, next) => {
 
 //Index route
 
-router.get("/", wrapAsync(async (req, res) => {
-    const allListings = await Listing.find({})
-    res.render("listings/index.ejs", ({ allListings }));
-}));
+router.get("/", wrapAsync(listingController.index));
 
 
 //new route 
-router.get("/new", isLoggedIn, (req, res) => {
-    res.render("listings/new.ejs");
-})
+router.get("/new", isLoggedIn, listingController.renderNewForm);
 
 
 
 //show route
-router.get("/:id", wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    let singleListing = await Listing.findById(id).populate("reviews").populate("owner");
-    console.log(singleListing);
-    res.render("listings/show.ejs", { singleListing });
-}));
+router.get("/:id", wrapAsync(listingController.showListing));
 
 // Create Route 
-router.post("/", isLoggedIn,isOwner, validateListing, wrapAsync(async (req, res) => {
-    console.log(req.body);
-    req.body.listing.image = {
-        filename: "default",
-        url: "https://images.unsplash.com/photo-1505691938895-1758d7feb511"
-    };
-
-    
-    const newListing = new Listing(req.body.listing);
-    newListing.owner = req.user._id;
-    await newListing.save();
-
-    req.flash("success", "New listing created");
-    res.redirect("/listings");
-}));
+router.post("/", isLoggedIn,isOwner, validateListing, wrapAsync(listingController.createListing));
 
 //edit route
 
-router.get("/:id/edit", isLoggedIn, wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    let listing = await Listing.findById(id);
-    res.render("listings/edit.ejs", { listing });
-}));
+router.get("/:id/edit", isLoggedIn, wrapAsync(listingController.renderEditForm));
 
 //update route
 
-router.put("/:id", isLoggedIn,validateListing, wrapAsync(async (req, res) => {
-
-    if (!req.body.listing) {
-        throw new ExpressError(400, "Send Valid data for listing");
-    }
-    let { id } = req.params;
-   let listing = await Listing.findById(id);
-    if(!listing.owner.equals(res.locals.currUser._id)){
-        req.flash("error", "You don't have permission to edit");
-      return res.redirect(`/listings/${id}`);
-
-    }
-    else {
-    await Listing.findByIdAndUpdate(id, { ...req.body.listing });
-        req.flash("success", "listing Updated");
-
-    res.redirect(`/listings/${id}`);
-    }
-}));
+router.put("/:id", isLoggedIn,validateListing, wrapAsync(listingController.updateListing));
 
 //DELETE route
 
-router.delete("/:id", isLoggedIn, wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    await Listing.findByIdAndDelete(id);
-    res.redirect("/listings");
-    req.flash("success", "listing Deleted");
-}));
+router.delete("/:id", isLoggedIn, wrapAsync(listingController.destroyListing));
 
 
 module.exports = router;
