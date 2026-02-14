@@ -25,13 +25,6 @@ const validateReview = (req,res,next) => {
 router.post("/", validateReview ,wrapAsync(reviewController.createReview));
 
 // Delete Review Route
-router.delete("/:reviewId", wrapAsync( async (req,res) =>{
-
-    let {id, reviewId} = req.params;
-   await Listing.findByIdAndUpdate(id, {$pull: {reviews: reviewId}});
-   await Review.findByIdAndDelete(reviewId);
-
-   res.redirect(`/listings/${id}`);
-}));
+router.delete("/:reviewId", wrapAsync(reviewController.deleteReview));
 
 module.exports = router;
