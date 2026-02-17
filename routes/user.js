@@ -12,7 +12,6 @@ router.get("/signup", userController.renderSignupForm);
 
 router.post("/signup", wrapAsync(userController.singup));
 
-
 router.get("/login", userController.renderLoginForm);
 
 router.post("/login", saveRedirectUrl, passport.authenticate("local", { failureRedirect: "/login", failureFlash: true }), userController.login);
