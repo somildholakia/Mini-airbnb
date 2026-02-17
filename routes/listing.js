@@ -8,8 +8,12 @@ const ExpressError = require("../utils/ExpressError.js");
 const { isLoggedIn, isOwner } = require("../middleware.js");
 
 const listingController = require("../controllers/listing.js");
-const multer  = require('multer')
-const upload = multer({ dest: 'uploads/' })
+
+const multer  = require('multer');
+
+const {storage} = require("../cloudConfig.js");
+
+const upload = multer({ storage });
 
 
 
