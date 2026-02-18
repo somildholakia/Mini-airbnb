@@ -35,10 +35,8 @@ router.get("/new", isLoggedIn, listingController.renderNewForm);
 
 router.route("/")
     .get(wrapAsync(listingController.index))
-    // .post(isLoggedIn, isOwner, validateListing, wrapAsync(listingController.createListing));
-    .post(upload.single('listing[image]'),(req,res) => {
-        res.send(req.file);
-    })
+    .post(isLoggedIn,upload.single('listing[image]'), wrapAsync(listingController.createListing));
+    
 
 router.route("/:id")
 .get( wrapAsync(listingController.showListing))
