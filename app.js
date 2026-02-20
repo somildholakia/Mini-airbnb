@@ -26,8 +26,9 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 const userRouter = require("./routes/user.js");
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wandersSite";
-
+// const MONGO_URL = "mongodb://127.0.0.1:27017/wandersSite";
+const dbUrl = process.env.ATLASTDB_URL;
+console.log("DB URL:", dbUrl);
 main()
     .then((res) => {
         console.log("connected to DB")
@@ -37,9 +38,8 @@ main()
     });
 
 async function main() {
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(dbUrl);
 }
-
 
 const port = 8080;
 
