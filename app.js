@@ -20,7 +20,7 @@ const listing = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
 // const review = require("../models/review.js");
 const session = require("express-session");
-const MongoStore = require('connect-mongo');
+const MongoStore = require("connect-mongo").default;
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -58,7 +58,21 @@ app.listen(port, () => {
     console.log(`Listening at port:${port}`);
 })
 
+const store = MongoStore.create({
+  mongoUrl: process.env.ATLASTDB_URL,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", () => {
+    console.log("Error in mongo Session Store",err);
+})
+
+
 const sessionOptions = {
+    store,
     secret: "mysupersecretcode",
     resave: false,
     saveUninitialized: true,
@@ -68,7 +82,6 @@ const sessionOptions = {
         httpOnly: true,
     }
 };
-
 
 
 // root routee
