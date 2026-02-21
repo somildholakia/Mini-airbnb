@@ -13,9 +13,10 @@
   "dependencies": {
     "cloudinary": "^2.9.0",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
     "dotenv": "^17.3.1",
-    "ejs": "^4.0.1",
-    "ejs-mate": "^4.0.0",
+    "ejs": "^3.0.2",
+    "ejs-mate": "^3.0.0",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
     "joi": "^18.0.2",
