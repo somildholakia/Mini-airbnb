@@ -87,8 +87,8 @@ const sessionOptions = {
 // root routee
 
 app.get("/", (req, res) => {
-    res.send(" Root working");
-})
+  res.redirect("/listings");
+});
 
 
 app.use(session(sessionOptions));
