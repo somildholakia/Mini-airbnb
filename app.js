@@ -119,7 +119,6 @@ app.use((req,res,next) => {
 //   res.send(registeredUser);
 // });
 
-
 app.use("/listings", listing);
 app.use("/listings/:id/reviews", reviews);
 app.use("/", userRouter);
