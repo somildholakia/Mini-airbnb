@@ -18,7 +18,7 @@ const upload = multer({ storage });
 
 
 const validateListing = (req, res, next) => {
-    let { error } = Listing.validate(req.body.listing);
+    let { error } = listingSchema.validate(req.body);
 
     if (error) {
         let errMsg = error.details.map((el) => el.message).join(",");
@@ -40,8 +40,8 @@ router.route("/")
 
 router.route("/:id")
 .get( wrapAsync(listingController.showListing))
-.put( isLoggedIn, upload.single('listing[image]'), validateListing, wrapAsync(listingController.updateListing))
-.delete( isLoggedIn, wrapAsync(listingController.destroyListing));
+.put(isLoggedIn, isOwner, upload.single('listing[image]'), validateListing, wrapAsync(listingController.updateListing))
+.delete( isLoggedIn,isOwner, wrapAsync(listingController.destroyListing));
 
 
 
@@ -51,7 +51,7 @@ router.route("/:id")
 
 //edit route
 
-router.get("/:id/edit", isLoggedIn, wrapAsync(listingController.renderEditForm));
+router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
 
 
 
