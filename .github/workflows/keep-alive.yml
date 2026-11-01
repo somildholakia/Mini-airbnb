@@ -7,13 +7,12 @@ on:
 
 jobs:
   ping:
-    if: ${{ vars.SITE_URL != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Wake the app and check its health endpoint
         env:
-          SITE_URL: ${{ vars.SITE_URL }}
+          SITE_URL: https://practice-project-p5ge.onrender.com
         run: |
           curl --fail --silent --show-error \
             --retry 2 --retry-connrefused --retry-delay 8 \
