@@ -10,7 +10,7 @@
         <button class="save-stay-button <%= isSaved ? 'is-saved' : '' %>" type="submit"><i class="fa-<%= isSaved ? 'solid' : 'regular' %> fa-heart"></i> <%= isSaved ? 'Saved to your trip list · Remove' : 'Save to your trip list' %></button>
       </form>
     <% } else { %>
-      <a class="save-stay-button" href="/login?returnTo=/listings/<%= singleListing._id %>"><i class="fa-regular fa-heart"></i> Log in to save this stay</a>
+      <a class="save-stay-button" href="/login"><i class="fa-regular fa-heart"></i> Log in to save this stay</a>
     <% } %>
   </div>
   <div class="listing-detail-grid">
