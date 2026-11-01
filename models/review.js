@@ -11,7 +11,7 @@ const reviewSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now,
     },
     owner: {
     type: mongoose.Schema.Types.ObjectId,
