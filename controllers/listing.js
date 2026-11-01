@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Listing = require("../models/listing");
 const ExpressError = require("../utils/ExpressError");
 const { geocodeLocation, getKnownCoordinates } = require("../utils/geocode");
@@ -66,6 +67,30 @@ module.exports.index = async (req, res) => {
       { name: "Cape Town", country: "South Africa", note: "Coast & mountain" }
     ]
   });
+};
+
+module.exports.compareListings = async (req, res) => {
+  const requestedIds = [...new Set(String(req.query.ids || "").split(",").map((id) => id.trim()).filter((id) => mongoose.isValidObjectId(id)))].slice(0, 3);
+  let compareListings = [];
+
+  if (requestedIds.length) {
+    const records = await Listing.find({ _id: { $in: requestedIds } })
+      .populate({ path: "reviews", select: "rating" })
+      .lean();
+    const recordsById = new Map(records.map((listing) => [String(listing._id), listing]));
+    compareListings = requestedIds.map((id) => recordsById.get(id)).filter(Boolean).map((listing) => {
+      const ratings = (listing.reviews || []).map((review) => Number(review.rating)).filter((rating) => Number.isFinite(rating) && rating >= 1 && rating <= 5);
+      listing.communityReviewCount = ratings.length;
+      listing.communityRating = ratings.length
+        ? Math.round((ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length) * 10) / 10
+        : null;
+      return listing;
+    });
+  }
+
+  res.locals.pageTitle = "Compare stays · WanderSite";
+  res.locals.metaDescription = "Compare up to three WanderSite hotel and stay profiles side by side.";
+  res.render("listings/compare.ejs", { compareListings });
 };
 
 module.exports.renderNewForm = (req, res) => res.render("listings/new.ejs");

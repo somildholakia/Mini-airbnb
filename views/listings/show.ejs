@@ -12,6 +12,9 @@
     <% } else { %>
       <a class="save-stay-button" href="/login"><i class="fa-regular fa-heart"></i> Log in to save this stay</a>
     <% } %>
+    <button class="compare-toggle detail-compare-toggle" type="button" data-compare-id="<%= singleListing._id %>" aria-pressed="false">
+      <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i><span class="compare-toggle-label">Add to compare</span>
+    </button>
   </div>
   <div class="listing-detail-grid">
     <div class="hotel-detail-photo-wrap">

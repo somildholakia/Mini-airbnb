@@ -1,0 +1,116 @@
+<% layout("/layouts/boilerplate") %>
+<section class="compare-page" data-compare-page>
+  <div class="compare-page-heading">
+    <span class="wander-eyebrow">PLAN WITH A CLEARER VIEW</span>
+    <h1>Compare your stays</h1>
+    <p>Look at up to three places side by side, then share your shortlist with anyone planning the trip with you.</p>
+  </div>
+
+  <% if (compareListings.length < 2) { %>
+    <div class="compare-empty-state">
+      <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+      <h2>Add at least two stays to compare</h2>
+      <p>Browse the collection and choose <strong>Add to compare</strong> on two or three hotel profiles. Your selection is saved in this browser.</p>
+      <a href="/listings#hotel-collection" class="wander-primary-link">Explore the hotel collection <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  <% } else { %>
+    <div class="compare-toolbar">
+      <span><strong><%= compareListings.length %></strong> of 3 stays selected</span>
+      <div class="compare-toolbar-actions">
+        <button type="button" class="compare-share-button" data-copy-compare><i class="fa-regular fa-copy" aria-hidden="true"></i> Copy share link</button>
+        <a href="/listings#hotel-collection" class="compare-add-link">Add another stay</a>
+      </div>
+    </div>
+
+    <div class="compare-table-wrap" role="region" aria-label="Side-by-side hotel comparison" tabindex="0">
+      <table class="stay-compare-table">
+        <thead>
+          <tr>
+            <th scope="col" class="compare-row-label">Compare details</th>
+            <% for (const listing of compareListings) { %>
+              <th scope="col" class="compare-property-heading">
+                <a class="compare-property-link" href="/listings/<%= listing._id %>">
+                  <img src="<%= listing.image && listing.image.url ? listing.image.url : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80' %>" alt="Editorial destination image for <%= listing.title %>" loading="lazy">
+                  <span class="compare-property-title"><%= listing.title %></span>
+                  <span class="compare-property-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <%= [listing.location, listing.country].filter(Boolean).join(", ") %></span>
+                </a>
+                <button class="compare-toggle compare-remove-button" type="button" data-compare-id="<%= listing._id %>" aria-pressed="true">
+                  <i class="fa-solid fa-check" aria-hidden="true"></i><span class="compare-toggle-label">Remove from compare</span>
+                </button>
+              </th>
+            <% } %>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="compare-row-label">Stay style</th>
+            <% for (const listing of compareListings) { %><td><%= listing.category || "Not specified" %></td><% } %>
+          </tr>
+          <tr>
+            <th scope="row" class="compare-row-label">Collection status</th>
+            <% for (const listing of compareListings) { %>
+              <td>
+                <% if (listing.rankingYear === 2026 && listing.curationRank) { %>
+                  <span class="compare-rank-label"><i class="fa-solid fa-award" aria-hidden="true"></i> #<%= listing.curationRank %> · The 50 Best Hotels 2026</span>
+                <% } else if (listing.isCurated) { %>
+                  WanderSite editorial selection
+                <% } else { %>
+                  Community-hosted listing
+                <% } %>
+              </td>
+            <% } %>
+          </tr>
+          <tr>
+            <th scope="row" class="compare-row-label">Nightly rate</th>
+            <% for (const listing of compareListings) { %>
+              <td>
+                <% if (listing.isCurated) { %>
+                  <span class="compare-unknown-price">Not published on WanderSite</span>
+                <% } else if (Number.isFinite(Number(listing.price)) && listing.price !== null && listing.price !== "") { %>
+                  <strong><%= listing.priceCurrency === "INR" ? "₹" : (listing.priceCurrency || "") + " " %><%= Number(listing.price).toLocaleString("en-IN") %></strong> <small>/ night · host-provided</small>
+                <% } else { %>
+                  Ask the host for rates
+                <% } %>
+              </td>
+            <% } %>
+          </tr>
+          <tr>
+            <th scope="row" class="compare-row-label">Community reviews</th>
+            <% for (const listing of compareListings) { %>
+              <td>
+                <% if (listing.communityReviewCount) { %>
+                  <strong><i class="fa-solid fa-star compare-star" aria-hidden="true"></i> <%= listing.communityRating %>/5</strong>
+                  <small>from <%= listing.communityReviewCount %> community <%= listing.communityReviewCount === 1 ? "review" : "reviews" %></small>
+                <% } else { %>
+                  No community reviews yet
+                <% } %>
+              </td>
+            <% } %>
+          </tr>
+          <tr>
+            <th scope="row" class="compare-row-label">About this stay</th>
+            <% for (const listing of compareListings) { %><td class="compare-description"><%= listing.description || "No description provided." %></td><% } %>
+          </tr>
+          <tr>
+            <th scope="row" class="compare-row-label">Next step</th>
+            <% for (const listing of compareListings) { %>
+              <td>
+                <% if (listing.isCurated) { %>
+                  <a class="compare-next-link" href="<%= listing.hotelSearchUrl || 'https://www.google.com/search?q=' + encodeURIComponent(listing.title + ' ' + listing.location + ' official hotel website') %>" target="_blank" rel="noopener noreferrer">Check hotel details & rates <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                <% } else { %>
+                  <a class="compare-next-link" href="/listings/<%= listing._id %>">Open stay profile <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <% } %>
+                <a class="compare-map-link" href="https://www.google.com/maps/search/?api=1&query=<%= encodeURIComponent([listing.location, listing.country].filter(Boolean).join(', ')) %>" target="_blank" rel="noopener noreferrer">Explore area on map</a>
+              </td>
+            <% } %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="compare-disclosures">
+      <p><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Community reviews are user-submitted and are not verified booking records. Rates and availability are not live-checked or bookable through WanderSite.</p>
+      <p>Some curated hotel profiles use editorial destination imagery rather than verified photographs of the exact property. Check each hotel's own website before making plans.</p>
+    </div>
+  <% } %>
+</section>

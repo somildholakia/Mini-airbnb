@@ -31,6 +31,9 @@
             <input type="hidden" name="returnTo" value="/saved">
             <button type="submit"><i class="fa-solid fa-heart-crack"></i> Remove</button>
           </form>
+          <button class="compare-toggle saved-compare-toggle" type="button" data-compare-id="<%= listing._id %>" aria-pressed="false">
+            <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i><span class="compare-toggle-label">Add to compare</span>
+          </button>
         </article>
       <% } %>
     </div>

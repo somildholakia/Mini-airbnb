@@ -101,7 +101,8 @@
   <% } else { %>
     <div class="hotel-grid">
       <% for (const listing of allListings) { %>
-        <a href="/listings/<%= listing._id %>" class="hotel-card">
+        <article class="hotel-card hotel-card-with-compare">
+          <a href="/listings/<%= listing._id %>" class="hotel-card-linkwrap">
           <div class="hotel-card-media">
             <img src="<%= listing.image && listing.image.url ? listing.image.url : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=82' %>" alt="Editorial destination image for <%= listing.title %>" loading="lazy">
             <% if (listing.rankingYear === 2026 && listing.curationRank) { %><span class="hotel-ribbon">2026 · #<%= listing.curationRank %> in 50 Best</span><% } else if (listing.featured) { %><span class="hotel-ribbon">WanderSite edit</span><% } %>
@@ -114,7 +115,11 @@
               <span class="hotel-card-link">View <i class="fa-solid fa-arrow-right"></i></span>
             </div>
           </div>
-        </a>
+          </a>
+          <button class="compare-toggle" type="button" data-compare-id="<%= listing._id %>" aria-pressed="false">
+            <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i><span class="compare-toggle-label">Add to compare</span>
+          </button>
+        </article>
       <% } %>
     </div>
     <% if (pageCount > 1) { %>
