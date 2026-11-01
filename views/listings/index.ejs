@@ -1,86 +1,135 @@
 <% layout("/layouts/boilerplate") %>
-
-<section class="wander-hero">
-    <div>
-        <span class="wander-eyebrow">WANDERSITE · FIND YOUR PLACE</span>
-        <h1>Stay somewhere<br><em>worth remembering.</em></h1>
-        <p>Discover stays in real destinations, explore their locations, and find a place for your next escape.</p>
-    </div>
-    <a href="/listings/new" class="wander-primary-link">
-        Share a stay <i class="fa-solid fa-arrow-right"></i>
-    </a>
+<section class="discover-hero">
+  <div class="discover-hero-copy">
+    <span class="discover-kicker"><i class="fa-solid fa-globe"></i> A WORLD OF WELL-CHOSEN STAYS</span>
+    <h1>Find a stay.<br><em>Find your somewhere.</em></h1>
+    <p>Explore remarkable hotels, distinctive retreats and memorable places to stay — handpicked across the world.</p>
+  </div>
+  <form class="discover-search" action="/listings" method="GET">
+    <label class="search-field search-destination">
+      <span><i class="fa-solid fa-location-dot"></i> Destination or hotel</span>
+      <input type="search" name="q" value="<%= filters.q %>" placeholder="Try Paris, Bali or a hotel name">
+    </label>
+    <label class="search-field">
+      <span><i class="fa-solid fa-layer-group"></i> Stay style</span>
+      <select name="category">
+        <option value="">All stay styles</option>
+        <% for (const category of categories) { %><option value="<%= category %>" <%= filters.category === category ? "selected" : "" %>><%= category %></option><% } %>
+      </select>
+    </label>
+    <button type="submit" class="discover-search-button">Explore stays <i class="fa-solid fa-arrow-right"></i></button>
+  </form>
+  <div class="discover-hero-foot">
+    <span><i class="fa-solid fa-check"></i> Curated global hotel collection</span>
+    <span><i class="fa-solid fa-map"></i> Explore by destination</span>
+    <span><i class="fa-solid fa-arrow-up-right-from-square"></i> Check rates with each hotel</span>
+  </div>
 </section>
 
-<section class="wander-map-section" aria-labelledby="wander-map-title">
-    <div class="wander-section-heading">
-        <div>
-            <span class="wander-eyebrow">EXPLORE THE WORLD</span>
-            <h2 id="wander-map-title">Find stays on the map</h2>
-        </div>
-        <span id="map-count" class="map-count">Loading locations…</span>
-    </div>
-
-    <div class="wander-map-layout">
-        <div id="listings-map"
-             class="wander-map"
-             data-api="/listings/map-data"
-             role="region"
-             aria-label="Map showing listing locations"></div>
-        <aside class="wander-map-sidebar" aria-label="Mapped stays">
-            <div class="map-sidebar-heading">
-                <strong>Places to explore</strong>
-                <span>Choose a stay to view details</span>
-            </div>
-            <div id="map-list" class="map-list">
-                <p class="map-empty-state">Loading stays…</p>
-            </div>
-        </aside>
-    </div>
-    <p class="map-disclaimer"><i class="fa-solid fa-location-dot"></i> Map pins show an approximate city area, not a property's exact street address.</p>
+<section class="catalog-stats">
+  <div><strong><%= allCount.toLocaleString("en-IN") %></strong><span>places to discover</span></div>
+  <div><strong>6</strong><span>continents represented</span></div>
+  <div><strong>10</strong><span>ways to travel</span></div>
+  <div class="catalog-stats-note"><i class="fa-solid fa-circle-info"></i> Hotel details and imagery are editorial discovery content. Confirm current rates and facilities with the property.</div>
 </section>
 
-<section class="wander-listings-section">
-    <div class="wander-section-heading">
-        <div>
-            <span class="wander-eyebrow">THE COLLECTION</span>
-            <h2>All stays</h2>
-        </div>
-        <span class="map-count"><%= allListings.length %> places</span>
-    </div>
-
-    <% if (allListings.length === 0) { %>
-        <div class="wander-empty-state">
-            <i class="fa-regular fa-compass"></i>
-            <h3>Your next adventure starts here.</h3>
-            <p>No stays have been added yet. Be the first to share one.</p>
-            <a href="/listings/new" class="wander-primary-link">Create a listing</a>
-        </div>
-    <% } else { %>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-            <% for (const listing of allListings) { %>
-                <div class="col">
-                    <a href="/listings/<%= listing._id %>" class="listing-link">
-                        <article class="card listing-card h-100">
-                            <img
-                                src="<%= listing.image && listing.image.url ? listing.image.url : 'https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1000&q=80' %>"
-                                class="card-img-top listing-card-image"
-                                alt="<%= listing.title %>"
-                                loading="lazy">
-                            <div class="card-body listing-card-body">
-                                <div class="listing-card-title-row">
-                                    <h3 class="listing-card-title"><%= listing.title %></h3>
-                                    <span class="listing-price">₹<%= Number(listing.price || 0).toLocaleString("en-IN") %></span>
-                                </div>
-                                <p class="listing-card-location">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <%= [listing.location, listing.country].filter(Boolean).join(", ") %>
-                                </p>
-                                <span class="listing-card-meta">per night</span>
-                            </div>
-                        </article>
-                    </a>
-                </div>
-            <% } %>
-        </div>
+<section class="destination-section">
+  <div class="section-title-row">
+    <div><span class="wander-eyebrow">START SOMEWHERE</span><h2>Explore by destination</h2></div>
+    <a href="#hotel-collection" class="quiet-link">Browse all hotels <i class="fa-solid fa-arrow-down"></i></a>
+  </div>
+  <div class="destination-grid">
+    <% for (const destination of destinationPicks) { %>
+      <a class="destination-card" href="/listings?q=<%= encodeURIComponent(destination.name) %>">
+        <span><%= destination.country %></span><strong><%= destination.name %></strong><small><%= destination.note %></small>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
     <% } %>
+  </div>
+</section>
+
+<% if (featuredListings.length) { %>
+<section class="featured-section">
+  <div class="section-title-row"><div><span class="wander-eyebrow">THE WANDERSITE EDIT</span><h2>Standout stays</h2><p>A few places to inspire your next trip.</p></div></div>
+  <div class="hotel-grid featured-grid">
+    <% for (const listing of featuredListings) { %>
+      <a href="/listings/<%= listing._id %>" class="hotel-card hotel-card-featured">
+        <div class="hotel-card-media">
+          <img src="<%= listing.image && listing.image.url ? listing.image.url : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=82' %>" alt="Editorial destination image for <%= listing.title %>" loading="lazy">
+          <span class="hotel-ribbon">WanderSite edit</span>
+        </div>
+        <div class="hotel-card-content"><span class="hotel-card-category"><%= listing.category || "Selected stay" %></span>
+          <h3><%= listing.title %></h3><p><i class="fa-solid fa-location-dot"></i> <%= [listing.location, listing.country].filter(Boolean).join(", ") %></p>
+          <span class="hotel-card-link">Explore hotel <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    <% } %>
+  </div>
+</section>
+<% } %>
+
+<section class="collection-section" id="hotel-collection">
+  <div class="section-title-row collection-heading">
+    <div><span class="wander-eyebrow">THE WORLDWIDE COLLECTION</span>
+      <h2><%= filters.q || filters.category ? "Matching stays" : "Hotels worth discovering" %></h2>
+      <p><%= totalCount.toLocaleString("en-IN") %> result<%= totalCount === 1 ? "" : "s" %><% if (filters.q) { %> for “<%= filters.q %>”<% } %></p>
+    </div>
+    <form class="collection-sort" action="/listings" method="GET">
+      <% if (filters.q) { %><input type="hidden" name="q" value="<%= filters.q %>"><% } %>
+      <% if (filters.category) { %><input type="hidden" name="category" value="<%= filters.category %>"><% } %>
+      <% if (filters.country) { %><input type="hidden" name="country" value="<%= filters.country %>"><% } %>
+      <label for="sort">Sort by</label>
+      <select name="sort" id="sort" onchange="this.form.submit()">
+        <option value="recommended" <%= filters.sort === "recommended" ? "selected" : "" %>>Recommended</option>
+        <option value="name" <%= filters.sort === "name" ? "selected" : "" %>>Hotel name</option>
+        <option value="newest" <%= filters.sort === "newest" ? "selected" : "" %>>Recently added</option>
+      </select>
+    </form>
+  </div>
+
+  <% if (allListings.length === 0) { %>
+    <div class="wander-empty-state"><i class="fa-regular fa-compass"></i><h3>No stays found for that search.</h3>
+      <p>Try another destination or remove one of the filters.</p><a href="/listings" class="wander-primary-link">View the full collection</a>
+    </div>
+  <% } else { %>
+    <div class="hotel-grid">
+      <% for (const listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="hotel-card">
+          <div class="hotel-card-media">
+            <img src="<%= listing.image && listing.image.url ? listing.image.url : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=82' %>" alt="Editorial destination image for <%= listing.title %>" loading="lazy">
+            <% if (listing.featured) { %><span class="hotel-ribbon">WanderSite edit</span><% } %>
+            <% if (!listing.isCurated) { %><span class="hotel-hosted-tag">Host listing</span><% } %>
+          </div>
+          <div class="hotel-card-content"><span class="hotel-card-category"><%= listing.category || "Stay" %></span>
+            <h3><%= listing.title %></h3><p><i class="fa-solid fa-location-dot"></i> <%= [listing.location, listing.country].filter(Boolean).join(", ") %></p>
+            <div class="hotel-card-bottom">
+              <span class="hotel-card-meta"><%= listing.isCurated ? "Hotel profile · Rates on property site" : (listing.price ? "₹" + Number(listing.price).toLocaleString("en-IN") + " / night" : "Contact host for rates") %></span>
+              <span class="hotel-card-link">View <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+      <% } %>
+    </div>
+    <% if (pageCount > 1) { %>
+      <nav class="catalog-pagination" aria-label="Hotel collection pages">
+        <% const queryBase = new URLSearchParams(); if (filters.q) queryBase.set("q", filters.q); if (filters.category) queryBase.set("category", filters.category); if (filters.country) queryBase.set("country", filters.country); if (filters.sort !== "recommended") queryBase.set("sort", filters.sort); %>
+        <% if (hasPrevious) { %><a href="/listings?<%= queryBase.toString() %>&page=<%= currentPage - 1 %>" aria-label="Previous page"><i class="fa-solid fa-arrow-left"></i></a><% } %>
+        <% if (visiblePages[0] > 1) { %><a href="/listings?<%= queryBase.toString() %>&page=1">1</a><span>…</span><% } %>
+        <% for (const pageNumber of visiblePages) { %><a class="<%= pageNumber === currentPage ? "active" : "" %>" href="/listings?<%= queryBase.toString() %>&page=<%= pageNumber %>" <%= pageNumber === currentPage ? 'aria-current="page"' : "" %>><%= pageNumber %></a><% } %>
+        <% if (visiblePages[visiblePages.length - 1] < pageCount) { %><span>…</span><a href="/listings?<%= queryBase.toString() %>&page=<%= pageCount %>"><%= pageCount %></a><% } %>
+        <% if (hasNext) { %><a href="/listings?<%= queryBase.toString() %>&page=<%= currentPage + 1 %>" aria-label="Next page"><i class="fa-solid fa-arrow-right"></i></a><% } %>
+      </nav>
+    <% } %>
+  <% } %>
+</section>
+
+<section class="wander-map-section world-map-section" aria-labelledby="wander-map-title">
+  <div class="section-title-row"><div><span class="wander-eyebrow">SEE WHERE THE JOURNEY TAKES YOU</span><h2 id="wander-map-title">Explore the collection on a map</h2></div><span id="map-count" class="map-count">Loading locations…</span></div>
+  <div class="wander-map-layout">
+    <div id="listings-map" class="wander-map" data-api="/listings/map-data" role="region" aria-label="Map showing hotel and stay locations"></div>
+    <aside class="wander-map-sidebar" aria-label="Mapped stays"><div class="map-sidebar-heading"><strong>Places around the world</strong><span>Choose a hotel to open its profile</span></div>
+      <div id="map-list" class="map-list"><p class="map-empty-state">Loading stays…</p></div>
+    </aside>
+  </div>
+  <p class="map-disclaimer"><i class="fa-solid fa-location-dot"></i> Pins show an approximate city or destination area, not a property's exact street address.</p>
 </section>
