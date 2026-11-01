@@ -8,7 +8,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "check": "node --check app.js && node --check controllers/listing.js && node --check controllers/reviews.js && node --check models/listing.js && node --check models/review.js && node --check routes/listing.js && node --check routes/review.js && node --check schema.js && node --check utils/geocode.js && node --check public/javascript/map.js",
+    "check": "node --check app.js && node --check controllers/listing.js && node --check controllers/reviews.js && node --check models/listing.js && node --check models/review.js && node --check routes/listing.js && node --check routes/review.js && node --check schema.js && node --check utils/geocode.js && node --check public/javascript/map.js && node --check scripts/seed-hotels.js",
     "test": "npm run check"
   },
   "keywords": [
