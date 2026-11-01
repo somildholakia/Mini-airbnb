@@ -8,7 +8,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "check": "node --check app.js && node --check models/user.js && node --check controllers/users.js && node --check routes/user.js && node --check controllers/listing.js && node --check controllers/reviews.js && node --check models/listing.js && node --check models/review.js && node --check routes/listing.js && node --check routes/review.js && node --check schema.js && node --check utils/geocode.js && node --check public/javascript/map.js && node --check public/javascript/compare.js && node --check scripts/seed-hotels.js && node --check scripts/check-views.js && node scripts/check-views.js",
+    "check": "node --check app.js && node --check models/user.js && node --check controllers/users.js && node --check routes/user.js && node --check controllers/listing.js && node --check controllers/reviews.js && node --check models/listing.js && node --check models/review.js && node --check routes/listing.js && node --check routes/review.js && node --check schema.js && node --check utils/geocode.js && node --check public/javascript/map.js && node --check public/javascript/compare.js && node --check public/javascript/recent.js && node --check scripts/seed-hotels.js && node --check scripts/check-views.js && node scripts/check-views.js",
     "test": "npm run check",
     "seed:hotels": "node scripts/seed-hotels.js"
   },
