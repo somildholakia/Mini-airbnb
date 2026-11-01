@@ -31,7 +31,10 @@ module.exports.index = async (req, res) => {
     newest: { _id: -1 }
   };
 
-  const [totalCount, countries] = await Promise.all([\n    Listing.countDocuments(filter),\n    Listing.distinct("country", { country: { $type: "string", $ne: "" } }).then((items) => items.sort((a, b) => a.localeCompare(b)))\n  ]);
+  const [totalCount, countries] = await Promise.all([
+    Listing.countDocuments(filter),
+    Listing.distinct("country", { country: { $type: "string", $ne: "" } }).then((items) => items.sort((a, b) => a.localeCompare(b)))
+  ]);
   const pageCount = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
   const [allListings, featuredListings, allCount] = await Promise.all([
