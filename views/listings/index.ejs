@@ -11,6 +11,13 @@
       <input type="search" name="q" value="<%= filters.q %>" placeholder="Try Paris, Bali or a hotel name">
     </label>
     <label class="search-field">
+      <span><i class="fa-solid fa-earth-americas"></i> Country</span>
+      <select name="country">
+        <option value="">Anywhere in the world</option>
+        <% for (const country of countries) { %><option value="<%= country %>" <%= filters.country.toLowerCase() === country.toLowerCase() ? "selected" : "" %>><%= country %></option><% } %>
+      </select>
+    </label>
+    <label class="search-field">
       <span><i class="fa-solid fa-layer-group"></i> Stay style</span>
       <select name="category">
         <option value="">All stay styles</option>
@@ -30,7 +37,7 @@
   <div><strong><%= allCount.toLocaleString("en-IN") %></strong><span>places to discover</span></div>
   <div><strong>6</strong><span>continents represented</span></div>
   <div><strong>10</strong><span>ways to travel</span></div>
-  <div class="catalog-stats-note"><i class="fa-solid fa-circle-info"></i> Hotel details and imagery are editorial discovery content. Confirm current rates and facilities with the property.</div>
+  <div class="catalog-stats-note"><i class="fa-solid fa-circle-info"></i> The top 100 are from the 2026 50 Best Hotels list; other properties are WanderSite editorial selections. Confirm rates and facilities with each hotel.</div>
 </section>
 
 <section class="destination-section">
@@ -97,10 +104,10 @@
         <a href="/listings/<%= listing._id %>" class="hotel-card">
           <div class="hotel-card-media">
             <img src="<%= listing.image && listing.image.url ? listing.image.url : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=82' %>" alt="Editorial destination image for <%= listing.title %>" loading="lazy">
-            <% if (listing.featured) { %><span class="hotel-ribbon">WanderSite edit</span><% } %>
+            <% if (listing.rankingYear === 2026 && listing.curationRank) { %><span class="hotel-ribbon">2026 · #<%= listing.curationRank %> in 50 Best</span><% } else if (listing.featured) { %><span class="hotel-ribbon">WanderSite edit</span><% } %>
             <% if (!listing.isCurated) { %><span class="hotel-hosted-tag">Host listing</span><% } %>
           </div>
-          <div class="hotel-card-content"><span class="hotel-card-category"><%= listing.category || "Stay" %></span>
+          <div class="hotel-card-content"><span class="hotel-card-category"><%= listing.category || "Stay" %><% if (listing.rankingYear === 2026 && listing.curationRank) { %> · 2026 ranking #<%= listing.curationRank %><% } %></span>
             <h3><%= listing.title %></h3><p><i class="fa-solid fa-location-dot"></i> <%= [listing.location, listing.country].filter(Boolean).join(", ") %></p>
             <div class="hotel-card-bottom">
               <span class="hotel-card-meta"><%= listing.isCurated ? "Hotel profile · Rates on property site" : (listing.price ? "₹" + Number(listing.price).toLocaleString("en-IN") + " / night" : "Contact host for rates") %></span>
