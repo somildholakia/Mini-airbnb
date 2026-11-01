@@ -1,74 +1,54 @@
-
-<head>
-    <link rel="stylesheet" href="/css/style.css">
-
-</head>
-
 <% layout("/layouts/boilerplate") %>
 
-        <div class="row">
-        <div class="col-8 offset-2">
-    <h2>Edit the Listing</h2>
-
-    <form method="post" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required>
-
-            <div class="valid-feedback">Title looks Good!</div>
-                    <div class="invalid-feedback">Please enter a valid Title</div>
-
+<div class="row justify-content-center py-4">
+    <div class="col-12 col-lg-8">
+        <div class="wander-form-heading">
+            <span class="wander-eyebrow">UPDATE YOUR PLACE</span>
+            <h1 class="mb-2">Edit this stay</h1>
+            <p class="text-secondary">Update the details, image, or location.</p>
         </div>
 
-        <div class="mb-3">
-            Original Listing Image <br> 
-            <img src="<%= listing.image.url %>" height="150" width="150">
-        </div>
+        <form method="post" action="/listings/<%= listing._id %>?_method=PUT" class="needs-validation wander-form" novalidate enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Listing title</label>
+                <input id="title" name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required>
+                <div class="invalid-feedback">Please enter a title.</div>
+            </div>
 
-        <div>
-            <label for="Image" class="form-label">Upload new Image</label>
-              <input name="listing[image]"  type="file" class="form-control">  
+            <div class="mb-3">
+                <label class="form-label" for="existing-image">Current photo</label>
+                <img id="existing-image" src="<%= listing.image && listing.image.url ? listing.image.url : '' %>" alt="Current listing" class="img-fluid rounded mb-2" style="max-height:180px">
+                <label for="image" class="form-label d-block">Upload a new photo (optional)</label>
+                <input id="image" name="listing[image]" type="file" accept="image/png,image/jpeg,image/jpg" class="form-control">
+            </div>
 
-              <div class="valid-feedback">Image looks Good!</div>
-                    <div class="invalid-feedback">Please enter a valid Image url</div>
-        </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description" name="listing[description]" rows="5" class="form-control" required><%= listing.description %></textarea>
+                <div class="invalid-feedback">Please add a description.</div>
+            </div>
 
-         <div class="mb-3">
-             <label for="Description" class="form-label"></label>
-             <textarea name="listing[description]" cols="15" rows="10" class="form-control" required> <%= listing.description %> </textarea>  
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price per night (₹)</label>
+                    <input id="price" name="listing[price]" value="<%= listing.price %>" min="0" step="1" type="number" class="form-control" required>
+                    <div class="invalid-feedback">Enter a valid price.</div>
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input id="country" name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>
+                    <div class="invalid-feedback">Enter the country.</div>
+                </div>
+            </div>
 
-             <div class="valid-feedback">Description looks Good!</div>
-                    <div class="invalid-feedback">Please enter a valid Description</div>
-        </div>
-        
-         <div class="mb-3">
-             <label for="price" class="form-label">Price</label>
-            <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required>
+            <div class="mb-3">
+                <label for="location" class="form-label">City or area</label>
+                <input id="location" name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required>
+                <div class="form-text">The public map displays an approximate area, not an exact property address.</div>
+                <div class="invalid-feedback">Enter the city or area.</div>
+            </div>
 
-             <div class="valid-feedback">Price looks Good!</div>
-                    <div class="invalid-feedback">Please enter a valid Price</div>
-        </div>
-       
-        <div>
-            <label for="location" class="form-label">Location</label>
-             <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required>   
-             
-             <div class="valid-feedback">Location looks Good!</div>
-                    <div class="invalid-feedback">Please enter a valid Location</div>
-        </div>
-        
-         <div>
-            <label for="country" class="form-label">Country</label>
-              <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>   
-              
-                <div class="valid-feedback">Country looks Good!</div>
-                    <div class="invalid-feedback">Please enter a valid location</div>
-        </div>
-
-
-        <button class="btn btn-dark normal-btn">Edit</button>
-    </form>
-
-
-</div>
+            <button class="btn btn-dark normal-btn px-4" type="submit">Save changes</button>
+        </form>
+    </div>
 </div>
