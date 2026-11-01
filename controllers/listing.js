@@ -5,11 +5,16 @@ const { geocodeLocation, getKnownCoordinates } = require("../utils/geocode");
 const PAGE_SIZE = 24;
 const CATEGORIES = [
   "Urban luxury", "Resort", "Island resort", "Historic", "Boutique",
-  "Safari", "Nature retreat", "Nature lodge", "Wellness", "Country house"
+  "Safari", "Nature retreat", "Nature lodge", "Wellness", "Country house", "Heritage"
 ];
 const escapeRegex = (value) => value.replace(/[.*+?^\${}()|[\]\\]/g, "\\$&");
 
 module.exports.index = async (req, res) => {
+  const queryLabel = [req.query.q, req.query.country, req.query.category].filter(Boolean).join(" · ");
+  res.locals.pageTitle = (queryLabel ? queryLabel + " · " : "") + "Discover hotels · WanderSite";
+  res.locals.metaDescription = queryLabel
+    ? "Explore hotels and stays matching " + queryLabel + " on WanderSite."
+    : "Discover 576 curated hotel profiles and distinctive stays across the world on WanderSite.";
   const q = String(req.query.q || "").trim().slice(0, 80);
   const country = String(req.query.country || "").trim().slice(0, 50);
   const category = CATEGORIES.includes(String(req.query.category || "")) ? String(req.query.category) : "";
@@ -66,10 +71,13 @@ module.exports.index = async (req, res) => {
 module.exports.renderNewForm = (req, res) => res.render("listings/new.ejs");
 
 module.exports.showListing = async (req, res) => {
+  
   const singleListing = await Listing.findById(req.params.id)
     .populate("owner")
     .populate({ path: "reviews", populate: { path: "owner" } });
   if (!singleListing) throw new ExpressError(404, "Listing not found");
+  res.locals.pageTitle = singleListing.title + " · WanderSite";
+  res.locals.metaDescription = "Explore " + singleListing.title + " in " + [singleListing.location, singleListing.country].filter(Boolean).join(", ") + " on WanderSite.";
   const mapCoordinates = singleListing.locationCoordinates?.coordinates
     || getKnownCoordinates(singleListing.location, singleListing.country);
   const isSaved = Boolean(req.user?.savedListings?.some((id) => String(id) === String(singleListing._id)));
