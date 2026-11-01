@@ -13,10 +13,12 @@
     <div class="listing-detail-copy hotel-detail-copy">
       <% if (singleListing.isCurated) { %>
         <span class="detail-label">WanderSite hotel collection</span><h3>Discover the property</h3><p><%= singleListing.description %></p>
+        <% if (singleListing.rankingYear === 2026 && singleListing.curationRank) { %><div class="ranking-recognition"><i class="fa-solid fa-award"></i> Ranked #<%= singleListing.curationRank %> in The 50 Best Hotels 2026</div><% } %>
         <div class="hotel-profile-facts">
           <div><span>Stay style</span><strong><%= singleListing.category || "Hotel" %></strong></div>
           <div><span>Destination</span><strong><%= [singleListing.location, singleListing.country].filter(Boolean).join(", ") %></strong></div>
           <div><span>Rates & availability</span><strong>Confirm with the hotel</strong></div>
+          <% if (singleListing.rankingYear === 2026) { %><div><span>Recognition source</span><strong>The 50 Best Hotels 2026</strong></div><% } %>
         </div>
         <a class="hotel-outbound-button" href="<%= singleListing.hotelSearchUrl || 'https://www.google.com/search?q=' + encodeURIComponent(singleListing.title + ' ' + singleListing.location + ' official hotel website') %>" target="_blank" rel="noopener noreferrer">Find hotel details & rates <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         <small class="hotel-outbound-note">Opens an external search to find current official information. WanderSite does not process hotel bookings or verify live rates.</small>
