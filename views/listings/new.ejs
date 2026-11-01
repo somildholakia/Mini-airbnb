@@ -1,71 +1,53 @@
-<head>
-    <link rel="stylesheet" href="/css/style.css">
-
-</head>
-
 <% layout("/layouts/boilerplate") %>
 
-    <div class="row">
-        <div class="col-8 offset-2">
-
-            <h3>
-                Create a new listing
-            </h3>
-
-            <form method="post" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="title" class="form-label">Title</label>
-                    <input name="listing[title]" placeholder="Enter the title" type="text" class="form-control"
-                        required>
-
-                    <div class="valid-feedback">Title looks Good!</div>
-                    <div class="invalid-feedback">Please enter a valid Title</div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea name="listing[description]" cols="15" rows="10" class="form-control" required></textarea>
-
-                    <div class="valid-feedback">Description looks Good!</div>
-                    <div class="invalid-feedback">Please enter a valid Description</div>
-                </div>
-
-
-                <div class="mb-3">
-                    <label for="image" class="form-label">Upload listing image</label>
-                    <input name="listing[image]" placeholder="Enter image url/link" type="file" class="form-control">
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-4">
-                        <label for="price" class="form-label">Price</label>
-                        <input name="listing[price]" placeholder="Enter the price" type="number" class="form-control"
-                            required>
-
-                        <div class="valid-feedback">Price looks Good!</div>
-                        <div class="invalid-feedback">Please enter a valid Price</div>
-                    </div>
-
-                    <div class="mb-3 col-md-8">
-                        <label for="country" class="form-label">Country</label>
-                        <input name="listing[country]" placeholder="Enter the country" type="text" class="form-control"
-                            required>
-                        <div class="valid-feedback">Country looks Good!</div>
-                        <div class="invalid-feedback">Please enter a valid location</div>
-                    </div>
-
-                </div>
-
-                <div class="mb-3">
-                    <label for="location" class="form-label">Location</label>
-                    <input name="listing[location]" placeholder="Enter the location" type="text" class="form-control"
-                        required>
-
-                    <div class="valid-feedback">Location looks Good!</div>
-                    <div class="invalid-feedback">Please enter a valid Location</div>
-                </div>
-
-                <button class="btn btn-dark normal-btn">Submit</button>
-            </form>
+<div class="row justify-content-center py-4">
+    <div class="col-12 col-lg-8">
+        <div class="wander-form-heading">
+            <span class="wander-eyebrow">SHARE A PLACE</span>
+            <h1 class="mb-2">Create a new stay</h1>
+            <p class="text-secondary">Add the details and we'll place the destination on the map.</p>
         </div>
+
+        <form method="post" action="/listings" class="needs-validation wander-form" novalidate enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Listing title</label>
+                <input id="title" name="listing[title]" placeholder="e.g. A quiet cabin by the lake" type="text" class="form-control" required>
+                <div class="invalid-feedback">Please enter a title.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description" name="listing[description]" rows="5" class="form-control" required></textarea>
+                <div class="invalid-feedback">Please add a short description.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Stay photo</label>
+                <input id="image" name="listing[image]" type="file" accept="image/png,image/jpeg,image/jpg" class="form-control" required>
+                <div class="invalid-feedback">Please upload an image.</div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price per night (₹)</label>
+                    <input id="price" name="listing[price]" min="0" step="1" placeholder="2500" type="number" class="form-control" required>
+                    <div class="invalid-feedback">Enter a valid nightly price.</div>
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input id="country" name="listing[country]" placeholder="e.g. India" type="text" class="form-control" required>
+                    <div class="invalid-feedback">Enter the country.</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="location" class="form-label">City or area</label>
+                <input id="location" name="listing[location]" placeholder="e.g. Mumbai" type="text" class="form-control" required>
+                <div class="form-text">Only the approximate city area is shown on the public map.</div>
+                <div class="invalid-feedback">Enter the city or area.</div>
+            </div>
+
+            <button class="btn btn-dark normal-btn px-4" type="submit">Publish stay</button>
+        </form>
     </div>
+</div>

@@ -3,9 +3,6 @@ const Review = require("../models/review");
 
 module.exports.createReview = async (req, res) => {
 
-    console.log("🔥 REVIEW ROUTE HIT");
-    console.log("BODY:", req.body);
-
     let listing = await Listing.findById(req.params.id);
 
     if (!listing) {
