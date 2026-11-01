@@ -8,7 +8,7 @@
       <div class="navbar-nav ms-3">
         <a class="nav-link" href="/listings">Discover hotels</a>
         <a class="nav-link" href="/listings?q=India">Explore India</a>
-        <% if (currUser) { %><a class="nav-link" href="/listings/new">List your stay</a><% } %>
+        <% if (currUser) { %><a class="nav-link" href="/listings/saved">Saved stays</a><a class="nav-link" href="/listings/new">List your stay</a><% } %>
       </div>
       <div class="navbar-nav ms-auto align-items-lg-center">
         <% if (!currUser) { %>
