@@ -1,5 +1,6 @@
 <% layout("/layouts/boilerplate") %>
 <section class="listing-detail hotel-detail">
+  <span hidden data-recent-view-id="<%= singleListing._id %>"></span>
   <div class="listing-detail-heading">
     <span class="wander-eyebrow"><%= singleListing.isCurated ? "WANDERSITE EDITORIAL HOTEL PROFILE" : "WANDERSITE · COMMUNITY STAY" %></span>
     <h1><%= singleListing.title %></h1>
