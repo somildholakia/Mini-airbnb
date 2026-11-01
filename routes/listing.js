@@ -49,6 +49,7 @@ router.get("/map-data", wrapAsync(async (_req, res) => {
   });
 }));
 
+router.get("/recent-data", wrapAsync(listingController.recentlyViewed));
 router.get("/compare", wrapAsync(listingController.compareListings));
 
 router.route("/:id")
