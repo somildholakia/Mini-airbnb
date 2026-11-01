@@ -1,28 +1,24 @@
 <nav class="navbar navbar-expand-lg sticky-top wander-navbar">
-    <div class="container-fluid">
-        <a class="navbar-brand wander-brand" href="/"><i class="fa-regular fa-compass"></i> WanderSite</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ms-3">
-                <a class="nav-link" href="/listings">Explore stays</a>
-                <% if (currUser) { %>
-                    <a class="nav-link" href="/listings/new">Add a stay</a>
-                <% } %>
-            </div>
-
-            <div class="navbar-nav ms-auto align-items-lg-center">
-                <% if (!currUser) { %>
-                    <a class="nav-link" href="/signup">Create account</a>
-                    <a class="nav-link nav-login" href="/login">Log in</a>
-                <% } else { %>
-                    <span class="nav-user-label">Hi, <%= currUser.username %></span>
-                    <a class="nav-link" href="/logout">Log out</a>
-                <% } %>
-            </div>
-        </div>
+  <div class="container">
+    <a class="navbar-brand wander-brand" href="/"><span class="wander-brand-mark"><i class="fa-regular fa-compass"></i></span> WanderSite</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-3">
+        <a class="nav-link" href="/listings">Discover hotels</a>
+        <a class="nav-link" href="/listings?q=India">Explore India</a>
+        <% if (currUser) { %><a class="nav-link" href="/listings/new">List your stay</a><% } %>
+      </div>
+      <div class="navbar-nav ms-auto align-items-lg-center">
+        <% if (!currUser) { %>
+          <a class="nav-link" href="/signup">Create account</a>
+          <a class="nav-link nav-login" href="/login">Log in</a>
+        <% } else { %>
+          <span class="nav-user-label">Hi, <%= currUser.username %></span>
+          <a class="nav-link nav-login" href="/logout">Log out</a>
+        <% } %>
+      </div>
     </div>
+  </div>
 </nav>

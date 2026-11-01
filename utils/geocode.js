@@ -45,7 +45,24 @@ const knownPlaces = {
     "kerala": [76.2711, 10.8505],
     "hyderabad": [78.4867, 17.3850],
     "chennai": [80.2707, 13.0827],
-    "kolkata": [88.3639, 22.5726]
+    "kolkata": [88.3639, 22.5726],
+    "beijing": [116.4074, 39.9042],
+    "nice": [7.2620, 43.7102],
+    "amalfi": [14.6027, 40.6340],
+    "sumba island": [119.9, -9.65],
+    "madrid": [-3.7038, 40.4168],
+    "positano": [14.4840, 40.6280],
+    "playa del carmen": [-87.0739, 20.6296],
+    "bodrum": [27.4290, 37.0344],
+    "lake como": [9.2610, 45.9900],
+    "monte carlo": [7.4246, 43.7396],
+    "cabo san lucas": [-109.9167, 22.8905],
+    "riviera maya": [-87.0, 20.6],
+    "cape town": [18.4241, -33.9249],
+    "sydney": [151.2093, -33.8688],
+    "melbourne": [144.9631, -37.8136],
+    "singapore": [103.8198, 1.3521],
+    "hong kong": [114.1694, 22.3193]
 };
 
 const geocodeCache = new Map();

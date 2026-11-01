@@ -35,7 +35,7 @@
 
         link.className = "map-popup-link";
         link.href = "/listings/" + encodeURIComponent(listing.id);
-        link.textContent = "View stay";
+        link.textContent = "View hotel profile";
 
         wrapper.append(title, location, link);
         return wrapper;
@@ -57,7 +57,7 @@
         location.textContent = [listing.location, listing.country].filter(Boolean).join(", ") || "Location not specified";
 
         price.className = "map-list-price";
-        price.textContent = "₹" + Number(listing.price || 0).toLocaleString("en-IN") + " / night";
+        price.textContent = listing.isCurated ? (listing.category || "Curated hotel") : (listing.price != null ? "₹" + Number(listing.price).toLocaleString("en-IN") + " / night" : "View stay");
 
         link.append(title, location, price);
         return link;

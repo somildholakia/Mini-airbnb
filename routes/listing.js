@@ -11,71 +11,48 @@ const { getKnownCoordinates } = require("../utils/geocode.js");
 const multer = require("multer");
 
 const upload = multer({ storage });
-
 const validateListing = (req, res, next) => {
-    const { error } = listingSchema.validate(req.body);
-
-    if (error) {
-        const errMsg = error.details.map((el) => el.message).join(", ");
-        return next(new ExpressError(400, errMsg));
-    }
-
-    next();
+  const { error } = listingSchema.validate(req.body);
+  if (error) {
+    const message = error.details.map((item) => item.message).join(", ");
+    return next(new ExpressError(400, message));
+  }
+  next();
 };
 
 router.get("/new", isLoggedIn, listingController.renderNewForm);
-
 router.route("/")
-    .get(wrapAsync(listingController.index))
-    .post(
-        isLoggedIn,
-        upload.single("listing[image]"),
-        validateListing,
-        wrapAsync(listingController.createListing)
-    );
+  .get(wrapAsync(listingController.index))
+  .post(isLoggedIn, upload.single("listing[image]"), validateListing, wrapAsync(listingController.createListing));
 
-// Must be declared before /:id so "map-data" is not treated as a listing id.
+// This route must be above /:id so "map-data" is never treated as a listing id.
 router.get("/map-data", wrapAsync(async (_req, res) => {
-    const listings = await Listing.find({})
-        .select("title location country price image locationCoordinates")
-        .limit(200)
-        .lean();
-
-    res.set("Cache-Control", "private, max-age=30");
-    res.json({
-        status: "ok",
-        listings: listings.map((listing) => {
-            const coordinates = listing.locationCoordinates?.coordinates
-                || getKnownCoordinates(listing.location, listing.country);
-
-            return {
-                id: String(listing._id),
-                title: listing.title,
-                location: listing.location || "",
-                country: listing.country || "",
-                price: Number(listing.price) || 0,
-                imageUrl: listing.image?.url || "",
-                coordinates: coordinates || null
-            };
-        })
-    });
+  const listings = await Listing.find({})
+    .select("title location country price image locationCoordinates category isCurated")
+    .limit(1000)
+    .lean();
+  res.set("Cache-Control", "public, max-age=60, stale-while-revalidate=300");
+  res.json({
+    status: "ok",
+    total: listings.length,
+    listings: listings.map((listing) => {
+      const coordinates = listing.locationCoordinates?.coordinates
+        || getKnownCoordinates(listing.location, listing.country);
+      return {
+        id: String(listing._id), title: listing.title,
+        location: listing.location || "", country: listing.country || "",
+        category: listing.category || "", isCurated: Boolean(listing.isCurated),
+        price: listing.isCurated ? null : (Number.isFinite(listing.price) ? listing.price : null),
+        imageUrl: listing.image?.url || "", coordinates: coordinates || null
+      };
+    })
+  });
 }));
 
 router.route("/:id")
-    .get(wrapAsync(listingController.showListing))
-    .put(
-        isLoggedIn,
-        isOwner,
-        upload.single("listing[image]"),
-        validateListing,
-        wrapAsync(listingController.updateListing)
-    )
-    .delete(
-        isLoggedIn,
-        isOwner,
-        wrapAsync(listingController.destroyListing)
-    );
-
+  .get(wrapAsync(listingController.showListing))
+  .put(isLoggedIn, isOwner, upload.single("listing[image]"), validateListing, wrapAsync(listingController.updateListing))
+  .delete(isLoggedIn, isOwner, wrapAsync(listingController.destroyListing));
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
 
 module.exports = router;
