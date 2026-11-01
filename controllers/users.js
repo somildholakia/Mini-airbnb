@@ -42,6 +42,8 @@ module.exports.logout = (req, res, next) => {
 };
 
 module.exports.renderSaved = async (req, res) => {
+    res.locals.pageTitle = "Your saved hotels · WanderSite";
+    res.locals.metaDescription = "Your personal shortlist of saved hotels and stays on WanderSite.";
     const user = await User.findById(req.user._id)
         .populate({ path: "savedListings", options: { sort: { featured: -1, title: 1 } } });
     res.render("users/saved.ejs", { savedListings: (user?.savedListings || []).filter(Boolean) });
