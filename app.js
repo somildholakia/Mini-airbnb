@@ -107,6 +107,16 @@ async function configureApplication() {
     });
 
     app.get("/", (_req, res) => res.redirect("/listings"));
+    app.get("/privacy", (_req, res) => {
+        res.locals.pageTitle = "Privacy notice · WanderSite";
+        res.locals.metaDescription = "How WanderSite handles account, saved-stay, review and listing information.";
+        res.render("legal/privacy.ejs");
+    });
+    app.get("/terms", (_req, res) => {
+        res.locals.pageTitle = "Terms of use · WanderSite";
+        res.locals.metaDescription = "Terms for using WanderSite's editorial hotel directory and community listings.";
+        res.render("legal/terms.ejs");
+    });
     app.use("/listings", listingRouter);
     app.use("/listings/:id/reviews", reviewRouter);
     app.use("/", userRouter);
