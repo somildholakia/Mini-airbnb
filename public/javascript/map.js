@@ -129,7 +129,7 @@
 
     function initDetailMap(element) {
         const latLng = coordinatesToLatLng(
-            String(element.dataset.coordinates || "").split(",").map(Number).reverse()
+            String(element.dataset.coordinates || "").split(",").map(Number)
         );
 
         if (!latLng) {
