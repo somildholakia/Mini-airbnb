@@ -1,0 +1,38 @@
+<% layout("/layouts/boilerplate") %>
+<section class="saved-page">
+  <div class="saved-page-heading">
+    <span class="wander-eyebrow">YOUR TRAVEL SHORTLIST</span>
+    <h1>Saved stays</h1>
+    <p>Keep the places you love together while you plan your next journey.</p>
+  </div>
+  <% if (!savedListings.length) { %>
+    <div class="wander-empty-state">
+      <i class="fa-regular fa-heart"></i>
+      <h3>Your shortlist is waiting.</h3>
+      <p>Open a hotel or stay profile and save it here for later.</p>
+      <a href="/listings" class="wander-primary-link">Explore the collection <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  <% } else { %>
+    <p class="saved-results-count"><%= savedListings.length %> saved <%= savedListings.length === 1 ? "stay" : "stays" %></p>
+    <div class="hotel-grid">
+      <% for (const listing of savedListings) { %>
+        <article class="hotel-card saved-hotel-card">
+          <a href="/listings/<%= listing._id %>" class="saved-hotel-link">
+            <div class="hotel-card-media">
+              <img src="<%= listing.image && listing.image.url ? listing.image.url : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=82' %>" alt="Editorial destination image for <%= listing.title %>" loading="lazy">
+            </div>
+            <div class="hotel-card-content">
+              <span class="hotel-card-category"><%= listing.category || "Stay" %></span>
+              <h3><%= listing.title %></h3>
+              <p><i class="fa-solid fa-location-dot"></i> <%= [listing.location, listing.country].filter(Boolean).join(", ") %></p>
+            </div>
+          </a>
+          <form method="POST" action="/saved/<%= listing._id %>/remove" class="saved-remove-form">
+            <input type="hidden" name="returnTo" value="/saved">
+            <button type="submit"><i class="fa-solid fa-heart-crack"></i> Remove</button>
+          </form>
+        </article>
+      <% } %>
+    </div>
+  <% } %>
+</section>
