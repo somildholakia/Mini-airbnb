@@ -4,6 +4,14 @@
     <span class="wander-eyebrow"><%= singleListing.isCurated ? "WANDERSITE EDITORIAL HOTEL PROFILE" : "WANDERSITE · COMMUNITY STAY" %></span>
     <h1><%= singleListing.title %></h1>
     <p><i class="fa-solid fa-location-dot"></i> <%= [singleListing.location, singleListing.country].filter(Boolean).join(", ") %><% if (singleListing.category) { %><span class="detail-category-dot">·</span> <%= singleListing.category %><% } %></p>
+    <% if (currUser) { %>
+      <form class="save-stay-form" method="POST" action="<%= isSaved ? '/saved/' + singleListing._id + '/remove' : '/saved/' + singleListing._id %>">
+        <input type="hidden" name="returnTo" value="/listings/<%= singleListing._id %>">
+        <button class="save-stay-button <%= isSaved ? 'is-saved' : '' %>" type="submit"><i class="fa-<%= isSaved ? 'solid' : 'regular' %> fa-heart"></i> <%= isSaved ? 'Saved to your trip list · Remove' : 'Save to your trip list' %></button>
+      </form>
+    <% } else { %>
+      <a class="save-stay-button" href="/login?returnTo=/listings/<%= singleListing._id %>"><i class="fa-regular fa-heart"></i> Log in to save this stay</a>
+    <% } %>
   </div>
   <div class="listing-detail-grid">
     <div class="hotel-detail-photo-wrap">
@@ -13,10 +21,12 @@
     <div class="listing-detail-copy hotel-detail-copy">
       <% if (singleListing.isCurated) { %>
         <span class="detail-label">WanderSite hotel collection</span><h3>Discover the property</h3><p><%= singleListing.description %></p>
+        <% if (singleListing.rankingYear === 2026 && singleListing.curationRank) { %><div class="ranking-recognition"><i class="fa-solid fa-award"></i> Ranked #<%= singleListing.curationRank %> in The 50 Best Hotels 2026</div><% } %>
         <div class="hotel-profile-facts">
           <div><span>Stay style</span><strong><%= singleListing.category || "Hotel" %></strong></div>
           <div><span>Destination</span><strong><%= [singleListing.location, singleListing.country].filter(Boolean).join(", ") %></strong></div>
           <div><span>Rates & availability</span><strong>Confirm with the hotel</strong></div>
+          <% if (singleListing.rankingYear === 2026) { %><div><span>Recognition source</span><strong>The 50 Best Hotels 2026</strong></div><% } %>
         </div>
         <a class="hotel-outbound-button" href="<%= singleListing.hotelSearchUrl || 'https://www.google.com/search?q=' + encodeURIComponent(singleListing.title + ' ' + singleListing.location + ' official hotel website') %>" target="_blank" rel="noopener noreferrer">Find hotel details & rates <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         <small class="hotel-outbound-note">Opens an external search to find current official information. WanderSite does not process hotel bookings or verify live rates.</small>
