@@ -70,7 +70,7 @@
     }
 
     function compareUrl() {
-        return selectedIds.length ? "/compare?ids=" + encodeURIComponent(selectedIds.join(",")) : "/compare";
+        return selectedIds.length ? "/listings/compare?ids=" + encodeURIComponent(selectedIds.join(",")) : "/listings/compare";
     }
 
     function refreshControls() {
@@ -127,7 +127,7 @@
             selectedIds = [];
             saveSelection();
             if (comparePage) {
-                window.location.assign("/compare");
+                window.location.assign("/listings/compare");
                 return;
             }
             refreshControls();
