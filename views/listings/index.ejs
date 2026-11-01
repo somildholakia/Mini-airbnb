@@ -63,7 +63,7 @@
       <a href="/listings/<%= listing._id %>" class="hotel-card hotel-card-featured">
         <div class="hotel-card-media">
           <img src="<%= listing.image && listing.image.url ? listing.image.url : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=82' %>" alt="Editorial destination image for <%= listing.title %>" loading="lazy">
-          <span class="hotel-ribbon">WanderSite edit</span>
+          <span class="hotel-ribbon"><% if (listing.rankingYear === 2026 && listing.curationRank) { %>2026 · #<%= listing.curationRank %> in 50 Best<% } else { %>WanderSite edit<% } %></span>
         </div>
         <div class="hotel-card-content"><span class="hotel-card-category"><%= listing.category || "Selected stay" %></span>
           <h3><%= listing.title %></h3><p><i class="fa-solid fa-location-dot"></i> <%= [listing.location, listing.country].filter(Boolean).join(", ") %></p>
