@@ -1,0 +1,21 @@
+name: Keep WanderSite warm
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    if: ${{ vars.SITE_URL != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Wake the app and check its health endpoint
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          curl --fail --silent --show-error \
+            --retry 2 --retry-connrefused --retry-delay 8 \
+            --max-time 90 \
+            "${SITE_URL%/}/health"
