@@ -33,6 +33,8 @@ module.exports.index = async (req, res) => {
 
   const totalCount = await Listing.countDocuments(filter);
   const pageCount = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+  const countries = (await Listing.distinct("country", { country: { $exists: true, $ne: "" } }))
+    .filter(Boolean).sort((a, b) => a.localeCompare(b));
   const currentPage = Math.min(page, pageCount);
   const [allListings, featuredListings, allCount] = await Promise.all([
     Listing.find(filter).sort(sortOptions[sort]).skip((currentPage - 1) * PAGE_SIZE).limit(PAGE_SIZE)
@@ -47,7 +49,7 @@ module.exports.index = async (req, res) => {
 
   res.render("listings/index.ejs", {
     allListings, featuredListings, allCount, totalCount, currentPage, pageCount, visiblePages,
-    hasPrevious: currentPage > 1, hasNext: currentPage < pageCount, categories: CATEGORIES,
+    hasPrevious: currentPage > 1, hasNext: currentPage < pageCount, categories: CATEGORIES, countries,
     filters: { q, country, category, sort },
     destinationPicks: [
       { name: "Tokyo", country: "Japan", note: "Design, culture & calm" },
@@ -69,7 +71,8 @@ module.exports.showListing = async (req, res) => {
   if (!singleListing) throw new ExpressError(404, "Listing not found");
   const mapCoordinates = singleListing.locationCoordinates?.coordinates
     || getKnownCoordinates(singleListing.location, singleListing.country);
-  res.render("listings/show.ejs", { singleListing, mapCoordinates });
+  const isSaved = Boolean(req.user?.savedListings?.some((id) => String(id) === String(singleListing._id)));
+  res.render("listings/show.ejs", { singleListing, mapCoordinates, isSaved });
 };
 
 module.exports.createListing = async (req, res) => {
