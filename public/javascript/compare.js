@@ -7,7 +7,7 @@
 
     function cleanIds(value) {
         if (!Array.isArray(value)) return [];
-        return [...new Set(value.filter((id) => typeof id === "string" && ID_PATTERN.test(id)))].slice(0, MAX_ITEMS);
+        return [...new Set(value.filter((id) => typeof id === "string" && ID_PATTERN.test(id)).map((id) => id.toLowerCase()))].slice(0, MAX_ITEMS);
     }
 
     function readSelection() {
@@ -105,7 +105,7 @@
             : "Choose " + (2 - selectedIds.length) + " more";
     }
 
-    const dockElements = document.readyState === "loading" ? null : createDock();
+    let dockElements = null;
 
     function initialise() {
         const comparePage = Boolean(document.querySelector("[data-compare-page]"));
@@ -120,8 +120,8 @@
             }
         }
 
-        const elements = dockElements || createDock();
-        Object.assign(dockElements || {}, elements);
+        if (!dockElements) dockElements = createDock();
+        const elements = dockElements;
 
         elements.clearButton.addEventListener("click", () => {
             selectedIds = [];
