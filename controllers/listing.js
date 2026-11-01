@@ -1,11 +1,12 @@
 const Listing = require("../models/listing");
+const User = require("../models/user");
 const ExpressError = require("../utils/ExpressError");
 const { geocodeLocation, getKnownCoordinates } = require("../utils/geocode");
 
 const PAGE_SIZE = 24;
 const CATEGORIES = [
   "Urban luxury", "Resort", "Island resort", "Historic", "Boutique",
-  "Safari", "Nature retreat", "Nature lodge", "Wellness", "Country house"
+  "Safari", "Nature retreat", "Nature lodge", "Wellness", "Country house", "Heritage"
 ];
 const escapeRegex = (value) => value.replace(/[.*+?^\${}()|[\]\\]/g, "\\$&");
 
@@ -72,7 +73,10 @@ module.exports.showListing = async (req, res) => {
   if (!singleListing) throw new ExpressError(404, "Listing not found");
   const mapCoordinates = singleListing.locationCoordinates?.coordinates
     || getKnownCoordinates(singleListing.location, singleListing.country);
-  res.render("listings/show.ejs", { singleListing, mapCoordinates });
+  const isSaved = Boolean(res.locals.currUser?.savedListings?.some((id) => String(id) === String(singleListing._id)));
+  res.locals.pageTitle = singleListing.title + " · WanderSite";
+  res.locals.metaDescription = "Explore " + singleListing.title + " in " + [singleListing.location, singleListing.country].filter(Boolean).join(", ") + " on WanderSite.";
+  res.render("listings/show.ejs", { singleListing, mapCoordinates, isSaved });
 };
 
 module.exports.createListing = async (req, res) => {
@@ -117,4 +121,32 @@ module.exports.destroyListing = async (req, res) => {
   if (!deleted) throw new ExpressError(404, "Listing not found or cannot be deleted.");
   req.flash("success", "Your listing has been deleted.");
   res.redirect("/listings");
+};
+
+module.exports.savedListings = async (req, res) => {
+  const user = await User.findById(req.user._id).populate("savedListings");
+  const savedListings = (user?.savedListings || []).filter(Boolean);
+  res.locals.pageTitle = "Your saved hotels · WanderSite";
+  res.locals.metaDescription = "Your personal collection of saved hotels and stays on WanderSite.";
+  res.render("listings/saved.ejs", { savedListings });
+};
+
+module.exports.toggleSavedListing = async (req, res) => {
+  const listing = await Listing.findById(req.params.id).select("_id title");
+  if (!listing) throw new ExpressError(404, "Hotel or stay not found.");
+
+  const user = await User.findById(req.user._id);
+  if (!user) throw new ExpressError(401, "Please sign in again.");
+
+  const alreadySaved = user.savedListings.some((id) => String(id) === String(listing._id));
+  if (alreadySaved) {
+    user.savedListings.pull(listing._id);
+    req.flash("success", "Removed from your saved stays.");
+  } else {
+    user.savedListings.addToSet(listing._id);
+    req.flash("success", "Added to your saved stays.");
+  }
+
+  await user.save();
+  res.redirect("/listings/" + listing._id);
 };
