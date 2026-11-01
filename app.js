@@ -22,6 +22,7 @@ const app = express();
 const PORT = Number(process.env.PORT) || 8080;
 const MONGO_URL = process.env.ATLASTDB_URL;
 const SESSION_SECRET = process.env.SECRET;
+let appReady = false;
 
 app.disable("x-powered-by");
 app.set("trust proxy", 1);
@@ -34,8 +35,8 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
-// Keep liveness independent from MongoDB so Render can distinguish a live
-// process from database readiness.
+// Liveness intentionally does not depend on MongoDB. Render can still reach
+// this route while the database is temporarily unavailable.
 app.get("/health", (_req, res) => {
     res.status(200).json({
         status: "ok",
@@ -44,13 +45,26 @@ app.get("/health", (_req, res) => {
     });
 });
 
+// Readiness requires both application setup and an active MongoDB connection.
 app.get("/ready", (_req, res) => {
-    const databaseReady = mongoose.connection.readyState === 1;
+    const databaseReady = appReady && mongoose.connection.readyState === 1;
     res.status(databaseReady ? 200 : 503).json({
         status: databaseReady ? "ready" : "not-ready",
-        database: databaseReady ? "connected" : "disconnected",
+        database: mongoose.connection.readyState === 1 ? "connected" : "disconnected",
         timestamp: new Date().toISOString()
     });
+});
+
+// Keep normal application requests out until the database/session middleware
+// has been configured. Health and readiness remain available during startup.
+app.use((req, res, next) => {
+    if (!appReady) {
+        return res.status(503).json({
+            status: "starting",
+            message: "WanderSite is starting or reconnecting to its database."
+        });
+    }
+    next();
 });
 
 async function configureApplication() {
@@ -61,7 +75,7 @@ async function configureApplication() {
     });
 
     store.on("error", (error) => {
-        console.error("Mongo session store error:", error.message);
+        console.error("Mongo session store error:", error.name || "UnknownError");
     });
 
     app.use(session({
@@ -110,30 +124,50 @@ async function configureApplication() {
             : error.message || "Request failed.";
 
         if (statusCode >= 500) {
-            console.error("Request failed:", error.message);
+            console.error("Request failed:", error.name || "UnknownError");
         }
 
         res.status(statusCode).render("error.ejs", { message });
     });
 }
 
-async function startServer() {
-    if (!MONGO_URL) {
-        throw new Error("Missing ATLASTDB_URL environment variable.");
+function delay(milliseconds) {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+async function connectAndConfigureWithRetry() {
+    while (!appReady) {
+        try {
+            if (!MONGO_URL) {
+                throw new Error("Missing ATLASTDB_URL environment variable.");
+            }
+
+            if (!SESSION_SECRET) {
+                throw new Error("Missing SECRET environment variable.");
+            }
+
+            if (mongoose.connection.readyState !== 1) {
+                await mongoose.connect(MONGO_URL, {
+                    serverSelectionTimeoutMS: 15000,
+                    maxPoolSize: 10
+                });
+            }
+
+            await configureApplication();
+            appReady = true;
+            console.log("WanderSite application is ready.");
+        } catch (error) {
+            // Do not log connection strings, credentials, or raw driver errors.
+            console.error("WanderSite startup/recovery failed:", error.name || "UnknownError");
+            if (mongoose.connection.readyState !== 0) {
+                await mongoose.disconnect().catch(() => undefined);
+            }
+            await delay(5000);
+        }
     }
+}
 
-    if (!SESSION_SECRET) {
-        throw new Error("Missing SECRET environment variable.");
-    }
-
-    await mongoose.connect(MONGO_URL, {
-        serverSelectionTimeoutMS: 15000,
-        maxPoolSize: 10
-    });
-    console.log("Connected to MongoDB.");
-
-    await configureApplication();
-
+function startServer() {
     const server = app.listen(PORT, "0.0.0.0", () => {
         console.log("WanderSite is listening on port " + PORT + ".");
     });
@@ -141,7 +175,7 @@ async function startServer() {
     const shutdown = (signal) => {
         console.log(signal + " received. Shutting down gracefully.");
         server.close(async () => {
-            await mongoose.disconnect();
+            await mongoose.disconnect().catch(() => undefined);
             process.exit(0);
         });
 
@@ -150,10 +184,11 @@ async function startServer() {
 
     process.once("SIGTERM", () => shutdown("SIGTERM"));
     process.once("SIGINT", () => shutdown("SIGINT"));
+
+    // Start accepting liveness checks immediately, then retry DB initialization.
+    connectAndConfigureWithRetry().catch((error) => {
+        console.error("Unexpected startup failure:", error.name || "UnknownError");
+    });
 }
 
-startServer().catch((error) => {
-    // Never print connection strings or secret environment variables.
-    console.error("WanderSite startup failed:", error.message);
-    process.exit(1);
-});
+startServer();
