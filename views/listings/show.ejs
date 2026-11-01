@@ -4,6 +4,14 @@
     <span class="wander-eyebrow"><%= singleListing.isCurated ? "WANDERSITE EDITORIAL HOTEL PROFILE" : "WANDERSITE · COMMUNITY STAY" %></span>
     <h1><%= singleListing.title %></h1>
     <p><i class="fa-solid fa-location-dot"></i> <%= [singleListing.location, singleListing.country].filter(Boolean).join(", ") %><% if (singleListing.category) { %><span class="detail-category-dot">·</span> <%= singleListing.category %><% } %></p>
+    <% if (currUser) { %>
+      <form class="save-stay-form" method="POST" action="<%= isSaved ? '/saved/' + singleListing._id + '/remove' : '/saved/' + singleListing._id %>">
+        <input type="hidden" name="returnTo" value="/listings/<%= singleListing._id %>">
+        <button class="save-stay-button <%= isSaved ? 'is-saved' : '' %>" type="submit"><i class="fa-<%= isSaved ? 'solid' : 'regular' %> fa-heart"></i> <%= isSaved ? 'Saved to your trip list · Remove' : 'Save to your trip list' %></button>
+      </form>
+    <% } else { %>
+      <a class="save-stay-button" href="/login"><i class="fa-regular fa-heart"></i> Log in to save this stay</a>
+    <% } %>
   </div>
   <div class="listing-detail-grid">
     <div class="hotel-detail-photo-wrap">
