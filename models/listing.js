@@ -17,6 +17,7 @@ const listingSchema = new Schema({
   featured: { type: Boolean, default: false, index: true },
   curationSource: { type: String, trim: true },
   curationRank: { type: Number, min: 1 },
+  rankingYear: { type: Number, min: 2000, max: 2100 },
   hotelSearchUrl: { type: String, trim: true },
   imageDisclaimer: { type: String, trim: true },
   locationCoordinates: {

@@ -34,7 +34,7 @@ A Render Free web service is not an always-on production service: it can spin do
 
 ## Global hotel collection
 
-WanderSite includes an editorial discovery catalog of 554 named hotel properties across destinations worldwide. The first 100 entries follow the 2025 edition of The World's 50 Best Hotels; the broader collection is a WanderSite editorial selection and is not an independently ranked list.
+WanderSite includes an editorial discovery catalog of 576 named hotel properties across destinations worldwide. The first 100 entries follow the 2026 edition of The 50 Best Hotels; the broader collection is a WanderSite editorial selection and is not an independently ranked list.
 
 The catalog is stored in `data/curated-hotels.json`. To seed a database safely, set `ATLASTDB_URL` and run:
 

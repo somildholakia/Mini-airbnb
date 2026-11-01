@@ -368,7 +368,8 @@
     "rankingYear": 2026,
     "curationRank": 31,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "The Peninsula Istanbul"
   },
   {
     "name": "Bulgari Hotel Roma",
@@ -403,7 +404,8 @@
     "rankingYear": 2026,
     "curationRank": 34,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Mount Nelson"
   },
   {
     "name": "NIHI Sumba",
@@ -486,7 +488,8 @@
     "rankingYear": 2026,
     "curationRank": 41,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Plaza Athénée"
   },
   {
     "name": "Hotel Sacher Wien",
@@ -569,7 +572,8 @@
     "rankingYear": 2026,
     "curationRank": 48,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Aman Nai Lert"
   },
   {
     "name": "The Connaught",
@@ -592,7 +596,8 @@
     "rankingYear": 2026,
     "curationRank": 50,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "San Domenico Palace"
   },
   {
     "title": "La Réserve Paris",
@@ -603,7 +608,8 @@
     "rankingYear": 2026,
     "curationRank": 51,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "La Réserve Paris"
   },
   {
     "name": "Janu Tokyo",
@@ -626,7 +632,8 @@
     "rankingYear": 2026,
     "curationRank": 53,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Park Hyatt Tokyo"
   },
   {
     "name": "Palacio Nazarenas, A Belmond Hotel",
@@ -661,7 +668,8 @@
     "rankingYear": 2026,
     "curationRank": 56,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Rosewood London"
   },
   {
     "name": "Hotel Bel-Air",
@@ -684,7 +692,8 @@
     "rankingYear": 2026,
     "curationRank": 58,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Il San Pietro di Positano"
   },
   {
     "name": "Mandarin Oriental Hong Kong",
@@ -731,7 +740,8 @@
     "rankingYear": 2026,
     "curationRank": 62,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Castiglion del Bosco"
   },
   {
     "title": "Sofitel Legend Casco Viejo",
@@ -742,7 +752,8 @@
     "rankingYear": 2026,
     "curationRank": 63,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Sofitel Legend Casco Viejo"
   },
   {
     "name": "Hotel Esencia",
@@ -777,7 +788,8 @@
     "rankingYear": 2026,
     "curationRank": 66,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Orient Express La Minerva"
   },
   {
     "name": "Montage Los Cabos",
@@ -800,7 +812,8 @@
     "rankingYear": 2026,
     "curationRank": 68,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Forestis Dolomites"
   },
   {
     "name": "The Okura Tokyo",
@@ -871,7 +884,8 @@
     "rankingYear": 2026,
     "curationRank": 74,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Four Seasons Tamarindo"
   },
   {
     "name": "La Mamounia",
@@ -942,7 +956,8 @@
     "rankingYear": 2026,
     "curationRank": 80,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Carlton Cannes"
   },
   {
     "name": "Capella Hanoi",
@@ -1049,7 +1064,8 @@
     "rankingYear": 2026,
     "curationRank": 89,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Waldorf Astoria Osaka"
   },
   {
     "title": "Mandarin Oriental Shenzhen",
@@ -1060,7 +1076,8 @@
     "rankingYear": 2026,
     "curationRank": 90,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Mandarin Oriental Shenzhen"
   },
   {
     "title": "Villa Treville",
@@ -1071,7 +1088,8 @@
     "rankingYear": 2026,
     "curationRank": 91,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Villa Treville"
   },
   {
     "name": "The Greenwich Hotel",
@@ -1094,7 +1112,8 @@
     "rankingYear": 2026,
     "curationRank": 93,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "The Maybourne Riviera"
   },
   {
     "name": "The Johri",
@@ -1117,7 +1136,8 @@
     "rankingYear": 2026,
     "curationRank": 95,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Reschio"
   },
   {
     "title": "Wynn Palace",
@@ -1128,7 +1148,8 @@
     "rankingYear": 2026,
     "curationRank": 96,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "Wynn Palace"
   },
   {
     "name": "Capella Singapore",
@@ -1163,7 +1184,8 @@
     "rankingYear": 2026,
     "curationRank": 99,
     "curationSource": "The World's 50 Best Hotels 2026",
-    "featured": false
+    "featured": false,
+    "name": "The Peninsula Shanghai"
   },
   {
     "name": "Gleneagles",

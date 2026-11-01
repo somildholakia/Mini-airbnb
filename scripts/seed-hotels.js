@@ -49,7 +49,7 @@ const coordinates = {
   "Zighy Bay":[56.25,25.95],"Langkawi":[99.8,6.35],"Cusco":[-71.9675,-13.5319],
   "Taupō":[176.078,-38.6857],"Stockholm":[18.0686,59.3293],"St. Jean":[-62.85,17.9],
   "Jawai":[73.2,25.0],"Ajabgarh":[76.55,27.15],"La Manzanilla":[-104.7,19.28],
-  "Savelletri":[17.4,40.88],"Antibes":[7.1253,43.5804],"Canyon Point":[-111.41,37.1]
+  "Savelletri":[17.4,40.88],"Antibes":[7.1253,43.5804],"Canyon Point":[-111.41,37.1],"Istanbul":[28.9784,41.0082],"Taormina":[15.2874,37.8536],"Montalcino":[11.489,43.0572],"Panama City":[-79.5199,8.9824],"Brixen":[11.6574,46.7156],"Cannes":[7.0174,43.5528],"Shenzhen":[114.0579,22.5431],"Roquebrune-Cap-Martin":[7.465,43.76],"Macau":[113.5439,22.1987],"Shanghai":[121.4737,31.2304],"Tulum":[-87.4654,20.211]
 };
 
 const imageSets = {
@@ -111,10 +111,11 @@ async function main() {
   const operations = hotels.map((hotel, index) => {
     const coordinate = coordinates[hotel.city] || null;
     const first100 = index < 100;
+    const hotelName = hotel.name || hotel.title;
     const doc = {
       slug: hotel.slug,
-      title: hotel.name,
-      description: `${hotel.name} is a notable stay in ${hotel.city}, ${hotel.country}. This WanderSite editorial profile helps travellers discover the property. Confirm current facilities, room types, rates and availability directly with the hotel before booking.`,
+      title: hotelName,
+      description: `${hotelName} is a notable stay in ${hotel.city}, ${hotel.country}. This WanderSite editorial profile helps travellers discover the property. Confirm current facilities, room types, rates and availability directly with the hotel before booking.`,
       image: { url: imageUrl(hotel), filename: "wandersite-editorial" },
       price: null,
       location: hotel.city,
@@ -124,15 +125,16 @@ async function main() {
       propertyType: "Hotel",
       isCurated: true,
       featured: index < 16,
-      curationSource: first100 ? "The World's 50 Best Hotels 2025" : "WanderSite editorial selection",
+      curationSource: first100 ? "The World's 50 Best Hotels 2026" : "WanderSite editorial selection",
       curationRank: first100 ? index + 1 : null,
-      hotelSearchUrl: `https://www.google.com/search?q=${encodeURIComponent(hotel.name + " " + hotel.city + " " + hotel.country + " official hotel website rates")}`,
+      rankingYear: first100 ? 2026 : null,
+      hotelSearchUrl: `https://www.google.com/search?q=${encodeURIComponent(hotelName + " " + hotel.city + " " + hotel.country + " official hotel website rates")}`,
       imageDisclaimer: "Editorial destination imagery; not represented as a verified photograph of this exact property."
     };
     return {
       updateOne: {
-        filter: { slug: hotel.slug },
-        update: { $setOnInsert: doc },
+        filter: { slug: hotel.slug, isCurated: true },
+        update: { $set: doc },
         upsert: true
       }
     };
@@ -142,7 +144,8 @@ async function main() {
     console.log(JSON.stringify({
       sourceRecords: hotels.length,
       inserted: result.upsertedCount,
-      alreadyPresent: result.matchedCount
+      matched: result.matchedCount,
+      modified: result.modifiedCount
     }));
   } finally {
     await mongoose.disconnect();

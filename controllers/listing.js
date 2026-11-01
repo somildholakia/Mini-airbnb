@@ -31,14 +31,17 @@ module.exports.index = async (req, res) => {
     newest: { _id: -1 }
   };
 
-  const totalCount = await Listing.countDocuments(filter);
+  const [totalCount, countries] = await Promise.all([
+    Listing.countDocuments(filter),
+    Listing.distinct("country", { country: { $type: "string", $ne: "" } }).then((items) => items.sort((a, b) => a.localeCompare(b)))
+  ]);
   const pageCount = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
   const [allListings, featuredListings, allCount] = await Promise.all([
     Listing.find(filter).sort(sortOptions[sort]).skip((currentPage - 1) * PAGE_SIZE).limit(PAGE_SIZE)
-      .select("title description image price location country category isCurated featured slug").lean(),
+      .select("title description image price location country category isCurated featured slug rankingYear curationRank").lean(),
     Listing.find({ isCurated: true, featured: true }).sort({ curationRank: 1, title: 1 }).limit(6)
-      .select("title image location country category slug").lean(),
+      .select("title image location country category slug rankingYear curationRank").lean(),
     Listing.countDocuments({})
   ]);
 
@@ -46,7 +49,7 @@ module.exports.index = async (req, res) => {
   for (let n = Math.max(1, currentPage - 2); n <= Math.min(pageCount, currentPage + 2); n += 1) visiblePages.push(n);
 
   res.render("listings/index.ejs", {
-    allListings, featuredListings, allCount, totalCount, currentPage, pageCount, visiblePages,
+    allListings, featuredListings, allCount, totalCount, currentPage, pageCount, visiblePages, countries,
     hasPrevious: currentPage > 1, hasNext: currentPage < pageCount, categories: CATEGORIES,
     filters: { q, country, category, sort },
     destinationPicks: [

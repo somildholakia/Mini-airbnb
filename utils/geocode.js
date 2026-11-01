@@ -62,7 +62,18 @@ const knownPlaces = {
     "sydney": [151.2093, -33.8688],
     "melbourne": [144.9631, -37.8136],
     "singapore": [103.8198, 1.3521],
-    "hong kong": [114.1694, 22.3193]
+    "hong kong": [114.1694, 22.3193],
+    "istanbul": [28.9784, 41.0082],
+    "taormina": [15.2874, 37.8536],
+    "montalcino": [11.489, 43.0572],
+    "panama city": [-79.5199, 8.9824],
+    "brixen": [11.6574, 46.7156],
+    "cannes": [7.0174, 43.5528],
+    "shenzhen": [114.0579, 22.5431],
+    "roquebrune cap martin": [7.465, 43.76],
+    "macau": [113.5439, 22.1987],
+    "shanghai": [121.4737, 31.2304],
+    "tulum": [-87.4654, 20.211]
 };
 
 const geocodeCache = new Map();
