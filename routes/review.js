@@ -23,7 +23,7 @@ const validateReview = (req,res,next) => {
 
 
 // Reviews POST
-router.post("/", validateReview ,wrapAsync(reviewController.createReview));
+router.post("/", isLoggedIn, validateReview, wrapAsync(reviewController.createReview));
 
 // Delete Review Route
 
