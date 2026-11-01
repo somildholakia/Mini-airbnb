@@ -72,7 +72,8 @@ module.exports.showListing = async (req, res) => {
   if (!singleListing) throw new ExpressError(404, "Listing not found");
   const mapCoordinates = singleListing.locationCoordinates?.coordinates
     || getKnownCoordinates(singleListing.location, singleListing.country);
-  res.render("listings/show.ejs", { singleListing, mapCoordinates });
+  const isSaved = Boolean(req.user?.savedListings?.some((id) => String(id) === String(singleListing._id)));
+  res.render("listings/show.ejs", { singleListing, mapCoordinates, isSaved });
 };
 
 module.exports.createListing = async (req, res) => {
