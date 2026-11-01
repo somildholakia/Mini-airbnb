@@ -6,40 +6,51 @@ const listingSchema = new Schema({
     title: {
         type: String,
         required: true,
+        trim: true
     },
     description: {
         type: String,
+        trim: true
     },
     image: {
-
         url: String,
-        filename: String,
-
+        filename: String
     },
     price: {
         type: Number,
+        min: 0
     },
     location: {
         type: String,
+        trim: true
     },
     country: {
         type: String,
+        trim: true
     },
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Review",
+    // GeoJSON point [longitude, latitude]. Pins intentionally use city-level
+    // coordinates rather than a guest-facing property's exact street address.
+    locationCoordinates: {
+        type: {
+            type: String,
+            enum: ["Point"],
+            default: "Point"
+        },
+        coordinates: {
+            type: [Number],
+            default: undefined
         }
-    ],
-
+    },
+    reviews: [{
+        type: Schema.Types.ObjectId,
+        ref: "Review"
+    }],
     owner: {
         type: Schema.Types.ObjectId,
         ref: "User",
-        required: true,
-    },
-
+        required: true
+    }
 });
-
 
 listingSchema.post("findOneAndDelete", async (listing) => {
     if (listing) {
@@ -47,8 +58,5 @@ listingSchema.post("findOneAndDelete", async (listing) => {
     }
 });
 
-
-
 const Listing = mongoose.model("Listing", listingSchema);
-
 module.exports = Listing;
