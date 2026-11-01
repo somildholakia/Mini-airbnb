@@ -55,6 +55,14 @@
   </div>
 </section>
 
+<section class="recently-viewed-section" id="recently-viewed" aria-labelledby="recently-viewed-title" hidden>
+  <div class="section-title-row">
+    <div><span class="wander-eyebrow">PICK UP WHERE YOU LEFT OFF</span><h2 id="recently-viewed-title">Recently viewed</h2><p>Your recent discoveries, kept on this device.</p></div>
+    <button type="button" class="recently-viewed-clear" data-clear-recent>Clear history</button>
+  </div>
+  <div class="recently-viewed-grid" id="recently-viewed-grid" aria-live="polite"></div>
+</section>
+
 <% if (featuredListings.length) { %>
 <section class="featured-section">
   <div class="section-title-row"><div><span class="wander-eyebrow">THE WANDERSITE EDIT</span><h2>Standout stays</h2><p>A few places to inspire your next trip.</p></div></div>
