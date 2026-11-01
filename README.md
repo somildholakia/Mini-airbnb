@@ -36,12 +36,16 @@ A Render Free web service is not an always-on production service: it can spin do
 
 WanderSite includes an editorial discovery catalog of 576 named hotel properties across destinations worldwide. The first 100 entries follow the 2026 edition of The 50 Best Hotels; the broader collection is a WanderSite editorial selection and is not an independently ranked list.
 
+Ranking sources:
+- The 50 Best Hotels 2026, ranks 1–50: https://www.the50.com/stories/News/the-50-best-hotels-2026-the-list-revealed.html
+- The 50 Best Hotels 2026, extended ranks 51–100: https://www.the50.com/stories/News/the-50-best-hotels-2026-the-51-100-list.html
+
 The catalog is stored in `data/curated-hotels.json`. To seed a database safely, set `ATLASTDB_URL` and run:
 
 ```bash
 node scripts/seed-hotels.js
 ```
 
-The seeder upserts by stable hotel slug and only inserts missing properties. It does not delete or overwrite existing user listings, user accounts, reviews, or curated hotel records. Curated hotel profiles do not invent ratings or live prices. Hotel rates, facilities and availability must be confirmed directly with each property.
+The seeder uses stable hotel slugs and upserts only curated records. It does not delete or overwrite member-created listings, user accounts or reviews. Curated hotel profiles do not invent ratings, prices or live availability. Hotel rates, facilities and availability must be confirmed directly with each property.
 
-Catalog images are general editorial destination imagery, not verified photographs of each named hotel. Hotel profile links open an external search for current property information rather than pretending WanderSite has a live booking integration.
+Catalog images are general editorial destination imagery, not verified photographs of each named property. Hotel profile links open an external search for current property information; WanderSite does not currently provide live booking checkout or reservation inventory.
