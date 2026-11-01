@@ -17,6 +17,13 @@
         <% for (const category of categories) { %><option value="<%= category %>" <%= filters.category === category ? "selected" : "" %>><%= category %></option><% } %>
       </select>
     </label>
+    <label class="search-field">
+      <span><i class="fa-solid fa-flag"></i> Country</span>
+      <select name="country">
+        <option value="">Anywhere</option>
+        <% for (const country of countries) { %><option value="<%= country %>" <%= filters.country === country ? "selected" : "" %>><%= country %></option><% } %>
+      </select>
+    </label>
     <button type="submit" class="discover-search-button">Explore stays <i class="fa-solid fa-arrow-right"></i></button>
   </form>
   <div class="discover-hero-foot">
@@ -71,8 +78,9 @@
 <section class="collection-section" id="hotel-collection">
   <div class="section-title-row collection-heading">
     <div><span class="wander-eyebrow">THE WORLDWIDE COLLECTION</span>
-      <h2><%= filters.q || filters.category ? "Matching stays" : "Hotels worth discovering" %></h2>
-      <p><%= totalCount.toLocaleString("en-IN") %> result<%= totalCount === 1 ? "" : "s" %><% if (filters.q) { %> for “<%= filters.q %>”<% } %></p>
+      <h2><%= filters.q || filters.category || filters.country ? "Matching stays" : "Hotels worth discovering" %></h2>
+      <p><%= totalCount.toLocaleString("en-IN") %> result<%= totalCount === 1 ? "" : "s" %><% if (filters.q) { %> for “<%= filters.q %>”<% } %><% if (filters.country) { %> in <%= filters.country %><% } %></p>
+      <% if (filters.q || filters.category || filters.country) { %><a class="quiet-link" href="/listings">Clear all filters <i class="fa-solid fa-xmark"></i></a><% } %>
     </div>
     <form class="collection-sort" action="/listings" method="GET">
       <% if (filters.q) { %><input type="hidden" name="q" value="<%= filters.q %>"><% } %>
