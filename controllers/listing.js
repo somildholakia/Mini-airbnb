@@ -69,6 +69,30 @@ module.exports.index = async (req, res) => {
   });
 };
 
+module.exports.recentlyViewed = async (req, res) => {
+  const requestedIds = [...new Set(String(req.query.ids || "").split(",").map((id) => id.trim()).filter((id) => mongoose.isValidObjectId(id)))].slice(0, 10);
+  if (!requestedIds.length) return res.json({ status: "ok", listings: [] });
+
+  const records = await Listing.find({ _id: { $in: requestedIds } })
+    .select("title description image location country category isCurated rankingYear curationRank")
+    .lean();
+  const byId = new Map(records.map((listing) => [String(listing._id), listing]));
+  const listings = requestedIds.map((id) => byId.get(id)).filter(Boolean).map((listing) => ({
+    id: String(listing._id),
+    title: listing.title || "WanderSite stay",
+    location: listing.location || "",
+    country: listing.country || "",
+    category: listing.category || "Stay",
+    imageUrl: listing.image?.url || "",
+    isCurated: Boolean(listing.isCurated),
+    rankingYear: listing.rankingYear || null,
+    curationRank: listing.curationRank || null
+  }));
+
+  res.set("Cache-Control", "private, max-age=30, stale-while-revalidate=60");
+  res.json({ status: "ok", listings });
+};
+
 module.exports.compareListings = async (req, res) => {
   const requestedIds = [...new Set(String(req.query.ids || "").split(",").map((id) => id.trim()).filter((id) => mongoose.isValidObjectId(id)))].slice(0, 3);
   let compareListings = [];
