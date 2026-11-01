@@ -1,0 +1,3880 @@
+[
+  {
+    "name": "Rosewood Hong Kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "category": "Urban luxury",
+    "slug": "rosewood-hong-kong"
+  },
+  {
+    "name": "Four Seasons Bangkok at Chao Phraya River",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "four-seasons-bangkok-at-chao-phraya-river"
+  },
+  {
+    "name": "Capella Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "capella-bangkok"
+  },
+  {
+    "name": "Passalacqua",
+    "city": "Lake Como",
+    "country": "Italy",
+    "category": "Boutique",
+    "slug": "passalacqua"
+  },
+  {
+    "name": "Raffles Singapore",
+    "city": "Singapore",
+    "country": "Singapore",
+    "category": "Urban luxury",
+    "slug": "raffles-singapore"
+  },
+  {
+    "name": "Atlantis The Royal",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Resort",
+    "slug": "atlantis-the-royal"
+  },
+  {
+    "name": "Mandarin Oriental Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "mandarin-oriental-bangkok"
+  },
+  {
+    "name": "Chablé Yucatán",
+    "city": "Chocholá",
+    "country": "Mexico",
+    "category": "Wellness",
+    "slug": "chable-yucatan"
+  },
+  {
+    "name": "Four Seasons Hotel Firenze",
+    "city": "Florence",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "four-seasons-hotel-firenze"
+  },
+  {
+    "name": "The Upper House",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "category": "Boutique",
+    "slug": "the-upper-house"
+  },
+  {
+    "name": "Copacabana Palace",
+    "city": "Rio de Janeiro",
+    "country": "Brazil",
+    "category": "Historic",
+    "slug": "copacabana-palace"
+  },
+  {
+    "name": "Capella Sydney",
+    "city": "Sydney",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "capella-sydney"
+  },
+  {
+    "name": "Royal Mansour Marrakech",
+    "city": "Marrakech",
+    "country": "Morocco",
+    "category": "Historic",
+    "slug": "royal-mansour-marrakech"
+  },
+  {
+    "name": "Mandarin Oriental Qianmen",
+    "city": "Beijing",
+    "country": "China",
+    "category": "Historic",
+    "slug": "mandarin-oriental-qianmen"
+  },
+  {
+    "name": "Bulgari Hotel Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "bulgari-hotel-tokyo"
+  },
+  {
+    "name": "Claridge's",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "claridge-s"
+  },
+  {
+    "name": "Four Seasons Astir Palace Hotel Athens",
+    "city": "Athens",
+    "country": "Greece",
+    "category": "Resort",
+    "slug": "four-seasons-astir-palace-hotel-athens"
+  },
+  {
+    "name": "Desa Potato Head",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "desa-potato-head"
+  },
+  {
+    "name": "Le Bristol Paris",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "le-bristol-paris"
+  },
+  {
+    "name": "Jumeirah Marsa Al Arab",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Resort",
+    "slug": "jumeirah-marsa-al-arab"
+  },
+  {
+    "name": "Cheval Blanc Paris",
+    "city": "Paris",
+    "country": "France",
+    "category": "Urban luxury",
+    "slug": "cheval-blanc-paris"
+  },
+  {
+    "name": "Bulgari Hotel Roma",
+    "city": "Rome",
+    "country": "Italy",
+    "category": "Urban luxury",
+    "slug": "bulgari-hotel-roma"
+  },
+  {
+    "name": "Hôtel de Crillon",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "hotel-de-crillon"
+  },
+  {
+    "name": "Rosewood São Paulo",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "category": "Urban luxury",
+    "slug": "rosewood-sao-paulo"
+  },
+  {
+    "name": "Aman Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "aman-tokyo"
+  },
+  {
+    "name": "Hotel Il Pellicano",
+    "city": "Porto Ercole",
+    "country": "Italy",
+    "category": "Resort",
+    "slug": "hotel-il-pellicano"
+  },
+  {
+    "name": "Hôtel du Couvent",
+    "city": "Nice",
+    "country": "France",
+    "category": "Boutique",
+    "slug": "hotel-du-couvent"
+  },
+  {
+    "name": "Soneva Fushi",
+    "city": "Baa Atoll",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "soneva-fushi"
+  },
+  {
+    "name": "The Connaught",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "the-connaught"
+  },
+  {
+    "name": "La Mamounia",
+    "city": "Marrakech",
+    "country": "Morocco",
+    "category": "Historic",
+    "slug": "la-mamounia"
+  },
+  {
+    "name": "Raffles London at The OWO",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "raffles-london-at-the-owo"
+  },
+  {
+    "name": "The Emory",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Urban luxury",
+    "slug": "the-emory"
+  },
+  {
+    "name": "Maroma, A Belmond Hotel",
+    "city": "Riviera Maya",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "maroma-a-belmond-hotel"
+  },
+  {
+    "name": "The Calile Hotel",
+    "city": "Brisbane",
+    "country": "Australia",
+    "category": "Boutique",
+    "slug": "the-calile-hotel"
+  },
+  {
+    "name": "The Lana",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Urban luxury",
+    "slug": "the-lana"
+  },
+  {
+    "name": "Hôtel de Paris Monte-Carlo",
+    "city": "Monte Carlo",
+    "country": "Monaco",
+    "category": "Historic",
+    "slug": "hotel-de-paris-monte-carlo"
+  },
+  {
+    "name": "Janu Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "janu-tokyo"
+  },
+  {
+    "name": "The Taj Mahal Palace",
+    "city": "Mumbai",
+    "country": "India",
+    "category": "Historic",
+    "slug": "the-taj-mahal-palace"
+  },
+  {
+    "name": "One&Only Mandarina",
+    "city": "Riviera Nayarit",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "one-and-only-mandarina"
+  },
+  {
+    "name": "Singita Kruger National Park",
+    "city": "Kruger National Park",
+    "country": "South Africa",
+    "category": "Safari",
+    "slug": "singita-kruger-national-park"
+  },
+  {
+    "name": "Mandarin Oriental Hong Kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "category": "Urban luxury",
+    "slug": "mandarin-oriental-hong-kong"
+  },
+  {
+    "name": "Hotel Bel-Air",
+    "city": "Los Angeles",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "hotel-bel-air"
+  },
+  {
+    "name": "The Mark",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-mark"
+  },
+  {
+    "name": "Las Ventanas al Paraíso",
+    "city": "Los Cabos",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "las-ventanas-al-paraiso"
+  },
+  {
+    "name": "The Tokyo Edition, Toranomon",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "the-tokyo-edition-toranomon"
+  },
+  {
+    "name": "Hotel The Mitsui Kyoto",
+    "city": "Kyoto",
+    "country": "Japan",
+    "category": "Historic",
+    "slug": "hotel-the-mitsui-kyoto"
+  },
+  {
+    "name": "Estelle Manor",
+    "city": "Witney",
+    "country": "United Kingdom",
+    "category": "Country house",
+    "slug": "estelle-manor"
+  },
+  {
+    "name": "Grand Park Hotel Rovinj",
+    "city": "Rovinj",
+    "country": "Croatia",
+    "category": "Resort",
+    "slug": "grand-park-hotel-rovinj"
+  },
+  {
+    "name": "Hotel Sacher Wien",
+    "city": "Vienna",
+    "country": "Austria",
+    "category": "Historic",
+    "slug": "hotel-sacher-wien"
+  },
+  {
+    "name": "Mandapa, a Ritz-Carlton Reserve",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "mandapa-a-ritz-carlton-reserve"
+  },
+  {
+    "name": "Aman Nai Lert Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "aman-nai-lert-bangkok"
+  },
+  {
+    "name": "Badrutt's Palace Hotel",
+    "city": "St. Moritz",
+    "country": "Switzerland",
+    "category": "Resort",
+    "slug": "badrutt-s-palace-hotel"
+  },
+  {
+    "name": "Borgo Santandrea",
+    "city": "Amalfi",
+    "country": "Italy",
+    "category": "Resort",
+    "slug": "borgo-santandrea"
+  },
+  {
+    "name": "The Peninsula Hong Kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "category": "Historic",
+    "slug": "the-peninsula-hong-kong"
+  },
+  {
+    "name": "Four Seasons Resort Tamarindo",
+    "city": "La Manzanilla",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "four-seasons-resort-tamarindo"
+  },
+  {
+    "name": "NIHI Sumba",
+    "city": "Sumba Island",
+    "country": "Indonesia",
+    "category": "Island resort",
+    "slug": "nihi-sumba"
+  },
+  {
+    "name": "Hotel du Cap-Eden-Roc",
+    "city": "Antibes",
+    "country": "France",
+    "category": "Resort",
+    "slug": "hotel-du-cap-eden-roc"
+  },
+  {
+    "name": "The Surf Club, Four Seasons Hotel",
+    "city": "Surfside",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "the-surf-club-four-seasons-hotel"
+  },
+  {
+    "name": "Park Hyatt Kyoto",
+    "city": "Kyoto",
+    "country": "Japan",
+    "category": "Historic",
+    "slug": "park-hyatt-kyoto"
+  },
+  {
+    "name": "Dusit Thani Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "dusit-thani-bangkok"
+  },
+  {
+    "name": "Aman New York",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "aman-new-york"
+  },
+  {
+    "name": "Rosewood Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "rosewood-bangkok"
+  },
+  {
+    "name": "Borgo Egnazia",
+    "city": "Savelletri",
+    "country": "Italy",
+    "category": "Resort",
+    "slug": "borgo-egnazia"
+  },
+  {
+    "name": "The Carlyle, A Rosewood Hotel",
+    "city": "New York",
+    "country": "United States",
+    "category": "Historic",
+    "slug": "the-carlyle-a-rosewood-hotel"
+  },
+  {
+    "name": "The Beverly Hills Hotel",
+    "city": "Beverly Hills",
+    "country": "United States",
+    "category": "Historic",
+    "slug": "the-beverly-hills-hotel"
+  },
+  {
+    "name": "Four Seasons Hotel Madrid",
+    "city": "Madrid",
+    "country": "Spain",
+    "category": "Urban luxury",
+    "slug": "four-seasons-hotel-madrid"
+  },
+  {
+    "name": "Montage Los Cabos",
+    "city": "Cabo San Lucas",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "montage-los-cabos"
+  },
+  {
+    "name": "San Ysidro Ranch",
+    "city": "Santa Barbara",
+    "country": "United States",
+    "category": "Country house",
+    "slug": "san-ysidro-ranch"
+  },
+  {
+    "name": "Southern Ocean Lodge",
+    "city": "Kangaroo Island",
+    "country": "Australia",
+    "category": "Nature lodge",
+    "slug": "southern-ocean-lodge"
+  },
+  {
+    "name": "The Siam",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Boutique",
+    "slug": "the-siam"
+  },
+  {
+    "name": "Mandarin Oriental Ritz, Madrid",
+    "city": "Madrid",
+    "country": "Spain",
+    "category": "Historic",
+    "slug": "mandarin-oriental-ritz-madrid"
+  },
+  {
+    "name": "Hotel Cipriani, A Belmond Hotel",
+    "city": "Venice",
+    "country": "Italy",
+    "category": "Resort",
+    "slug": "hotel-cipriani-a-belmond-hotel"
+  },
+  {
+    "name": "Mount Nelson, A Belmond Hotel",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "category": "Historic",
+    "slug": "mount-nelson-a-belmond-hotel"
+  },
+  {
+    "name": "Aman Kyoto",
+    "city": "Kyoto",
+    "country": "Japan",
+    "category": "Nature retreat",
+    "slug": "aman-kyoto"
+  },
+  {
+    "name": "The Fifth Avenue Hotel",
+    "city": "New York",
+    "country": "United States",
+    "category": "Boutique",
+    "slug": "the-fifth-avenue-hotel"
+  },
+  {
+    "name": "Hotel das Cataratas",
+    "city": "Iguazu Falls",
+    "country": "Brazil",
+    "category": "Nature lodge",
+    "slug": "hotel-das-cataratas"
+  },
+  {
+    "name": "The Greenwich Hotel",
+    "city": "New York",
+    "country": "United States",
+    "category": "Boutique",
+    "slug": "the-greenwich-hotel"
+  },
+  {
+    "name": "Gleneagles",
+    "city": "Auchterarder",
+    "country": "United Kingdom",
+    "category": "Country house",
+    "slug": "gleneagles"
+  },
+  {
+    "name": "Aman Venice",
+    "city": "Venice",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "aman-venice"
+  },
+  {
+    "name": "Hôtel Plaza Athénée",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "hotel-plaza-athenee"
+  },
+  {
+    "name": "Castello di Reschio",
+    "city": "Lisciano Niccone",
+    "country": "Italy",
+    "category": "Country house",
+    "slug": "castello-di-reschio"
+  },
+  {
+    "name": "Casa Maria Luigia",
+    "city": "Modena",
+    "country": "Italy",
+    "category": "Boutique",
+    "slug": "casa-maria-luigia"
+  },
+  {
+    "name": "Splendido, A Belmond Hotel",
+    "city": "Portofino",
+    "country": "Italy",
+    "category": "Resort",
+    "slug": "splendido-a-belmond-hotel"
+  },
+  {
+    "name": "Six Senses Zighy Bay",
+    "city": "Zighy Bay",
+    "country": "Oman",
+    "category": "Resort",
+    "slug": "six-senses-zighy-bay"
+  },
+  {
+    "name": "The Datai Langkawi",
+    "city": "Langkawi",
+    "country": "Malaysia",
+    "category": "Nature retreat",
+    "slug": "the-datai-langkawi"
+  },
+  {
+    "name": "Four Seasons Hotel Hong Kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "category": "Urban luxury",
+    "slug": "four-seasons-hotel-hong-kong"
+  },
+  {
+    "name": "Palacio Nazarenas, A Belmond Hotel",
+    "city": "Cusco",
+    "country": "Peru",
+    "category": "Historic",
+    "slug": "palacio-nazarenas-a-belmond-hotel"
+  },
+  {
+    "name": "Huka Lodge",
+    "city": "Taupō",
+    "country": "New Zealand",
+    "category": "Nature lodge",
+    "slug": "huka-lodge"
+  },
+  {
+    "name": "Ett Hem",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "category": "Boutique",
+    "slug": "ett-hem"
+  },
+  {
+    "name": "Eden Rock – St Barths",
+    "city": "St. Jean",
+    "country": "Saint Barthélemy",
+    "category": "Island resort",
+    "slug": "eden-rock-st-barths"
+  },
+  {
+    "name": "Suján Jawai",
+    "city": "Jawai",
+    "country": "India",
+    "category": "Safari",
+    "slug": "sujan-jawai"
+  },
+  {
+    "name": "Soneva Secret",
+    "city": "Haa Dhaalu Atoll",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "soneva-secret"
+  },
+  {
+    "name": "The Johri",
+    "city": "Jaipur",
+    "country": "India",
+    "category": "Boutique",
+    "slug": "the-johri"
+  },
+  {
+    "name": "Le Sirenuse",
+    "city": "Positano",
+    "country": "Italy",
+    "category": "Resort",
+    "slug": "le-sirenuse"
+  },
+  {
+    "name": "Rosewood Mayakoba",
+    "city": "Playa del Carmen",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "rosewood-mayakoba"
+  },
+  {
+    "name": "Maçakızı",
+    "city": "Bodrum",
+    "country": "Türkiye",
+    "category": "Resort",
+    "slug": "macak-z"
+  },
+  {
+    "name": "Amangalla",
+    "city": "Galle",
+    "country": "Sri Lanka",
+    "category": "Historic",
+    "slug": "amangalla"
+  },
+  {
+    "name": "Amangiri",
+    "city": "Canyon Point",
+    "country": "United States",
+    "category": "Nature retreat",
+    "slug": "amangiri"
+  },
+  {
+    "name": "Portrait Milano",
+    "city": "Milan",
+    "country": "Italy",
+    "category": "Boutique",
+    "slug": "portrait-milano"
+  },
+  {
+    "name": "Amanbagh",
+    "city": "Ajabgarh",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "amanbagh"
+  },
+  {
+    "name": "The Oberoi Udaivilas",
+    "city": "Udaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "the-oberoi-udaivilas"
+  },
+  {
+    "name": "Taj Lake Palace",
+    "city": "Udaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "taj-lake-palace"
+  },
+  {
+    "name": "The Leela Palace Udaipur",
+    "city": "Udaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "the-leela-palace-udaipur"
+  },
+  {
+    "name": "RAAS Devigarh",
+    "city": "Udaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "raas-devigarh"
+  },
+  {
+    "name": "Fateh Garh",
+    "city": "Udaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "fateh-garh"
+  },
+  {
+    "name": "Shiv Niwas Palace",
+    "city": "Udaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "shiv-niwas-palace"
+  },
+  {
+    "name": "The Lalit Laxmi Vilas Palace",
+    "city": "Udaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "the-lalit-laxmi-vilas-palace"
+  },
+  {
+    "name": "Rambagh Palace",
+    "city": "Jaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "rambagh-palace"
+  },
+  {
+    "name": "The Oberoi Rajvilas",
+    "city": "Jaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "the-oberoi-rajvilas"
+  },
+  {
+    "name": "Jai Mahal Palace",
+    "city": "Jaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "jai-mahal-palace"
+  },
+  {
+    "name": "Samode Haveli",
+    "city": "Jaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "samode-haveli"
+  },
+  {
+    "name": "Rajmahal Palace RAAS",
+    "city": "Jaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "rajmahal-palace-raas"
+  },
+  {
+    "name": "ITC Rajputana",
+    "city": "Jaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "itc-rajputana"
+  },
+  {
+    "name": "Fairmont Jaipur",
+    "city": "Jaipur",
+    "country": "India",
+    "category": "Historic",
+    "slug": "fairmont-jaipur"
+  },
+  {
+    "name": "The Oberoi Amarvilas",
+    "city": "Agra",
+    "country": "India",
+    "category": "Historic",
+    "slug": "the-oberoi-amarvilas"
+  },
+  {
+    "name": "ITC Mughal",
+    "city": "Agra",
+    "country": "India",
+    "category": "Historic",
+    "slug": "itc-mughal"
+  },
+  {
+    "name": "Taj Hotel & Convention Centre Agra",
+    "city": "Agra",
+    "country": "India",
+    "category": "Historic",
+    "slug": "taj-hotel-and-convention-centre-agra"
+  },
+  {
+    "name": "The Leela Palace New Delhi",
+    "city": "New Delhi",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "the-leela-palace-new-delhi"
+  },
+  {
+    "name": "The Imperial New Delhi",
+    "city": "New Delhi",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "the-imperial-new-delhi"
+  },
+  {
+    "name": "The Lodhi",
+    "city": "New Delhi",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "the-lodhi"
+  },
+  {
+    "name": "Taj Palace New Delhi",
+    "city": "New Delhi",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "taj-palace-new-delhi"
+  },
+  {
+    "name": "Shangri-La Eros New Delhi",
+    "city": "New Delhi",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "shangri-la-eros-new-delhi"
+  },
+  {
+    "name": "The Oberoi New Delhi",
+    "city": "New Delhi",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "the-oberoi-new-delhi"
+  },
+  {
+    "name": "The Claridges New Delhi",
+    "city": "New Delhi",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "the-claridges-new-delhi"
+  },
+  {
+    "name": "Taj Falaknuma Palace",
+    "city": "Hyderabad",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "taj-falaknuma-palace"
+  },
+  {
+    "name": "Park Hyatt Hyderabad",
+    "city": "Hyderabad",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "park-hyatt-hyderabad"
+  },
+  {
+    "name": "ITC Kohenur",
+    "city": "Hyderabad",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "itc-kohenur"
+  },
+  {
+    "name": "The Westin Hyderabad Mindspace",
+    "city": "Hyderabad",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "the-westin-hyderabad-mindspace"
+  },
+  {
+    "name": "The Oberoi Mumbai",
+    "city": "Mumbai",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "the-oberoi-mumbai"
+  },
+  {
+    "name": "The St. Regis Mumbai",
+    "city": "Mumbai",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "the-st-regis-mumbai"
+  },
+  {
+    "name": "Taj Lands End",
+    "city": "Mumbai",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "taj-lands-end"
+  },
+  {
+    "name": "ITC Maratha",
+    "city": "Mumbai",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "itc-maratha"
+  },
+  {
+    "name": "Four Seasons Hotel Mumbai",
+    "city": "Mumbai",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "four-seasons-hotel-mumbai"
+  },
+  {
+    "name": "JW Marriott Mumbai Juhu",
+    "city": "Mumbai",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "jw-marriott-mumbai-juhu"
+  },
+  {
+    "name": "Grand Hyatt Mumbai",
+    "city": "Mumbai",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "grand-hyatt-mumbai"
+  },
+  {
+    "name": "Taj Exotica Resort & Spa Goa",
+    "city": "Goa",
+    "country": "India",
+    "category": "Resort",
+    "slug": "taj-exotica-resort-and-spa-goa"
+  },
+  {
+    "name": "The Leela Goa",
+    "city": "Goa",
+    "country": "India",
+    "category": "Resort",
+    "slug": "the-leela-goa"
+  },
+  {
+    "name": "Ahilya by the Sea",
+    "city": "Goa",
+    "country": "India",
+    "category": "Resort",
+    "slug": "ahilya-by-the-sea"
+  },
+  {
+    "name": "Alila Diwa Goa",
+    "city": "Goa",
+    "country": "India",
+    "category": "Resort",
+    "slug": "alila-diwa-goa"
+  },
+  {
+    "name": "W Goa",
+    "city": "Goa",
+    "country": "India",
+    "category": "Resort",
+    "slug": "w-goa"
+  },
+  {
+    "name": "ITC Grand Goa",
+    "city": "Goa",
+    "country": "India",
+    "category": "Resort",
+    "slug": "itc-grand-goa"
+  },
+  {
+    "name": "Taj Fort Aguada Resort & Spa",
+    "city": "Goa",
+    "country": "India",
+    "category": "Resort",
+    "slug": "taj-fort-aguada-resort-and-spa"
+  },
+  {
+    "name": "The Leela Palace Bengaluru",
+    "city": "Bengaluru",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "the-leela-palace-bengaluru"
+  },
+  {
+    "name": "Taj West End",
+    "city": "Bengaluru",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "taj-west-end"
+  },
+  {
+    "name": "The Oberoi Bengaluru",
+    "city": "Bengaluru",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "the-oberoi-bengaluru"
+  },
+  {
+    "name": "ITC Gardenia",
+    "city": "Bengaluru",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "itc-gardenia"
+  },
+  {
+    "name": "JW Marriott Bengaluru",
+    "city": "Bengaluru",
+    "country": "India",
+    "category": "Urban luxury",
+    "slug": "jw-marriott-bengaluru"
+  },
+  {
+    "name": "Kumarakom Lake Resort",
+    "city": "Kerala",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "kumarakom-lake-resort"
+  },
+  {
+    "name": "Niraamaya Retreats Surya Samudra",
+    "city": "Kerala",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "niraamaya-retreats-surya-samudra"
+  },
+  {
+    "name": "Marari Beach Resort",
+    "city": "Kerala",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "marari-beach-resort"
+  },
+  {
+    "name": "Evolve Back Coorg",
+    "city": "Kerala",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "evolve-back-coorg"
+  },
+  {
+    "name": "Spice Village",
+    "city": "Kerala",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "spice-village"
+  },
+  {
+    "name": "Taj Bekal Resort & Spa",
+    "city": "Kerala",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "taj-bekal-resort-and-spa"
+  },
+  {
+    "name": "The Postcard Mandalay Hall",
+    "city": "Kerala",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "the-postcard-mandalay-hall"
+  },
+  {
+    "name": "Wildflower Hall",
+    "city": "Himachal Pradesh",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "wildflower-hall"
+  },
+  {
+    "name": "The Oberoi Cecil",
+    "city": "Himachal Pradesh",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "the-oberoi-cecil"
+  },
+  {
+    "name": "The Himalayan Village",
+    "city": "Himachal Pradesh",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "the-himalayan-village"
+  },
+  {
+    "name": "Norbu The Montanna",
+    "city": "Himachal Pradesh",
+    "country": "India",
+    "category": "Nature retreat",
+    "slug": "norbu-the-montanna"
+  },
+  {
+    "name": "Suján Sher Bagh",
+    "city": "Ranthambore",
+    "country": "India",
+    "category": "Safari",
+    "slug": "sujan-sher-bagh"
+  },
+  {
+    "name": "The Oberoi Vanyavilas",
+    "city": "Ranthambore",
+    "country": "India",
+    "category": "Safari",
+    "slug": "the-oberoi-vanyavilas"
+  },
+  {
+    "name": "Aman-i-Khas",
+    "city": "Ranthambore",
+    "country": "India",
+    "category": "Safari",
+    "slug": "aman-i-khas"
+  },
+  {
+    "name": "The Tigress Resort & Spa",
+    "city": "Ranthambore",
+    "country": "India",
+    "category": "Safari",
+    "slug": "the-tigress-resort-and-spa"
+  },
+  {
+    "name": "The Serai Jaisalmer",
+    "city": "Jaisalmer",
+    "country": "India",
+    "category": "Heritage",
+    "slug": "the-serai-jaisalmer"
+  },
+  {
+    "name": "Suryagarh Jaisalmer",
+    "city": "Jaisalmer",
+    "country": "India",
+    "category": "Heritage",
+    "slug": "suryagarh-jaisalmer"
+  },
+  {
+    "name": "Rawla Narlai",
+    "city": "Jaisalmer",
+    "country": "India",
+    "category": "Heritage",
+    "slug": "rawla-narlai"
+  },
+  {
+    "name": "Evolve Back Hampi",
+    "city": "Hampi",
+    "country": "India",
+    "category": "Resort",
+    "slug": "evolve-back-hampi"
+  },
+  {
+    "name": "Orange County Hampi",
+    "city": "Hampi",
+    "country": "India",
+    "category": "Resort",
+    "slug": "orange-county-hampi"
+  },
+  {
+    "name": "Hoshinoya Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "hoshinoya-tokyo"
+  },
+  {
+    "name": "The Peninsula Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "the-peninsula-tokyo"
+  },
+  {
+    "name": "Imperial Hotel Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "imperial-hotel-tokyo"
+  },
+  {
+    "name": "The Okura Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "the-okura-tokyo"
+  },
+  {
+    "name": "Conrad Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "conrad-tokyo"
+  },
+  {
+    "name": "Palace Hotel Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "palace-hotel-tokyo"
+  },
+  {
+    "name": "The Ritz-Carlton Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "the-ritz-carlton-tokyo"
+  },
+  {
+    "name": "Andaz Tokyo Toranomon Hills",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "andaz-tokyo-toranomon-hills"
+  },
+  {
+    "name": "The Prince Gallery Tokyo Kioicho",
+    "city": "Tokyo",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "the-prince-gallery-tokyo-kioicho"
+  },
+  {
+    "name": "Hoshinoya Kyoto",
+    "city": "Kyoto",
+    "country": "Japan",
+    "category": "Historic",
+    "slug": "hoshinoya-kyoto"
+  },
+  {
+    "name": "The Ritz-Carlton Kyoto",
+    "city": "Kyoto",
+    "country": "Japan",
+    "category": "Historic",
+    "slug": "the-ritz-carlton-kyoto"
+  },
+  {
+    "name": "Suiran, a Luxury Collection Hotel",
+    "city": "Kyoto",
+    "country": "Japan",
+    "category": "Historic",
+    "slug": "suiran-a-luxury-collection-hotel"
+  },
+  {
+    "name": "Four Seasons Hotel Kyoto",
+    "city": "Kyoto",
+    "country": "Japan",
+    "category": "Historic",
+    "slug": "four-seasons-hotel-kyoto"
+  },
+  {
+    "name": "Hotel Okura Kyoto",
+    "city": "Kyoto",
+    "country": "Japan",
+    "category": "Historic",
+    "slug": "hotel-okura-kyoto"
+  },
+  {
+    "name": "The Shinmonzen",
+    "city": "Kyoto",
+    "country": "Japan",
+    "category": "Historic",
+    "slug": "the-shinmonzen"
+  },
+  {
+    "name": "Ace Hotel Kyoto",
+    "city": "Kyoto",
+    "country": "Japan",
+    "category": "Historic",
+    "slug": "ace-hotel-kyoto"
+  },
+  {
+    "name": "Conrad Osaka",
+    "city": "Osaka",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "conrad-osaka"
+  },
+  {
+    "name": "The Ritz-Carlton Osaka",
+    "city": "Osaka",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "the-ritz-carlton-osaka"
+  },
+  {
+    "name": "W Osaka",
+    "city": "Osaka",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "w-osaka"
+  },
+  {
+    "name": "InterContinental Osaka",
+    "city": "Osaka",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "intercontinental-osaka"
+  },
+  {
+    "name": "Patina Osaka",
+    "city": "Osaka",
+    "country": "Japan",
+    "category": "Urban luxury",
+    "slug": "patina-osaka"
+  },
+  {
+    "name": "The Ritz-Carlton Nikko",
+    "city": "Nikko",
+    "country": "Japan",
+    "category": "Nature retreat",
+    "slug": "the-ritz-carlton-nikko"
+  },
+  {
+    "name": "Fufu Nikko",
+    "city": "Nikko",
+    "country": "Japan",
+    "category": "Nature retreat",
+    "slug": "fufu-nikko"
+  },
+  {
+    "name": "The Peninsula Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "the-peninsula-bangkok"
+  },
+  {
+    "name": "The Sukhothai Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "the-sukhothai-bangkok"
+  },
+  {
+    "name": "The Okura Prestige Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "the-okura-prestige-bangkok"
+  },
+  {
+    "name": "The St. Regis Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "the-st-regis-bangkok"
+  },
+  {
+    "name": "Park Hyatt Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "park-hyatt-bangkok"
+  },
+  {
+    "name": "Kimpton Maa-Lai Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "category": "Urban luxury",
+    "slug": "kimpton-maa-lai-bangkok"
+  },
+  {
+    "name": "Trisara",
+    "city": "Phuket",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "trisara"
+  },
+  {
+    "name": "Keemala",
+    "city": "Phuket",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "keemala"
+  },
+  {
+    "name": "Banyan Tree Phuket",
+    "city": "Phuket",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "banyan-tree-phuket"
+  },
+  {
+    "name": "The Surin Phuket",
+    "city": "Phuket",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "the-surin-phuket"
+  },
+  {
+    "name": "Rosewood Phuket",
+    "city": "Phuket",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "rosewood-phuket"
+  },
+  {
+    "name": "The Naka Island",
+    "city": "Phuket",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "the-naka-island"
+  },
+  {
+    "name": "COMO Point Yamu",
+    "city": "Phuket",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "como-point-yamu"
+  },
+  {
+    "name": "Sri Panwa Phuket",
+    "city": "Phuket",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "sri-panwa-phuket"
+  },
+  {
+    "name": "Rayavadee",
+    "city": "Krabi",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "rayavadee"
+  },
+  {
+    "name": "Pimalai Resort & Spa",
+    "city": "Krabi",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "pimalai-resort-and-spa"
+  },
+  {
+    "name": "Phulay Bay, a Ritz-Carlton Reserve",
+    "city": "Krabi",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "phulay-bay-a-ritz-carlton-reserve"
+  },
+  {
+    "name": "Six Senses Samui",
+    "city": "Koh Samui",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "six-senses-samui"
+  },
+  {
+    "name": "Four Seasons Resort Koh Samui",
+    "city": "Koh Samui",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "four-seasons-resort-koh-samui"
+  },
+  {
+    "name": "Kamalaya Koh Samui",
+    "city": "Koh Samui",
+    "country": "Thailand",
+    "category": "Resort",
+    "slug": "kamalaya-koh-samui"
+  },
+  {
+    "name": "Capella Singapore",
+    "city": "Singapore",
+    "country": "Singapore",
+    "category": "Urban luxury",
+    "slug": "capella-singapore"
+  },
+  {
+    "name": "Marina Bay Sands",
+    "city": "Singapore",
+    "country": "Singapore",
+    "category": "Urban luxury",
+    "slug": "marina-bay-sands"
+  },
+  {
+    "name": "The Fullerton Hotel Singapore",
+    "city": "Singapore",
+    "country": "Singapore",
+    "category": "Urban luxury",
+    "slug": "the-fullerton-hotel-singapore"
+  },
+  {
+    "name": "The Ritz-Carlton, Millenia Singapore",
+    "city": "Singapore",
+    "country": "Singapore",
+    "category": "Urban luxury",
+    "slug": "the-ritz-carlton-millenia-singapore"
+  },
+  {
+    "name": "The Warehouse Hotel",
+    "city": "Singapore",
+    "country": "Singapore",
+    "category": "Urban luxury",
+    "slug": "the-warehouse-hotel"
+  },
+  {
+    "name": "The Singapore Edition",
+    "city": "Singapore",
+    "country": "Singapore",
+    "category": "Urban luxury",
+    "slug": "the-singapore-edition"
+  },
+  {
+    "name": "Kerry Hotel Hong Kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "category": "Urban luxury",
+    "slug": "kerry-hotel-hong-kong"
+  },
+  {
+    "name": "The Murray Hong Kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "category": "Urban luxury",
+    "slug": "the-murray-hong-kong"
+  },
+  {
+    "name": "Island Shangri-La Hong Kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "category": "Urban luxury",
+    "slug": "island-shangri-la-hong-kong"
+  },
+  {
+    "name": "The Landmark Mandarin Oriental",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "category": "Urban luxury",
+    "slug": "the-landmark-mandarin-oriental"
+  },
+  {
+    "name": "The St. Regis Hong Kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "category": "Urban luxury",
+    "slug": "the-st-regis-hong-kong"
+  },
+  {
+    "name": "Four Seasons Resort Bali at Sayan",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "four-seasons-resort-bali-at-sayan"
+  },
+  {
+    "name": "Four Seasons Resort Bali at Jimbaran Bay",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "four-seasons-resort-bali-at-jimbaran-bay"
+  },
+  {
+    "name": "Amandari",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "amandari"
+  },
+  {
+    "name": "Amankila",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "amankila"
+  },
+  {
+    "name": "Amanjiwo",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "amanjiwo"
+  },
+  {
+    "name": "Bulgari Resort Bali",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "bulgari-resort-bali"
+  },
+  {
+    "name": "COMO Shambhala Estate",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "como-shambhala-estate"
+  },
+  {
+    "name": "The Legian Seminyak",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "the-legian-seminyak"
+  },
+  {
+    "name": "The Mulia Bali",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "the-mulia-bali"
+  },
+  {
+    "name": "Alila Villas Uluwatu",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "alila-villas-uluwatu"
+  },
+  {
+    "name": "The Oberoi Beach Resort Bali",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "the-oberoi-beach-resort-bali"
+  },
+  {
+    "name": "The Kayon Jungle Resort",
+    "city": "Bali",
+    "country": "Indonesia",
+    "category": "Resort",
+    "slug": "the-kayon-jungle-resort"
+  },
+  {
+    "name": "The Oberoi Beach Resort, Lombok",
+    "city": "Lombok",
+    "country": "Indonesia",
+    "category": "Island resort",
+    "slug": "the-oberoi-beach-resort-lombok"
+  },
+  {
+    "name": "Hotel Tugu Lombok",
+    "city": "Lombok",
+    "country": "Indonesia",
+    "category": "Island resort",
+    "slug": "hotel-tugu-lombok"
+  },
+  {
+    "name": "Plataran Komodo Resort",
+    "city": "Komodo",
+    "country": "Indonesia",
+    "category": "Nature lodge",
+    "slug": "plataran-komodo-resort"
+  },
+  {
+    "name": "AYANA Komodo Waecicu Beach",
+    "city": "Komodo",
+    "country": "Indonesia",
+    "category": "Nature lodge",
+    "slug": "ayana-komodo-waecicu-beach"
+  },
+  {
+    "name": "Cheval Blanc Randheli",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "cheval-blanc-randheli"
+  },
+  {
+    "name": "JOALI Maldives",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "joali-maldives"
+  },
+  {
+    "name": "JOALI BEING",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "joali-being"
+  },
+  {
+    "name": "Velaa Private Island",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "velaa-private-island"
+  },
+  {
+    "name": "Kudadoo Maldives",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "kudadoo-maldives"
+  },
+  {
+    "name": "The St. Regis Maldives Vommuli Resort",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "the-st-regis-maldives-vommuli-resort"
+  },
+  {
+    "name": "One&Only Reethi Rah",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "one-and-only-reethi-rah"
+  },
+  {
+    "name": "Gili Lankanfushi",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "gili-lankanfushi"
+  },
+  {
+    "name": "Baros Maldives",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "baros-maldives"
+  },
+  {
+    "name": "Conrad Maldives Rangali Island",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "conrad-maldives-rangali-island"
+  },
+  {
+    "name": "Soneva Jani",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "soneva-jani"
+  },
+  {
+    "name": "Waldorf Astoria Maldives Ithaafushi",
+    "city": "Maldives",
+    "country": "Maldives",
+    "category": "Island resort",
+    "slug": "waldorf-astoria-maldives-ithaafushi"
+  },
+  {
+    "name": "Capella Hanoi",
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "category": "Historic",
+    "slug": "capella-hanoi"
+  },
+  {
+    "name": "Sofitel Legend Metropole Hanoi",
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "category": "Historic",
+    "slug": "sofitel-legend-metropole-hanoi"
+  },
+  {
+    "name": "Hotel de l'Opera Hanoi",
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "category": "Historic",
+    "slug": "hotel-de-l-opera-hanoi"
+  },
+  {
+    "name": "Four Seasons Resort The Nam Hai",
+    "city": "Hoi An",
+    "country": "Vietnam",
+    "category": "Boutique",
+    "slug": "four-seasons-resort-the-nam-hai"
+  },
+  {
+    "name": "Anantara Hoi An Resort",
+    "city": "Hoi An",
+    "country": "Vietnam",
+    "category": "Boutique",
+    "slug": "anantara-hoi-an-resort"
+  },
+  {
+    "name": "Namia River Retreat",
+    "city": "Hoi An",
+    "country": "Vietnam",
+    "category": "Boutique",
+    "slug": "namia-river-retreat"
+  },
+  {
+    "name": "Amanoi",
+    "city": "Nha Trang",
+    "country": "Vietnam",
+    "category": "Resort",
+    "slug": "amanoi"
+  },
+  {
+    "name": "Six Senses Ninh Van Bay",
+    "city": "Nha Trang",
+    "country": "Vietnam",
+    "category": "Resort",
+    "slug": "six-senses-ninh-van-bay"
+  },
+  {
+    "name": "Mia Resort Nha Trang",
+    "city": "Nha Trang",
+    "country": "Vietnam",
+    "category": "Resort",
+    "slug": "mia-resort-nha-trang"
+  },
+  {
+    "name": "InterContinental Danang Sun Peninsula Resort",
+    "city": "Da Nang",
+    "country": "Vietnam",
+    "category": "Resort",
+    "slug": "intercontinental-danang-sun-peninsula-resort"
+  },
+  {
+    "name": "Banyan Tree Lang Co",
+    "city": "Da Nang",
+    "country": "Vietnam",
+    "category": "Resort",
+    "slug": "banyan-tree-lang-co"
+  },
+  {
+    "name": "Hyatt Regency Danang Resort",
+    "city": "Da Nang",
+    "country": "Vietnam",
+    "category": "Resort",
+    "slug": "hyatt-regency-danang-resort"
+  },
+  {
+    "name": "Park Hyatt Saigon",
+    "city": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "category": "Urban luxury",
+    "slug": "park-hyatt-saigon"
+  },
+  {
+    "name": "The Reverie Saigon",
+    "city": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "category": "Urban luxury",
+    "slug": "the-reverie-saigon"
+  },
+  {
+    "name": "Hotel des Arts Saigon",
+    "city": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "category": "Urban luxury",
+    "slug": "hotel-des-arts-saigon"
+  },
+  {
+    "name": "Regent Phu Quoc",
+    "city": "Phu Quoc",
+    "country": "Vietnam",
+    "category": "Resort",
+    "slug": "regent-phu-quoc"
+  },
+  {
+    "name": "JW Marriott Phu Quoc Emerald Bay",
+    "city": "Phu Quoc",
+    "country": "Vietnam",
+    "category": "Resort",
+    "slug": "jw-marriott-phu-quoc-emerald-bay"
+  },
+  {
+    "name": "La Veranda Resort Phu Quoc",
+    "city": "Phu Quoc",
+    "country": "Vietnam",
+    "category": "Resort",
+    "slug": "la-veranda-resort-phu-quoc"
+  },
+  {
+    "name": "Cape Weligama",
+    "city": "Galle",
+    "country": "Sri Lanka",
+    "category": "Historic",
+    "slug": "cape-weligama"
+  },
+  {
+    "name": "Wild Coast Tented Lodge",
+    "city": "Galle",
+    "country": "Sri Lanka",
+    "category": "Historic",
+    "slug": "wild-coast-tented-lodge"
+  },
+  {
+    "name": "Amanwella",
+    "city": "Galle",
+    "country": "Sri Lanka",
+    "category": "Historic",
+    "slug": "amanwella"
+  },
+  {
+    "name": "Ceylon Tea Trails",
+    "city": "Galle",
+    "country": "Sri Lanka",
+    "category": "Historic",
+    "slug": "ceylon-tea-trails"
+  },
+  {
+    "name": "Uga Chena Huts",
+    "city": "Galle",
+    "country": "Sri Lanka",
+    "category": "Historic",
+    "slug": "uga-chena-huts"
+  },
+  {
+    "name": "Santani Wellness Resort",
+    "city": "Galle",
+    "country": "Sri Lanka",
+    "category": "Historic",
+    "slug": "santani-wellness-resort"
+  },
+  {
+    "name": "Fort Bazaar",
+    "city": "Galle",
+    "country": "Sri Lanka",
+    "category": "Historic",
+    "slug": "fort-bazaar"
+  },
+  {
+    "name": "Shangri-La Colombo",
+    "city": "Colombo",
+    "country": "Sri Lanka",
+    "category": "Urban luxury",
+    "slug": "shangri-la-colombo"
+  },
+  {
+    "name": "Galle Face Hotel",
+    "city": "Colombo",
+    "country": "Sri Lanka",
+    "category": "Urban luxury",
+    "slug": "galle-face-hotel"
+  },
+  {
+    "name": "Cinnamon Life at City of Dreams",
+    "city": "Colombo",
+    "country": "Sri Lanka",
+    "category": "Urban luxury",
+    "slug": "cinnamon-life-at-city-of-dreams"
+  },
+  {
+    "name": "Burj Al Arab Jumeirah",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Urban luxury",
+    "slug": "burj-al-arab-jumeirah"
+  },
+  {
+    "name": "One&Only The Palm",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Urban luxury",
+    "slug": "one-and-only-the-palm"
+  },
+  {
+    "name": "Bulgari Resort Dubai",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Urban luxury",
+    "slug": "bulgari-resort-dubai"
+  },
+  {
+    "name": "Four Seasons Resort Dubai at Jumeirah Beach",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Urban luxury",
+    "slug": "four-seasons-resort-dubai-at-jumeirah-beach"
+  },
+  {
+    "name": "Armani Hotel Dubai",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Urban luxury",
+    "slug": "armani-hotel-dubai"
+  },
+  {
+    "name": "Al Maha, a Luxury Collection Desert Resort & Spa",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Urban luxury",
+    "slug": "al-maha-a-luxury-collection-desert-resort-and-spa"
+  },
+  {
+    "name": "Palazzo Versace Dubai",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Urban luxury",
+    "slug": "palazzo-versace-dubai"
+  },
+  {
+    "name": "Jumeirah Al Naseem",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Urban luxury",
+    "slug": "jumeirah-al-naseem"
+  },
+  {
+    "name": "The Ritz-Carlton Dubai",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "category": "Urban luxury",
+    "slug": "the-ritz-carlton-dubai"
+  },
+  {
+    "name": "Emirates Palace Mandarin Oriental",
+    "city": "Abu Dhabi",
+    "country": "United Arab Emirates",
+    "category": "Resort",
+    "slug": "emirates-palace-mandarin-oriental"
+  },
+  {
+    "name": "Qasr Al Sarab Desert Resort by Anantara",
+    "city": "Abu Dhabi",
+    "country": "United Arab Emirates",
+    "category": "Resort",
+    "slug": "qasr-al-sarab-desert-resort-by-anantara"
+  },
+  {
+    "name": "The St. Regis Saadiyat Island Resort",
+    "city": "Abu Dhabi",
+    "country": "United Arab Emirates",
+    "category": "Resort",
+    "slug": "the-st-regis-saadiyat-island-resort"
+  },
+  {
+    "name": "Four Seasons Hotel Abu Dhabi at Al Maryah Island",
+    "city": "Abu Dhabi",
+    "country": "United Arab Emirates",
+    "category": "Resort",
+    "slug": "four-seasons-hotel-abu-dhabi-at-al-maryah-island"
+  },
+  {
+    "name": "The Abu Dhabi EDITION",
+    "city": "Abu Dhabi",
+    "country": "United Arab Emirates",
+    "category": "Resort",
+    "slug": "the-abu-dhabi-edition"
+  },
+  {
+    "name": "Alila Jabal Akhdar",
+    "city": "Oman",
+    "country": "Oman",
+    "category": "Nature retreat",
+    "slug": "alila-jabal-akhdar"
+  },
+  {
+    "name": "The Chedi Muscat",
+    "city": "Oman",
+    "country": "Oman",
+    "category": "Nature retreat",
+    "slug": "the-chedi-muscat"
+  },
+  {
+    "name": "Anantara Al Jabal Al Akhdar Resort",
+    "city": "Oman",
+    "country": "Oman",
+    "category": "Nature retreat",
+    "slug": "anantara-al-jabal-al-akhdar-resort"
+  },
+  {
+    "name": "Mandarin Oriental Doha",
+    "city": "Doha",
+    "country": "Qatar",
+    "category": "Urban luxury",
+    "slug": "mandarin-oriental-doha"
+  },
+  {
+    "name": "The Ned Doha",
+    "city": "Doha",
+    "country": "Qatar",
+    "category": "Urban luxury",
+    "slug": "the-ned-doha"
+  },
+  {
+    "name": "Four Seasons Hotel Doha",
+    "city": "Doha",
+    "country": "Qatar",
+    "category": "Urban luxury",
+    "slug": "four-seasons-hotel-doha"
+  },
+  {
+    "name": "Raffles Doha",
+    "city": "Doha",
+    "country": "Qatar",
+    "category": "Urban luxury",
+    "slug": "raffles-doha"
+  },
+  {
+    "name": "Banyan Tree AlUla",
+    "city": "AlUla",
+    "country": "Saudi Arabia",
+    "category": "Nature retreat",
+    "slug": "banyan-tree-alula"
+  },
+  {
+    "name": "Our Habitas AlUla",
+    "city": "AlUla",
+    "country": "Saudi Arabia",
+    "category": "Nature retreat",
+    "slug": "our-habitas-alula"
+  },
+  {
+    "name": "The Chedi Hegra",
+    "city": "AlUla",
+    "country": "Saudi Arabia",
+    "category": "Nature retreat",
+    "slug": "the-chedi-hegra"
+  },
+  {
+    "name": "Ellerman House",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "category": "Urban luxury",
+    "slug": "ellerman-house"
+  },
+  {
+    "name": "One&Only Cape Town",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "category": "Urban luxury",
+    "slug": "one-and-only-cape-town"
+  },
+  {
+    "name": "The Silo Hotel",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "category": "Urban luxury",
+    "slug": "the-silo-hotel"
+  },
+  {
+    "name": "Cape Grace",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "category": "Urban luxury",
+    "slug": "cape-grace"
+  },
+  {
+    "name": "The Twelve Apostles Hotel and Spa",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "category": "Urban luxury",
+    "slug": "the-twelve-apostles-hotel-and-spa"
+  },
+  {
+    "name": "Tintswalo Atlantic",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "category": "Urban luxury",
+    "slug": "tintswalo-atlantic"
+  },
+  {
+    "name": "Singita Lebombo Lodge",
+    "city": "Kruger National Park",
+    "country": "South Africa",
+    "category": "Safari",
+    "slug": "singita-lebombo-lodge"
+  },
+  {
+    "name": "Singita Boulders Lodge",
+    "city": "Kruger National Park",
+    "country": "South Africa",
+    "category": "Safari",
+    "slug": "singita-boulders-lodge"
+  },
+  {
+    "name": "Royal Malewane",
+    "city": "Kruger National Park",
+    "country": "South Africa",
+    "category": "Safari",
+    "slug": "royal-malewane"
+  },
+  {
+    "name": "Londolozi Private Game Reserve",
+    "city": "Kruger National Park",
+    "country": "South Africa",
+    "category": "Safari",
+    "slug": "londolozi-private-game-reserve"
+  },
+  {
+    "name": "&Beyond Ngala Safari Lodge",
+    "city": "Kruger National Park",
+    "country": "South Africa",
+    "category": "Safari",
+    "slug": "and-beyond-ngala-safari-lodge"
+  },
+  {
+    "name": "Sabi Sabi Earth Lodge",
+    "city": "Kruger National Park",
+    "country": "South Africa",
+    "category": "Safari",
+    "slug": "sabi-sabi-earth-lodge"
+  },
+  {
+    "name": "Lion Sands Ivory Lodge",
+    "city": "Kruger National Park",
+    "country": "South Africa",
+    "category": "Safari",
+    "slug": "lion-sands-ivory-lodge"
+  },
+  {
+    "name": "Angama Mara",
+    "city": "Masai Mara",
+    "country": "Kenya",
+    "category": "Safari",
+    "slug": "angama-mara"
+  },
+  {
+    "name": "Giraffe Manor",
+    "city": "Masai Mara",
+    "country": "Kenya",
+    "category": "Safari",
+    "slug": "giraffe-manor"
+  },
+  {
+    "name": "Hemingways Nairobi",
+    "city": "Masai Mara",
+    "country": "Kenya",
+    "category": "Safari",
+    "slug": "hemingways-nairobi"
+  },
+  {
+    "name": "Mara Plains Camp",
+    "city": "Masai Mara",
+    "country": "Kenya",
+    "category": "Safari",
+    "slug": "mara-plains-camp"
+  },
+  {
+    "name": "Mahali Mzuri",
+    "city": "Masai Mara",
+    "country": "Kenya",
+    "category": "Safari",
+    "slug": "mahali-mzuri"
+  },
+  {
+    "name": "Four Seasons Safari Lodge Serengeti",
+    "city": "Serengeti",
+    "country": "Tanzania",
+    "category": "Safari",
+    "slug": "four-seasons-safari-lodge-serengeti"
+  },
+  {
+    "name": "&Beyond Ngorongoro Crater Lodge",
+    "city": "Serengeti",
+    "country": "Tanzania",
+    "category": "Safari",
+    "slug": "and-beyond-ngorongoro-crater-lodge"
+  },
+  {
+    "name": "Singita Sasakwa Lodge",
+    "city": "Serengeti",
+    "country": "Tanzania",
+    "category": "Safari",
+    "slug": "singita-sasakwa-lodge"
+  },
+  {
+    "name": " andBeyond Grumeti Serengeti River Lodge",
+    "city": "Serengeti",
+    "country": "Tanzania",
+    "category": "Safari",
+    "slug": "andbeyond-grumeti-serengeti-river-lodge"
+  },
+  {
+    "name": "The Residence Zanzibar",
+    "city": "Zanzibar",
+    "country": "Tanzania",
+    "category": "Island resort",
+    "slug": "the-residence-zanzibar"
+  },
+  {
+    "name": "Zuri Zanzibar",
+    "city": "Zanzibar",
+    "country": "Tanzania",
+    "category": "Island resort",
+    "slug": "zuri-zanzibar"
+  },
+  {
+    "name": "Mnemba Island Lodge",
+    "city": "Zanzibar",
+    "country": "Tanzania",
+    "category": "Island resort",
+    "slug": "mnemba-island-lodge"
+  },
+  {
+    "name": "Kasbah Tamadot",
+    "city": "Marrakech",
+    "country": "Morocco",
+    "category": "Historic",
+    "slug": "kasbah-tamadot"
+  },
+  {
+    "name": "Four Seasons Resort Marrakech",
+    "city": "Marrakech",
+    "country": "Morocco",
+    "category": "Historic",
+    "slug": "four-seasons-resort-marrakech"
+  },
+  {
+    "name": "Amanjena",
+    "city": "Marrakech",
+    "country": "Morocco",
+    "category": "Historic",
+    "slug": "amanjena"
+  },
+  {
+    "name": "El Fenn",
+    "city": "Marrakech",
+    "country": "Morocco",
+    "category": "Historic",
+    "slug": "el-fenn"
+  },
+  {
+    "name": "Selman Marrakech",
+    "city": "Marrakech",
+    "country": "Morocco",
+    "category": "Historic",
+    "slug": "selman-marrakech"
+  },
+  {
+    "name": "The Savoy",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "the-savoy"
+  },
+  {
+    "name": "The Dorchester",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "the-dorchester"
+  },
+  {
+    "name": "The Langham London",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "the-langham-london"
+  },
+  {
+    "name": "The Ritz London",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "the-ritz-london"
+  },
+  {
+    "name": "The Berkeley",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "the-berkeley"
+  },
+  {
+    "name": "Brown's Hotel",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "brown-s-hotel"
+  },
+  {
+    "name": "The Goring",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "the-goring"
+  },
+  {
+    "name": "The Lanesborough",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "the-lanesborough"
+  },
+  {
+    "name": "Shangri-La The Shard, London",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "shangri-la-the-shard-london"
+  },
+  {
+    "name": "The Ned",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "the-ned"
+  },
+  {
+    "name": "One Aldwych",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "one-aldwych"
+  },
+  {
+    "name": "Ham Yard Hotel",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "Historic",
+    "slug": "ham-yard-hotel"
+  },
+  {
+    "name": "Ritz Paris",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "ritz-paris"
+  },
+  {
+    "name": "Le Meurice",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "le-meurice"
+  },
+  {
+    "name": "Four Seasons Hotel George V",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "four-seasons-hotel-george-v"
+  },
+  {
+    "name": "Mandarin Oriental, Paris",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "mandarin-oriental-paris"
+  },
+  {
+    "name": "Hotel Lutetia",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "hotel-lutetia"
+  },
+  {
+    "name": "Hôtel Barrière Le Fouquet's",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "hotel-barriere-le-fouquet-s"
+  },
+  {
+    "name": "Saint James Paris",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "saint-james-paris"
+  },
+  {
+    "name": "Shangri-La Paris",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "shangri-la-paris"
+  },
+  {
+    "name": "Hôtel Costes",
+    "city": "Paris",
+    "country": "France",
+    "category": "Historic",
+    "slug": "hotel-costes"
+  },
+  {
+    "name": "Hotel de Russie",
+    "city": "Rome",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "hotel-de-russie"
+  },
+  {
+    "name": "Hotel Hassler Roma",
+    "city": "Rome",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "hotel-hassler-roma"
+  },
+  {
+    "name": "Hotel Eden Rome",
+    "city": "Rome",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "hotel-eden-rome"
+  },
+  {
+    "name": "J.K. Place Roma",
+    "city": "Rome",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "j-k-place-roma"
+  },
+  {
+    "name": "Hotel de la Ville Rome",
+    "city": "Rome",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "hotel-de-la-ville-rome"
+  },
+  {
+    "name": "Palazzo Manfredi",
+    "city": "Rome",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "palazzo-manfredi"
+  },
+  {
+    "name": "The St. Regis Rome",
+    "city": "Rome",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "the-st-regis-rome"
+  },
+  {
+    "name": "The Gritti Palace",
+    "city": "Venice",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "the-gritti-palace"
+  },
+  {
+    "name": "The St. Regis Venice",
+    "city": "Venice",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "the-st-regis-venice"
+  },
+  {
+    "name": "Ca' Sagredo Hotel",
+    "city": "Venice",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "ca-sagredo-hotel"
+  },
+  {
+    "name": "Hotel Danieli",
+    "city": "Venice",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "hotel-danieli"
+  },
+  {
+    "name": "Palazzo Venart",
+    "city": "Venice",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "palazzo-venart"
+  },
+  {
+    "name": "Villa Cora",
+    "city": "Florence",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "villa-cora"
+  },
+  {
+    "name": "Portrait Firenze",
+    "city": "Florence",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "portrait-firenze"
+  },
+  {
+    "name": "The St. Regis Florence",
+    "city": "Florence",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "the-st-regis-florence"
+  },
+  {
+    "name": "Belmond Villa San Michele",
+    "city": "Florence",
+    "country": "Italy",
+    "category": "Historic",
+    "slug": "belmond-villa-san-michele"
+  },
+  {
+    "name": "Bulgari Hotel Milano",
+    "city": "Milan",
+    "country": "Italy",
+    "category": "Urban luxury",
+    "slug": "bulgari-hotel-milano"
+  },
+  {
+    "name": "Armani Hotel Milano",
+    "city": "Milan",
+    "country": "Italy",
+    "category": "Urban luxury",
+    "slug": "armani-hotel-milano"
+  },
+  {
+    "name": "Four Seasons Hotel Milano",
+    "city": "Milan",
+    "country": "Italy",
+    "category": "Urban luxury",
+    "slug": "four-seasons-hotel-milano"
+  },
+  {
+    "name": "Excelsior Hotel Gallia",
+    "city": "Milan",
+    "country": "Italy",
+    "category": "Urban luxury",
+    "slug": "excelsior-hotel-gallia"
+  },
+  {
+    "name": "Baur au Lac",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "category": "Urban luxury",
+    "slug": "baur-au-lac"
+  },
+  {
+    "name": "The Dolder Grand",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "category": "Urban luxury",
+    "slug": "the-dolder-grand"
+  },
+  {
+    "name": "Widder Hotel",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "category": "Urban luxury",
+    "slug": "widder-hotel"
+  },
+  {
+    "name": "Beau-Rivage Palace",
+    "city": "Lausanne",
+    "country": "Switzerland",
+    "category": "Resort",
+    "slug": "beau-rivage-palace"
+  },
+  {
+    "name": "Lausanne Palace",
+    "city": "Lausanne",
+    "country": "Switzerland",
+    "category": "Resort",
+    "slug": "lausanne-palace"
+  },
+  {
+    "name": "The Chedi Andermatt",
+    "city": "Andermatt",
+    "country": "Switzerland",
+    "category": "Resort",
+    "slug": "the-chedi-andermatt"
+  },
+  {
+    "name": "Kulm Hotel St. Moritz",
+    "city": "St. Moritz",
+    "country": "Switzerland",
+    "category": "Resort",
+    "slug": "kulm-hotel-st-moritz"
+  },
+  {
+    "name": "Suvretta House",
+    "city": "St. Moritz",
+    "country": "Switzerland",
+    "category": "Resort",
+    "slug": "suvretta-house"
+  },
+  {
+    "name": "The Alpina Gstaad",
+    "city": "Gstaad",
+    "country": "Switzerland",
+    "category": "Resort",
+    "slug": "the-alpina-gstaad"
+  },
+  {
+    "name": "Gstaad Palace",
+    "city": "Gstaad",
+    "country": "Switzerland",
+    "category": "Resort",
+    "slug": "gstaad-palace"
+  },
+  {
+    "name": "The Omnia Zermatt",
+    "city": "Zermatt",
+    "country": "Switzerland",
+    "category": "Resort",
+    "slug": "the-omnia-zermatt"
+  },
+  {
+    "name": "Mont Cervin Palace",
+    "city": "Zermatt",
+    "country": "Switzerland",
+    "category": "Resort",
+    "slug": "mont-cervin-palace"
+  },
+  {
+    "name": "Hotel Arts Barcelona",
+    "city": "Barcelona",
+    "country": "Spain",
+    "category": "Urban luxury",
+    "slug": "hotel-arts-barcelona"
+  },
+  {
+    "name": "Mandarin Oriental Barcelona",
+    "city": "Barcelona",
+    "country": "Spain",
+    "category": "Urban luxury",
+    "slug": "mandarin-oriental-barcelona"
+  },
+  {
+    "name": "Cotton House Hotel",
+    "city": "Barcelona",
+    "country": "Spain",
+    "category": "Urban luxury",
+    "slug": "cotton-house-hotel"
+  },
+  {
+    "name": "Majestic Hotel & Spa Barcelona",
+    "city": "Barcelona",
+    "country": "Spain",
+    "category": "Urban luxury",
+    "slug": "majestic-hotel-and-spa-barcelona"
+  },
+  {
+    "name": "The Ritz-Carlton Tenerife, Abama",
+    "city": "Tenerife",
+    "country": "Spain",
+    "category": "Resort",
+    "slug": "the-ritz-carlton-tenerife-abama"
+  },
+  {
+    "name": "Bahia del Duque",
+    "city": "Tenerife",
+    "country": "Spain",
+    "category": "Resort",
+    "slug": "bahia-del-duque"
+  },
+  {
+    "name": "Marbella Club Hotel",
+    "city": "Marbella",
+    "country": "Spain",
+    "category": "Resort",
+    "slug": "marbella-club-hotel"
+  },
+  {
+    "name": "Finca Cortesin",
+    "city": "Marbella",
+    "country": "Spain",
+    "category": "Resort",
+    "slug": "finca-cortesin"
+  },
+  {
+    "name": "Puente Romano Marbella",
+    "city": "Marbella",
+    "country": "Spain",
+    "category": "Resort",
+    "slug": "puente-romano-marbella"
+  },
+  {
+    "name": "Hotel Alfonso XIII, a Luxury Collection Hotel",
+    "city": "Seville",
+    "country": "Spain",
+    "category": "Historic",
+    "slug": "hotel-alfonso-xiii-a-luxury-collection-hotel"
+  },
+  {
+    "name": "Four Seasons Hotel Ritz Lisbon",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "category": "Historic",
+    "slug": "four-seasons-hotel-ritz-lisbon"
+  },
+  {
+    "name": "Bairro Alto Hotel",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "category": "Historic",
+    "slug": "bairro-alto-hotel"
+  },
+  {
+    "name": "Olissippo Lapa Palace",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "category": "Historic",
+    "slug": "olissippo-lapa-palace"
+  },
+  {
+    "name": "Reid's Palace, A Belmond Hotel",
+    "city": "Madeira",
+    "country": "Portugal",
+    "category": "Resort",
+    "slug": "reid-s-palace-a-belmond-hotel"
+  },
+  {
+    "name": "Canaves Oia Suites",
+    "city": "Santorini",
+    "country": "Greece",
+    "category": "Boutique",
+    "slug": "canaves-oia-suites"
+  },
+  {
+    "name": "Katikies Santorini",
+    "city": "Santorini",
+    "country": "Greece",
+    "category": "Boutique",
+    "slug": "katikies-santorini"
+  },
+  {
+    "name": "Grace Hotel Santorini",
+    "city": "Santorini",
+    "country": "Greece",
+    "category": "Boutique",
+    "slug": "grace-hotel-santorini"
+  },
+  {
+    "name": "Andronis Luxury Suites",
+    "city": "Santorini",
+    "country": "Greece",
+    "category": "Boutique",
+    "slug": "andronis-luxury-suites"
+  },
+  {
+    "name": "Mandarin Oriental, Costa Navarino",
+    "city": "Costa Navarino",
+    "country": "Greece",
+    "category": "Resort",
+    "slug": "mandarin-oriental-costa-navarino"
+  },
+  {
+    "name": "The Romanos, a Luxury Collection Resort",
+    "city": "Costa Navarino",
+    "country": "Greece",
+    "category": "Resort",
+    "slug": "the-romanos-a-luxury-collection-resort"
+  },
+  {
+    "name": "W Costa Navarino",
+    "city": "Costa Navarino",
+    "country": "Greece",
+    "category": "Resort",
+    "slug": "w-costa-navarino"
+  },
+  {
+    "name": "Hotel Grande Bretagne",
+    "city": "Athens",
+    "country": "Greece",
+    "category": "Historic",
+    "slug": "hotel-grande-bretagne"
+  },
+  {
+    "name": "King George, a Luxury Collection Hotel",
+    "city": "Athens",
+    "country": "Greece",
+    "category": "Historic",
+    "slug": "king-george-a-luxury-collection-hotel"
+  },
+  {
+    "name": "Rosewood Vienna",
+    "city": "Vienna",
+    "country": "Austria",
+    "category": "Historic",
+    "slug": "rosewood-vienna"
+  },
+  {
+    "name": "Park Hyatt Vienna",
+    "city": "Vienna",
+    "country": "Austria",
+    "category": "Historic",
+    "slug": "park-hyatt-vienna"
+  },
+  {
+    "name": "The Ritz-Carlton, Vienna",
+    "city": "Vienna",
+    "country": "Austria",
+    "category": "Historic",
+    "slug": "the-ritz-carlton-vienna"
+  },
+  {
+    "name": "Conservatorium Hotel",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "category": "Boutique",
+    "slug": "conservatorium-hotel"
+  },
+  {
+    "name": "Waldorf Astoria Amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "category": "Boutique",
+    "slug": "waldorf-astoria-amsterdam"
+  },
+  {
+    "name": "Pulitzer Amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "category": "Boutique",
+    "slug": "pulitzer-amsterdam"
+  },
+  {
+    "name": "Hotel Adlon Kempinski",
+    "city": "Berlin",
+    "country": "Germany",
+    "category": "Urban luxury",
+    "slug": "hotel-adlon-kempinski"
+  },
+  {
+    "name": "Hotel de Rome",
+    "city": "Berlin",
+    "country": "Germany",
+    "category": "Urban luxury",
+    "slug": "hotel-de-rome"
+  },
+  {
+    "name": "The Ritz-Carlton, Berlin",
+    "city": "Berlin",
+    "country": "Germany",
+    "category": "Urban luxury",
+    "slug": "the-ritz-carlton-berlin"
+  },
+  {
+    "name": "Bayerischer Hof",
+    "city": "Munich",
+    "country": "Germany",
+    "category": "Historic",
+    "slug": "bayerischer-hof"
+  },
+  {
+    "name": "Hotel Vier Jahreszeiten Kempinski München",
+    "city": "Munich",
+    "country": "Germany",
+    "category": "Historic",
+    "slug": "hotel-vier-jahreszeiten-kempinski-munchen"
+  },
+  {
+    "name": "Hotel d'Angleterre",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "category": "Urban luxury",
+    "slug": "hotel-d-angleterre"
+  },
+  {
+    "name": "Nobis Hotel Copenhagen",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "category": "Urban luxury",
+    "slug": "nobis-hotel-copenhagen"
+  },
+  {
+    "name": "The Thief",
+    "city": "Oslo",
+    "country": "Norway",
+    "category": "Boutique",
+    "slug": "the-thief"
+  },
+  {
+    "name": "Sommerro",
+    "city": "Oslo",
+    "country": "Norway",
+    "category": "Boutique",
+    "slug": "sommerro"
+  },
+  {
+    "name": "Arctic Bath",
+    "city": "Swedish Lapland",
+    "country": "Sweden",
+    "category": "Nature retreat",
+    "slug": "arctic-bath"
+  },
+  {
+    "name": "Icehotel",
+    "city": "Swedish Lapland",
+    "country": "Sweden",
+    "category": "Nature retreat",
+    "slug": "icehotel"
+  },
+  {
+    "name": "The Plaza",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-plaza"
+  },
+  {
+    "name": "The St. Regis New York",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-st-regis-new-york"
+  },
+  {
+    "name": "Four Seasons Hotel New York Downtown",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "four-seasons-hotel-new-york-downtown"
+  },
+  {
+    "name": "The Pierre, A Taj Hotel",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-pierre-a-taj-hotel"
+  },
+  {
+    "name": "The Langham, New York, Fifth Avenue",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-langham-new-york-fifth-avenue"
+  },
+  {
+    "name": "Baccarat Hotel New York",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "baccarat-hotel-new-york"
+  },
+  {
+    "name": "The Peninsula New York",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-peninsula-new-york"
+  },
+  {
+    "name": "Lotte New York Palace",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "lotte-new-york-palace"
+  },
+  {
+    "name": "The Whitby Hotel",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-whitby-hotel"
+  },
+  {
+    "name": "The Beekman, a Thompson Hotel",
+    "city": "New York",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-beekman-a-thompson-hotel"
+  },
+  {
+    "name": "The Peninsula Beverly Hills",
+    "city": "Beverly Hills",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-peninsula-beverly-hills"
+  },
+  {
+    "name": "Waldorf Astoria Beverly Hills",
+    "city": "Beverly Hills",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "waldorf-astoria-beverly-hills"
+  },
+  {
+    "name": "Beverly Wilshire, A Four Seasons Hotel",
+    "city": "Beverly Hills",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "beverly-wilshire-a-four-seasons-hotel"
+  },
+  {
+    "name": "The Maybourne Beverly Hills",
+    "city": "Beverly Hills",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-maybourne-beverly-hills"
+  },
+  {
+    "name": "The London West Hollywood",
+    "city": "Beverly Hills",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-london-west-hollywood"
+  },
+  {
+    "name": "Sunset Tower Hotel",
+    "city": "Los Angeles",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "sunset-tower-hotel"
+  },
+  {
+    "name": "Shutters on the Beach",
+    "city": "Los Angeles",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "shutters-on-the-beach"
+  },
+  {
+    "name": "Terranea Resort",
+    "city": "Los Angeles",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "terranea-resort"
+  },
+  {
+    "name": "The Ritz-Carlton, Los Angeles",
+    "city": "Los Angeles",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-ritz-carlton-los-angeles"
+  },
+  {
+    "name": "The Ritz-Carlton, San Francisco",
+    "city": "San Francisco",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-ritz-carlton-san-francisco"
+  },
+  {
+    "name": "Four Seasons Hotel San Francisco",
+    "city": "San Francisco",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "four-seasons-hotel-san-francisco"
+  },
+  {
+    "name": "Fairmont San Francisco",
+    "city": "San Francisco",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "fairmont-san-francisco"
+  },
+  {
+    "name": "Palace Hotel, a Luxury Collection Hotel",
+    "city": "San Francisco",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "palace-hotel-a-luxury-collection-hotel"
+  },
+  {
+    "name": "1 Hotel San Francisco",
+    "city": "San Francisco",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "1-hotel-san-francisco"
+  },
+  {
+    "name": "Faena Hotel Miami Beach",
+    "city": "Miami Beach",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "faena-hotel-miami-beach"
+  },
+  {
+    "name": "The Setai, Miami Beach",
+    "city": "Miami Beach",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "the-setai-miami-beach"
+  },
+  {
+    "name": "Acqualina Resort & Residences",
+    "city": "Miami Beach",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "acqualina-resort-and-residences"
+  },
+  {
+    "name": "The Miami Beach EDITION",
+    "city": "Miami Beach",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "the-miami-beach-edition"
+  },
+  {
+    "name": "The Betsy South Beach",
+    "city": "Miami Beach",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "the-betsy-south-beach"
+  },
+  {
+    "name": "Wynn Las Vegas",
+    "city": "Las Vegas",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "wynn-las-vegas"
+  },
+  {
+    "name": "Bellagio",
+    "city": "Las Vegas",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "bellagio"
+  },
+  {
+    "name": "Four Seasons Hotel Las Vegas",
+    "city": "Las Vegas",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "four-seasons-hotel-las-vegas"
+  },
+  {
+    "name": "The Venetian Resort Las Vegas",
+    "city": "Las Vegas",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "the-venetian-resort-las-vegas"
+  },
+  {
+    "name": "Encore at Wynn Las Vegas",
+    "city": "Las Vegas",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "encore-at-wynn-las-vegas"
+  },
+  {
+    "name": "Halekulani",
+    "city": "Hawaii",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "halekulani"
+  },
+  {
+    "name": "Four Seasons Resort Hualalai",
+    "city": "Hawaii",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "four-seasons-resort-hualalai"
+  },
+  {
+    "name": "Hotel Wailea",
+    "city": "Hawaii",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "hotel-wailea"
+  },
+  {
+    "name": "Grand Wailea, A Waldorf Astoria Resort",
+    "city": "Hawaii",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "grand-wailea-a-waldorf-astoria-resort"
+  },
+  {
+    "name": "The Ritz-Carlton Maui, Kapalua",
+    "city": "Hawaii",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "the-ritz-carlton-maui-kapalua"
+  },
+  {
+    "name": "Mauna Kea Beach Hotel",
+    "city": "Hawaii",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "mauna-kea-beach-hotel"
+  },
+  {
+    "name": "Auberge du Soleil",
+    "city": "Napa Valley",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "auberge-du-soleil"
+  },
+  {
+    "name": "Meadowood Napa Valley",
+    "city": "Napa Valley",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "meadowood-napa-valley"
+  },
+  {
+    "name": "Bardessono Hotel and Spa",
+    "city": "Napa Valley",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "bardessono-hotel-and-spa"
+  },
+  {
+    "name": "Solage, Auberge Resorts Collection",
+    "city": "Napa Valley",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "solage-auberge-resorts-collection"
+  },
+  {
+    "name": "The Peninsula Chicago",
+    "city": "Chicago",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-peninsula-chicago"
+  },
+  {
+    "name": "Waldorf Astoria Chicago",
+    "city": "Chicago",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "waldorf-astoria-chicago"
+  },
+  {
+    "name": "The Langham, Chicago",
+    "city": "Chicago",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-langham-chicago"
+  },
+  {
+    "name": "The Gwen, a Luxury Collection Hotel",
+    "city": "Chicago",
+    "country": "United States",
+    "category": "Urban luxury",
+    "slug": "the-gwen-a-luxury-collection-hotel"
+  },
+  {
+    "name": "Boston Harbor Hotel",
+    "city": "Boston",
+    "country": "United States",
+    "category": "Historic",
+    "slug": "boston-harbor-hotel"
+  },
+  {
+    "name": "The Newbury Boston",
+    "city": "Boston",
+    "country": "United States",
+    "category": "Historic",
+    "slug": "the-newbury-boston"
+  },
+  {
+    "name": "Four Seasons Hotel One Dalton Street, Boston",
+    "city": "Boston",
+    "country": "United States",
+    "category": "Historic",
+    "slug": "four-seasons-hotel-one-dalton-street-boston"
+  },
+  {
+    "name": "The Hay-Adams",
+    "city": "Washington",
+    "country": "United States",
+    "category": "Historic",
+    "slug": "the-hay-adams"
+  },
+  {
+    "name": "The Jefferson, Washington DC",
+    "city": "Washington",
+    "country": "United States",
+    "category": "Historic",
+    "slug": "the-jefferson-washington-dc"
+  },
+  {
+    "name": "The Willard InterContinental",
+    "city": "Washington",
+    "country": "United States",
+    "category": "Historic",
+    "slug": "the-willard-intercontinental"
+  },
+  {
+    "name": "The Little Nell",
+    "city": "Aspen",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "the-little-nell"
+  },
+  {
+    "name": "Hotel Jerome, Auberge Resorts Collection",
+    "city": "Aspen",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "hotel-jerome-auberge-resorts-collection"
+  },
+  {
+    "name": "St. Regis Aspen Resort",
+    "city": "Aspen",
+    "country": "United States",
+    "category": "Resort",
+    "slug": "st-regis-aspen-resort"
+  },
+  {
+    "name": "Amangani",
+    "city": "Jackson Hole",
+    "country": "United States",
+    "category": "Nature retreat",
+    "slug": "amangani"
+  },
+  {
+    "name": "Four Seasons Resort Jackson Hole",
+    "city": "Jackson Hole",
+    "country": "United States",
+    "category": "Nature retreat",
+    "slug": "four-seasons-resort-jackson-hole"
+  },
+  {
+    "name": "Caldera House",
+    "city": "Jackson Hole",
+    "country": "United States",
+    "category": "Nature retreat",
+    "slug": "caldera-house"
+  },
+  {
+    "name": "Fairmont Banff Springs",
+    "city": "Banff",
+    "country": "Canada",
+    "category": "Resort",
+    "slug": "fairmont-banff-springs"
+  },
+  {
+    "name": "Fairmont Chateau Lake Louise",
+    "city": "Banff",
+    "country": "Canada",
+    "category": "Resort",
+    "slug": "fairmont-chateau-lake-louise"
+  },
+  {
+    "name": "Rimrock Resort Hotel",
+    "city": "Banff",
+    "country": "Canada",
+    "category": "Resort",
+    "slug": "rimrock-resort-hotel"
+  },
+  {
+    "name": "Four Seasons Hotel Toronto",
+    "city": "Toronto",
+    "country": "Canada",
+    "category": "Urban luxury",
+    "slug": "four-seasons-hotel-toronto"
+  },
+  {
+    "name": "The Ritz-Carlton Toronto",
+    "city": "Toronto",
+    "country": "Canada",
+    "category": "Urban luxury",
+    "slug": "the-ritz-carlton-toronto"
+  },
+  {
+    "name": "1 Hotel Toronto",
+    "city": "Toronto",
+    "country": "Canada",
+    "category": "Urban luxury",
+    "slug": "1-hotel-toronto"
+  },
+  {
+    "name": "Hotel William Gray",
+    "city": "Montreal",
+    "country": "Canada",
+    "category": "Boutique",
+    "slug": "hotel-william-gray"
+  },
+  {
+    "name": "The Ritz-Carlton Montreal",
+    "city": "Montreal",
+    "country": "Canada",
+    "category": "Boutique",
+    "slug": "the-ritz-carlton-montreal"
+  },
+  {
+    "name": "Fogo Island Inn",
+    "city": "Fogo Island",
+    "country": "Canada",
+    "category": "Nature lodge",
+    "slug": "fogo-island-inn"
+  },
+  {
+    "name": "Four Seasons Hotel Mexico City",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "category": "Urban luxury",
+    "slug": "four-seasons-hotel-mexico-city"
+  },
+  {
+    "name": "The St. Regis Mexico City",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "category": "Urban luxury",
+    "slug": "the-st-regis-mexico-city"
+  },
+  {
+    "name": "Las Alcobas, a Luxury Collection Hotel",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "category": "Urban luxury",
+    "slug": "las-alcobas-a-luxury-collection-hotel"
+  },
+  {
+    "name": "Rosewood San Miguel de Allende",
+    "city": "San Miguel de Allende",
+    "country": "Mexico",
+    "category": "Boutique",
+    "slug": "rosewood-san-miguel-de-allende"
+  },
+  {
+    "name": "Belmond Casa de Sierra Nevada",
+    "city": "San Miguel de Allende",
+    "country": "Mexico",
+    "category": "Boutique",
+    "slug": "belmond-casa-de-sierra-nevada"
+  },
+  {
+    "name": "Hotel Matilda",
+    "city": "San Miguel de Allende",
+    "country": "Mexico",
+    "category": "Boutique",
+    "slug": "hotel-matilda"
+  },
+  {
+    "name": "Four Seasons Resort Punta Mita",
+    "city": "Punta Mita",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "four-seasons-resort-punta-mita"
+  },
+  {
+    "name": "The St. Regis Punta Mita Resort",
+    "city": "Punta Mita",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "the-st-regis-punta-mita-resort"
+  },
+  {
+    "name": "Susurros del Corazón",
+    "city": "Punta Mita",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "susurros-del-corazon"
+  },
+  {
+    "name": "One&Only Palmilla",
+    "city": "Los Cabos",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "one-and-only-palmilla"
+  },
+  {
+    "name": "Esperanza, Auberge Resorts Collection",
+    "city": "Los Cabos",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "esperanza-auberge-resorts-collection"
+  },
+  {
+    "name": "Chileno Bay Resort & Residences",
+    "city": "Los Cabos",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "chileno-bay-resort-and-residences"
+  },
+  {
+    "name": "Hotel Esencia",
+    "city": "Riviera Maya",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "hotel-esencia"
+  },
+  {
+    "name": "Banyan Tree Mayakoba",
+    "city": "Riviera Maya",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "banyan-tree-mayakoba"
+  },
+  {
+    "name": "Nizuc Resort & Spa",
+    "city": "Riviera Maya",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "nizuc-resort-and-spa"
+  },
+  {
+    "name": "Etéreo, Auberge Resorts Collection",
+    "city": "Riviera Maya",
+    "country": "Mexico",
+    "category": "Resort",
+    "slug": "etereo-auberge-resorts-collection"
+  },
+  {
+    "name": "GoldenEye",
+    "city": "Jamaica",
+    "country": "Jamaica",
+    "category": "Island resort",
+    "slug": "goldeneye"
+  },
+  {
+    "name": "Round Hill Hotel and Villas",
+    "city": "Jamaica",
+    "country": "Jamaica",
+    "category": "Island resort",
+    "slug": "round-hill-hotel-and-villas"
+  },
+  {
+    "name": "Half Moon",
+    "city": "Jamaica",
+    "country": "Jamaica",
+    "category": "Island resort",
+    "slug": "half-moon"
+  },
+  {
+    "name": "Jade Mountain",
+    "city": "St. Lucia",
+    "country": "Saint Lucia",
+    "category": "Island resort",
+    "slug": "jade-mountain"
+  },
+  {
+    "name": "Anse Chastanet",
+    "city": "St. Lucia",
+    "country": "Saint Lucia",
+    "category": "Island resort",
+    "slug": "anse-chastanet"
+  },
+  {
+    "name": "Sugar Beach, A Viceroy Resort",
+    "city": "St. Lucia",
+    "country": "Saint Lucia",
+    "category": "Island resort",
+    "slug": "sugar-beach-a-viceroy-resort"
+  },
+  {
+    "name": "Amanyara",
+    "city": "Turks and Caicos",
+    "country": "Turks and Caicos Islands",
+    "category": "Island resort",
+    "slug": "amanyara"
+  },
+  {
+    "name": "The Palms Turks and Caicos",
+    "city": "Turks and Caicos",
+    "country": "Turks and Caicos Islands",
+    "category": "Island resort",
+    "slug": "the-palms-turks-and-caicos"
+  },
+  {
+    "name": "COMO Parrot Cay",
+    "city": "Turks and Caicos",
+    "country": "Turks and Caicos Islands",
+    "category": "Island resort",
+    "slug": "como-parrot-cay"
+  },
+  {
+    "name": "Cap Juluca, A Belmond Hotel",
+    "city": "Anguilla",
+    "country": "Anguilla",
+    "category": "Island resort",
+    "slug": "cap-juluca-a-belmond-hotel"
+  },
+  {
+    "name": "Four Seasons Resort and Residences Anguilla",
+    "city": "Anguilla",
+    "country": "Anguilla",
+    "category": "Island resort",
+    "slug": "four-seasons-resort-and-residences-anguilla"
+  },
+  {
+    "name": "Hotel Fasano Rio de Janeiro",
+    "city": "Rio de Janeiro",
+    "country": "Brazil",
+    "category": "Urban luxury",
+    "slug": "hotel-fasano-rio-de-janeiro"
+  },
+  {
+    "name": "Hotel Santa Teresa MGallery",
+    "city": "Rio de Janeiro",
+    "country": "Brazil",
+    "category": "Urban luxury",
+    "slug": "hotel-santa-teresa-mgallery"
+  },
+  {
+    "name": "Hotel Unique",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "category": "Urban luxury",
+    "slug": "hotel-unique"
+  },
+  {
+    "name": "Palácio Tangará",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "category": "Urban luxury",
+    "slug": "palacio-tangara"
+  },
+  {
+    "name": "Palacio Duhau - Park Hyatt Buenos Aires",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "category": "Urban luxury",
+    "slug": "palacio-duhau-park-hyatt-buenos-aires"
+  },
+  {
+    "name": "Alvear Palace Hotel",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "category": "Urban luxury",
+    "slug": "alvear-palace-hotel"
+  },
+  {
+    "name": "Faena Hotel Buenos Aires",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "category": "Urban luxury",
+    "slug": "faena-hotel-buenos-aires"
+  },
+  {
+    "name": "Belmond Miraflores Park",
+    "city": "Lima",
+    "country": "Peru",
+    "category": "Urban luxury",
+    "slug": "belmond-miraflores-park"
+  },
+  {
+    "name": "Country Club Lima Hotel",
+    "city": "Lima",
+    "country": "Peru",
+    "category": "Urban luxury",
+    "slug": "country-club-lima-hotel"
+  },
+  {
+    "name": "Tierra Patagonia",
+    "city": "Patagonia",
+    "country": "Chile",
+    "category": "Nature lodge",
+    "slug": "tierra-patagonia"
+  },
+  {
+    "name": "Explora Patagonia",
+    "city": "Patagonia",
+    "country": "Chile",
+    "category": "Nature lodge",
+    "slug": "explora-patagonia"
+  },
+  {
+    "name": "Awasi Patagonia",
+    "city": "Patagonia",
+    "country": "Chile",
+    "category": "Nature lodge",
+    "slug": "awasi-patagonia"
+  },
+  {
+    "name": "Hotel das Cataratas, A Belmond Hotel",
+    "city": "Iguazu Falls",
+    "country": "Brazil",
+    "category": "Nature lodge",
+    "slug": "hotel-das-cataratas-a-belmond-hotel"
+  },
+  {
+    "name": "Park Hyatt Sydney",
+    "city": "Sydney",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "park-hyatt-sydney"
+  },
+  {
+    "name": "The Langham, Sydney",
+    "city": "Sydney",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "the-langham-sydney"
+  },
+  {
+    "name": "The Darling at The Star",
+    "city": "Sydney",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "the-darling-at-the-star"
+  },
+  {
+    "name": "The Fullerton Hotel Sydney",
+    "city": "Sydney",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "the-fullerton-hotel-sydney"
+  },
+  {
+    "name": "The Langham, Melbourne",
+    "city": "Melbourne",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "the-langham-melbourne"
+  },
+  {
+    "name": "The Ritz-Carlton, Melbourne",
+    "city": "Melbourne",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "the-ritz-carlton-melbourne"
+  },
+  {
+    "name": "Park Hyatt Melbourne",
+    "city": "Melbourne",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "park-hyatt-melbourne"
+  },
+  {
+    "name": "Crown Towers Melbourne",
+    "city": "Melbourne",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "crown-towers-melbourne"
+  },
+  {
+    "name": "W Brisbane",
+    "city": "Brisbane",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "w-brisbane"
+  },
+  {
+    "name": "The Emporium Hotel South Bank",
+    "city": "Brisbane",
+    "country": "Australia",
+    "category": "Urban luxury",
+    "slug": "the-emporium-hotel-south-bank"
+  },
+  {
+    "name": "Eichardt's Private Hotel",
+    "city": "Queenstown",
+    "country": "New Zealand",
+    "category": "Nature retreat",
+    "slug": "eichardt-s-private-hotel"
+  },
+  {
+    "name": "Matakauri Lodge",
+    "city": "Queenstown",
+    "country": "New Zealand",
+    "category": "Nature retreat",
+    "slug": "matakauri-lodge"
+  },
+  {
+    "name": "Rosewood Matakauri",
+    "city": "Queenstown",
+    "country": "New Zealand",
+    "category": "Nature retreat",
+    "slug": "rosewood-matakauri"
+  },
+  {
+    "name": "Park Hyatt Auckland",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "category": "Urban luxury",
+    "slug": "park-hyatt-auckland"
+  },
+  {
+    "name": "Hotel Britomart",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "category": "Urban luxury",
+    "slug": "hotel-britomart"
+  },
+  {
+    "name": "The St. Regis Bora Bora Resort",
+    "city": "Bora Bora",
+    "country": "French Polynesia",
+    "category": "Island resort",
+    "slug": "the-st-regis-bora-bora-resort"
+  },
+  {
+    "name": "Four Seasons Resort Bora Bora",
+    "city": "Bora Bora",
+    "country": "French Polynesia",
+    "category": "Island resort",
+    "slug": "four-seasons-resort-bora-bora"
+  },
+  {
+    "name": "Conrad Bora Bora Nui",
+    "city": "Bora Bora",
+    "country": "French Polynesia",
+    "category": "Island resort",
+    "slug": "conrad-bora-bora-nui"
+  },
+  {
+    "name": "Likuliku Lagoon Resort",
+    "city": "Fiji",
+    "country": "Fiji",
+    "category": "Island resort",
+    "slug": "likuliku-lagoon-resort"
+  },
+  {
+    "name": "Kokomo Private Island",
+    "city": "Fiji",
+    "country": "Fiji",
+    "category": "Island resort",
+    "slug": "kokomo-private-island"
+  },
+  {
+    "name": "Six Senses Fiji",
+    "city": "Fiji",
+    "country": "Fiji",
+    "category": "Island resort",
+    "slug": "six-senses-fiji"
+  }
+]
