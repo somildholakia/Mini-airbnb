@@ -20,3 +20,25 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - name: Report dependency audit findings
+        shell: bash
+        run: |
+          npm audit --json > npm-audit.json || true
+          node <<'NODE'
+          const report = require("./npm-audit.json");
+          const metadata = report.metadata?.vulnerabilities || {};
+          console.log("Dependency audit totals:", JSON.stringify(metadata));
+          for (const [name, finding] of Object.entries(report.vulnerabilities || {})) {
+            const via = (finding.via || []).map((item) =>
+              typeof item === "string" ? item : item.title + " (" + item.range + ")"
+            );
+            console.log(JSON.stringify({
+              package: name,
+              severity: finding.severity,
+              direct: finding.isDirect,
+              installedRange: finding.range,
+              fixAvailable: finding.fixAvailable,
+              advisories: via
+            }));
+          }
+          NODE
