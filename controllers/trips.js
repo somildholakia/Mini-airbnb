@@ -8,6 +8,7 @@ const User = require("../models/user");
 const ExpressError = require("../utils/ExpressError");
 const { buildTripCalendar } = require("../utils/ical");
 const { applyItemOrder } = require("../utils/trip-order");
+const { getTripMapPoints } = require("../utils/trip-map");
 
 function tripAccessFilter(tripId, userId) {
   if (!mongoose.isValidObjectId(tripId)) throw new ExpressError(404, "Trip not found.");
@@ -22,7 +23,7 @@ async function getEditableTrip(tripId, userId) {
     .select("+inviteToken +shareToken")
     .populate({
       path: "items.listing",
-      select: "title image location country category isCurated"
+      select: "title image location country category isCurated locationCoordinates"
     });
   if (!trip) throw new ExpressError(404, "Trip not found or you do not have access.");
   return trip;
@@ -68,6 +69,7 @@ async function renderTrip(req, res, trip, options = {}) {
     (new Date(a.addedAt) - new Date(b.addedAt))
   );
 
+  const mapPoints = getTripMapPoints(items);
   const viewerId = options.viewerId || req.user?._id;
   const ownerView = isTripOwner(trip, viewerId);
   res.locals.pageTitle = trip.title + " · WanderSite trip";
@@ -75,6 +77,7 @@ async function renderTrip(req, res, trip, options = {}) {
   res.render("trips/show.ejs", {
     trip,
     items,
+    mapPoints,
     savedListings,
     canEdit,
     isOwner: ownerView,
