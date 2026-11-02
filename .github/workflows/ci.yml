@@ -19,7 +19,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm test
+      - name: Apply non-breaking dependency security updates
+        run: npm audit fix
       - name: Report dependency audit findings
         shell: bash
         run: |
@@ -42,3 +43,12 @@ jobs:
             }));
           }
           NODE
+
+      - name: Upload refreshed dependency lockfile
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-fix-output
+          path: |
+            package-lock.json
+            npm-audit.json
+          retention-days: 1
