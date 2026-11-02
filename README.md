@@ -43,6 +43,7 @@ A Render Free web service is not an always-on production service: it can spin do
 - Create private trip plans with a destination and optional dates; owners can edit these details later.
 - Add stays from your saved hotels to a dated itinerary, with personal notes.
 - Reorder itinerary stops using drag-and-drop or accessible move controls; owners and collaborators can save the route order.
+- View numbered, approximate city-area pins for itinerary stops on an OpenStreetMap-powered map; exact property addresses and turn-by-turn directions are not shown.
 - Invite collaborators with a private, revocable invite link. Accepted collaborators can add and remove itinerary stays.
 - Enable a separate read-only public link when you want to share an itinerary without granting edit access.
 - Trip plans and membership are stored in the existing MongoDB database; no additional service or paid API is needed.
