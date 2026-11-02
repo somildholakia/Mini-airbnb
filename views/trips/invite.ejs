@@ -11,7 +11,7 @@
       <a class="wander-primary-link" href="/trips">Go to my trips <i class="fa-solid fa-arrow-right"></i></a>
     <% } else { %>
       <p class="trip-invite-note">Join this itinerary to add stays, update the plan and coordinate with the trip owner.</p>
-      <form method="POST" action="/trips/invite/<%= encodeURIComponent(req.params.token) %>/accept">
+      <form method="POST" action="/trips/invite/<%= encodeURIComponent(inviteToken) %>/accept">
         <button class="btn btn-dark px-4" type="submit">Join trip <i class="fa-solid fa-arrow-right ms-1"></i></button>
       </form>
     <% } %>
