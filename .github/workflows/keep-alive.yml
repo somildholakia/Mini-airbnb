@@ -2,19 +2,50 @@ name: Keep WanderSite warm
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
+
+# Prevent a slow cold-start probe from stacking up duplicate runs.
+concurrency:
+  group: wandersite-keep-alive
+  cancel-in-progress: false
 
 jobs:
   ping:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
     steps:
-      - name: Wake the app and check its health endpoint
+      - name: Wake the app and verify database readiness
         env:
           SITE_URL: https://practice-project-p5ge.onrender.com
+        shell: bash
         run: |
-          curl --fail --silent --show-error \
-            --retry 2 --retry-connrefused --retry-delay 8 \
-            --max-time 90 \
-            "${SITE_URL%/}/health"
+          set -euo pipefail
+          base="${SITE_URL%/}"
+
+          echo "Checking WanderSite liveness..."
+          health="$(curl --fail --silent --show-error \
+            --connect-timeout 15 --max-time 120 \
+            --retry 1 --retry-connrefused --retry-delay 8 \
+            "${base}/health")"
+          echo "$health"
+          grep -q '"status":"ok"' <<< "$health"
+
+          echo "Waiting for the app and MongoDB to become ready..."
+          for attempt in {1..8}; do
+            if ready="$(curl --fail --silent --show-error \
+              --connect-timeout 10 --max-time 20 \
+              "${base}/ready" 2>/dev/null)"; then
+              echo "$ready"
+              if grep -q '"status":"ready"' <<< "$ready"; then
+                echo "WanderSite is responding and ready."
+                exit 0
+              fi
+            fi
+
+            echo "Readiness check ${attempt}/8 not ready yet."
+            sleep 10
+          done
+
+          echo "WanderSite did not become ready before the retry window ended." >&2
+          exit 1
