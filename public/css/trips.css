@@ -543,3 +543,143 @@
     width: 100%;
   }
 }
+
+
+/* Trip editing and collaborative itinerary ordering */
+.trip-edit-panel {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid #e8e5de;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.trip-edit-panel > summary {
+  cursor: pointer;
+  color: #34342f;
+  font-weight: 700;
+  list-style: none;
+}
+
+.trip-edit-panel > summary::-webkit-details-marker {
+  display: none;
+}
+
+.trip-edit-panel > summary::after {
+  content: "+";
+  float: right;
+  color: #77766f;
+  font-size: 1.15rem;
+}
+
+.trip-edit-panel[open] > summary::after {
+  content: "−";
+}
+
+.trip-edit-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem;
+  margin-top: 1.2rem;
+}
+
+.trip-edit-form .trip-edit-hint {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #77766f;
+  font-size: .82rem;
+}
+
+.trip-edit-form > button {
+  justify-self: start;
+}
+
+.trip-itinerary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .55rem;
+}
+
+.trip-itinerary-item-editable {
+  grid-template-columns: 42px 74px 112px minmax(0, 1fr) 36px;
+}
+
+.trip-item-order-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .18rem;
+}
+
+.trip-item-order-controls button {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 27px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background: #f4f2ed;
+  color: #65645e;
+}
+
+.trip-item-order-controls button:disabled {
+  opacity: .28;
+  cursor: not-allowed;
+}
+
+.trip-item-order-controls [data-drag-handle] {
+  cursor: grab;
+  color: #8a806d;
+}
+
+.trip-item-order-controls [data-drag-handle]:active {
+  cursor: grabbing;
+}
+
+.trip-itinerary-item.is-dragging {
+  opacity: .48;
+  border-style: dashed;
+  border-color: #8d846f;
+}
+
+.trip-reorder-hint {
+  margin: .8rem 0 0;
+  color: #77766f;
+  font-size: .82rem;
+}
+
+@media (max-width: 600px) {
+  .trip-edit-form {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-edit-form .trip-edit-hint {
+    grid-column: auto;
+  }
+
+  .trip-itinerary-item-editable {
+    grid-template-columns: 32px 45px 64px minmax(0, 1fr) 28px;
+    gap: .4rem;
+  }
+
+  .trip-item-order-controls {
+    gap: .12rem;
+  }
+
+  .trip-item-order-controls button {
+    width: 25px;
+    height: 24px;
+    font-size: .75rem;
+  }
+
+  .trip-itinerary-actions {
+    align-items: stretch;
+  }
+
+  .trip-itinerary-actions > * {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
