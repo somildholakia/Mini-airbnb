@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-      - run: npm test
+      - run: npm install
+      - name: Apply available non-breaking security updates\n        run: npm audit fix || true\n      - run: npm test
       - name: Report dependency audit findings
         shell: bash
         run: |
@@ -42,3 +42,12 @@ jobs:
             }));
           }
           NODE
+
+      - name: Upload refreshed dependency lockfile
+        uses: actions/upload-artifact@v4
+        with:
+          name: wandersite-migrated-lockfile
+          path: |
+            package-lock.json
+            npm-audit.json
+          retention-days: 1
