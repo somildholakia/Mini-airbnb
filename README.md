@@ -31,6 +31,13 @@ Set the Render web service health check path to `/ready`, use `npm install` or `
 
 A Render Free web service is not an always-on production service: it can spin down after 15 minutes without inbound traffic and can be restarted for platform maintenance. WanderSite now opens a lightweight same-origin Socket.IO connection on normal pages and exchanges a small heartbeat every 4 minutes while a browser has the site open. Render counts incoming WebSocket messages as activity, so this helps keep an active browsing session warm and reconnects after network interruptions. It cannot keep the service awake when nobody has WanderSite open, and mobile browsers may suspend background tabs. The GitHub Actions workflow in `.github/workflows/keep-alive.yml` remains a separate best-effort warm-up attempt every 5 minutes; scheduled runs can be delayed or skipped. The reliable always-on option is a paid instance; no paid service or external monitoring subscription is required by this repository.
 
+## Security and abuse protection
+
+- Helmet applies standard HTTP security headers. Content Security Policy is intentionally deferred because the current pages load scripts, styles, fonts and map tiles from multiple external providers.
+- Sign-in and sign-up POST requests are limited to 8 attempts per IP per 15 minutes; listing writes to 8 and review submissions to 5 in the same window. Listing browse requests are capped at 180 per IP per 15 minutes.
+- Listing photos must be JPG, PNG or WebP and are capped at 8 MB per upload. Request bodies and listing/review fields also have server-side size limits.
+- Rate limits use the process memory store. They are a useful abuse barrier for the current single-instance deployment, not a distributed rate-limit system.
+
 ## Global hotel collection
 
 WanderSite includes an editorial discovery catalog of 576 named hotel properties across destinations worldwide. The first 100 entries follow the 2026 edition of The 50 Best Hotels; the broader collection is a WanderSite editorial selection and is not an independently ranked list.
