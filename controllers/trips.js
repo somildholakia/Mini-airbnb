@@ -6,6 +6,7 @@ const Trip = require("../models/trip");
 const Listing = require("../models/listing");
 const User = require("../models/user");
 const ExpressError = require("../utils/ExpressError");
+const { buildTripCalendar } = require("../utils/ical");
 
 function tripAccessFilter(tripId, userId) {
   if (!mongoose.isValidObjectId(tripId)) throw new ExpressError(404, "Trip not found.");
@@ -83,7 +84,10 @@ async function renderTrip(req, res, trip, options = {}) {
       : null,
     publicUrl: trip.isPublic && trip.shareToken
       ? req.protocol + "://" + req.get("host") + "/trips/shared/" + trip.shareToken
-      : null
+      : null,
+    calendarUrl: options.isPublicView && trip.shareToken
+      ? "/trips/shared/" + encodeURIComponent(trip.shareToken) + "/calendar"
+      : "/trips/" + trip._id + "/calendar"
   });
 }
 
@@ -240,4 +244,33 @@ module.exports.acceptInvite = async (req, res) => {
 
   req.flash("success", alreadyMember ? "You're already part of this trip." : "You've joined the shared trip.");
   res.redirect("/trips/" + trip._id);
+};
+
+function sendTripCalendar(res, trip) {
+  const filename = "wandersite-trip-" + String(trip._id) + ".ics";
+  const calendar = buildTripCalendar(trip);
+  return res.status(200).set({
+    "Content-Type": "text/calendar; charset=utf-8",
+    "Content-Disposition": 'attachment; filename="' + filename + '"',
+    "Cache-Control": "no-store"
+  }).send(calendar);
+}
+
+module.exports.downloadCalendar = async (req, res) => {
+  const trip = await getEditableTrip(req.params.id, req.user._id);
+  return sendTripCalendar(res, trip);
+};
+
+module.exports.downloadSharedCalendar = async (req, res) => {
+  const trip = await Trip.findOne({
+    shareToken: req.params.token,
+    isPublic: true
+  })
+    .select("+shareToken")
+    .populate({
+      path: "items.listing",
+      select: "title location country"
+    });
+  if (!trip) throw new ExpressError(404, "This shared trip link is no longer available.");
+  return sendTripCalendar(res, trip);
 };
