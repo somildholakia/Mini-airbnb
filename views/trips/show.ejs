@@ -1,0 +1,163 @@
+<% layout("/layouts/boilerplate") %>
+<section class="trip-detail-page">
+  <a href="/trips" class="trip-back-link"><i class="fa-solid fa-arrow-left"></i> All trips</a>
+
+  <header class="trip-detail-header">
+    <div>
+      <span class="wander-eyebrow"><%= isPublicView ? "SHARED WANDERSITE ITINERARY" : "YOUR TRAVEL PLAN" %></span>
+      <h1><%= trip.title %></h1>
+      <p class="trip-detail-destination"><i class="fa-solid fa-location-dot"></i> <%= trip.destination || "Destination not set" %></p>
+      <div class="trip-detail-meta">
+        <% if (trip.startDate || trip.endDate) { %>
+          <span><i class="fa-regular fa-calendar"></i>
+            <% if (trip.startDate) { %><%= new Date(trip.startDate).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) %><% } else { %>Date not set<% } %>
+            –
+            <% if (trip.endDate) { %><%= new Date(trip.endDate).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) %><% } else { %>Date not set<% } %>
+          </span>
+        <% } else { %>
+          <span><i class="fa-regular fa-calendar"></i> Dates not set</span>
+        <% } %>
+        <span><i class="fa-solid fa-hotel"></i> <%= items.length %> planned stays</span>
+        <span><i class="fa-solid fa-user-group"></i> <%= (trip.collaborators || []).length + 1 %> travellers</span>
+      </div>
+    </div>
+    <span class="trip-privacy-pill <%= isPublicView ? 'trip-privacy-public' : 'trip-privacy-private' %>">
+      <i class="fa-solid <%= isPublicView ? 'fa-link' : 'fa-lock' %>"></i>
+      <%= isPublicView ? "Read-only shared view" : (trip.isPublic ? "Public link enabled" : "Private trip") %>
+    </span>
+  </header>
+
+  <% if (canEdit && isOwner) { %>
+    <section class="trip-sharing-panel">
+      <div>
+        <span class="wander-eyebrow">SHARING CONTROLS</span>
+        <h2>Bring everyone into the plan</h2>
+        <p>Invite collaborators to edit this trip, or create a separate read-only link for anyone you want to show the itinerary to.</p>
+      </div>
+      <div class="trip-share-controls">
+        <div class="trip-share-control">
+          <strong><i class="fa-solid fa-user-group"></i> Collaborator invite</strong>
+          <p>Anyone with this private link can join after signing in.</p>
+          <div class="trip-copy-row">
+            <input type="text" readonly value="<%= inviteUrl %>" aria-label="Collaborator invite link">
+            <button type="button" class="btn btn-outline-dark" data-copy-value="<%= inviteUrl %>">Copy invite</button>
+          </div>
+          <form method="POST" action="/trips/<%= trip._id %>/invite-link">
+            <button type="submit" class="trip-text-action">Generate a new invite link</button>
+          </form>
+        </div>
+        <div class="trip-share-control">
+          <strong><i class="fa-solid fa-link"></i> Public read-only link</strong>
+          <p>Viewers can see the itinerary but cannot change it.</p>
+          <form method="POST" action="/trips/<%= trip._id %>/share" class="trip-public-toggle">
+            <label class="trip-switch-label">
+              <input type="checkbox" name="enabled" <%= trip.isPublic ? "checked" : "" %>>
+              <span><%= trip.isPublic ? "Public link is on" : "Keep this trip private" %></span>
+            </label>
+            <button class="btn btn-dark btn-sm" type="submit"><%= trip.isPublic ? "Update sharing" : "Enable sharing" %></button>
+          </form>
+          <% if (publicUrl) { %>
+            <div class="trip-copy-row">
+              <input type="text" readonly value="<%= publicUrl %>" aria-label="Read-only trip link">
+              <button type="button" class="btn btn-outline-dark" data-copy-value="<%= publicUrl %>">Copy link</button>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </section>
+  <% } else if (isPublicView) { %>
+    <p class="trip-readonly-notice"><i class="fa-solid fa-eye"></i> This is a read-only itinerary. The owner and collaborators control the plan.</p>
+  <% } %>
+
+  <section class="trip-itinerary-section">
+    <div class="trip-section-heading">
+      <div>
+        <span class="wander-eyebrow">THE PLAN</span>
+        <h2>Itinerary</h2>
+        <p>Keep the stays you want to visit together in one place.</p>
+      </div>
+    </div>
+
+    <% if (!items.length) { %>
+      <div class="trip-empty-itinerary">
+        <i class="fa-solid fa-route"></i>
+        <h3>Your itinerary is ready for its first stop.</h3>
+        <p>Save a hotel from the collection, then add it below.</p>
+        <a href="/listings" class="wander-primary-link">Explore stays <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    <% } else { %>
+      <div class="trip-itinerary-list">
+        <% for (const item of items) { %>
+          <article class="trip-itinerary-item">
+            <div class="trip-item-date">
+              <% if (item.plannedDate) { %>
+                <strong><%= new Date(item.plannedDate).toLocaleDateString("en-IN", { day: "numeric" }) %></strong>
+                <span><%= new Date(item.plannedDate).toLocaleDateString("en-IN", { month: "short", year: "numeric" }) %></span>
+              <% } else { %>
+                <i class="fa-regular fa-calendar"></i><span>Unscheduled</span>
+              <% } %>
+            </div>
+            <% if (item.listing) { %>
+              <a class="trip-item-photo" href="/listings/<%= item.listing._id %>">
+                <img src="<%= item.listing.image && item.listing.image.url ? item.listing.image.url : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=78' %>" alt="Stay in <%= item.listing.title %>" loading="lazy">
+              </a>
+              <div class="trip-item-copy">
+                <span class="hotel-card-category"><%= item.listing.category || "Stay" %></span>
+                <h3><a href="/listings/<%= item.listing._id %>"><%= item.listing.title %></a></h3>
+                <p><i class="fa-solid fa-location-dot"></i> <%= [item.listing.location, item.listing.country].filter(Boolean).join(", ") %></p>
+                <% if (item.note) { %><div class="trip-item-note"><i class="fa-regular fa-note-sticky"></i> <%= item.note %></div><% } %>
+              </div>
+            <% } else { %>
+              <div class="trip-item-copy"><h3>This stay is no longer available</h3><p>It may have been removed from WanderSite.</p></div>
+            <% } %>
+            <% if (canEdit) { %>
+              <form method="POST" action="/trips/<%= trip._id %>/items/<%= item._id %>?_method=DELETE" class="trip-item-remove">
+                <button type="submit" aria-label="Remove stay from trip" title="Remove stay"><i class="fa-solid fa-xmark"></i></button>
+              </form>
+            <% } %>
+          </article>
+        <% } %>
+      </div>
+    <% } %>
+  </section>
+
+  <% if (canEdit) { %>
+    <section class="trip-add-section">
+      <div class="trip-section-heading">
+        <div>
+          <span class="wander-eyebrow">NEXT STOP</span>
+          <h2>Add a saved stay</h2>
+          <p>Choose a hotel from your saved stays. All trip collaborators can add to this itinerary.</p>
+        </div>
+      </div>
+      <% if (savedListings.length) { %>
+        <form method="POST" action="/trips/<%= trip._id %>/items" class="trip-add-form">
+          <label class="trip-form-field trip-stay-select">
+            <span>Saved stay</span>
+            <select name="item[listingId]" required>
+              <option value="">Select a stay</option>
+              <% for (const listing of savedListings) { %>
+                <option value="<%= listing._id %>"><%= listing.title %> — <%= [listing.location, listing.country].filter(Boolean).join(", ") %></option>
+              <% } %>
+            </select>
+          </label>
+          <label class="trip-form-field">
+            <span>Planned date</span>
+            <input type="date" name="item[plannedDate]" min="<%= trip.startDate ? new Date(trip.startDate).toISOString().slice(0,10) : '' %>" max="<%= trip.endDate ? new Date(trip.endDate).toISOString().slice(0,10) : '' %>">
+          </label>
+          <label class="trip-form-field trip-note-field">
+            <span>Note (optional)</span>
+            <input type="text" name="item[note]" maxlength="500" placeholder="e.g. Check sunset view or ask about early check-in">
+          </label>
+          <button class="btn btn-dark" type="submit"><i class="fa-solid fa-plus me-1"></i> Add to itinerary</button>
+        </form>
+      <% } else { %>
+        <div class="trip-save-first">
+          <p>You haven't saved any stays yet. Browse the collection and tap the heart on a hotel profile to save it.</p>
+          <a href="/listings" class="wander-primary-link">Discover stays <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      <% } %>
+    </section>
+  <% } %>
+</section>
+<script src="/javascript/trips.js" defer></script>
