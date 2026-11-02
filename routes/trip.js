@@ -33,15 +33,15 @@ function validateCreateTrip(req, _res, next) {
 // These token routes must precede /:id so they are not parsed as trip IDs.
 router.get("/shared/:token", security.browseLimiter, wrapAsync(tripController.shared));
 router.get("/invite/:token", isLoggedIn, wrapAsync(tripController.inviteLanding));
-router.post("/invite/:token/accept", isLoggedIn, security.listingWriteLimiter, wrapAsync(tripController.acceptInvite));
+router.post("/invite/:token/accept", isLoggedIn, security.tripWriteLimiter, wrapAsync(tripController.acceptInvite));
 
 router.get("/", isLoggedIn, wrapAsync(tripController.index));
 router.get("/new", isLoggedIn, tripController.renderNew);
-router.post("/", isLoggedIn, security.listingWriteLimiter, validateCreateTrip, wrapAsync(tripController.create));
+router.post("/", isLoggedIn, security.tripWriteLimiter, validateCreateTrip, wrapAsync(tripController.create));
 router.get("/:id", isLoggedIn, wrapAsync(tripController.show));
-router.post("/:id/items", isLoggedIn, security.listingWriteLimiter, wrapAsync(tripController.addItem));
-router.delete("/:id/items/:itemId", isLoggedIn, security.listingWriteLimiter, wrapAsync(tripController.removeItem));
-router.post("/:id/share", isLoggedIn, security.listingWriteLimiter, wrapAsync(tripController.updateSharing));
-router.post("/:id/invite-link", isLoggedIn, security.listingWriteLimiter, wrapAsync(tripController.rotateInvite));
+router.post("/:id/items", isLoggedIn, security.tripWriteLimiter, wrapAsync(tripController.addItem));
+router.delete("/:id/items/:itemId", isLoggedIn, security.tripWriteLimiter, wrapAsync(tripController.removeItem));
+router.post("/:id/share", isLoggedIn, security.tripWriteLimiter, wrapAsync(tripController.updateSharing));
+router.post("/:id/invite-link", isLoggedIn, security.tripWriteLimiter, wrapAsync(tripController.rotateInvite));
 
 module.exports = router;
