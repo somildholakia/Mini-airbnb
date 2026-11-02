@@ -3,6 +3,8 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const express = require("express");
+const http = require("http");
+const { Server: SocketIOServer } = require("socket.io");
 const path = require("path");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
@@ -19,6 +21,38 @@ const userRouter = require("./routes/user.js");
 const ExpressError = require("./utils/ExpressError.js");
 
 const app = express();
+const server = http.createServer(app);
+const io = new SocketIOServer(server, {
+    transports: ["websocket"],
+    pingInterval: 4 * 60 * 1000,
+    pingTimeout: 30 * 1000,
+    connectTimeout: 10 * 1000,
+    allowRequest(req, callback) {
+        const origin = req.headers.origin;
+        const host = req.headers.host;
+
+        if (!origin || !host) return callback(null, false);
+
+        try {
+            callback(null, new URL(origin).host === host);
+        } catch {
+            callback(null, false);
+        }
+    }
+});
+
+// Render Free counts incoming WebSocket messages as activity.
+// This same-origin socket keeps active browser sessions responsive.
+io.on("connection", (socket) => {
+    let lastKeepalive = 0;
+
+    socket.on("site:keepalive", () => {
+        const now = Date.now();
+        if (now - lastKeepalive < 60 * 1000) return;
+        lastKeepalive = now;
+        socket.emit("site:keepalive:ack");
+    });
+});
 const PORT = Number(process.env.PORT) || 8080;
 const MONGO_URL = process.env.ATLASTDB_URL;
 const SESSION_SECRET = process.env.SECRET;
@@ -178,13 +212,13 @@ async function connectAndConfigureWithRetry() {
 }
 
 function startServer() {
-    const server = app.listen(PORT, "0.0.0.0", () => {
+    server.listen(PORT, "0.0.0.0", () => {
         console.log("WanderSite is listening on port " + PORT + ".");
     });
 
     const shutdown = (signal) => {
         console.log(signal + " received. Shutting down gracefully.");
-        server.close(async () => {
+        io.close(async () => {
             await mongoose.disconnect().catch(() => undefined);
             process.exit(0);
         });
