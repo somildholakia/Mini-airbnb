@@ -130,8 +130,14 @@ module.exports.addItem = async (req, res) => {
   const listingId = String(req.body.item?.listingId || "");
   if (!mongoose.isValidObjectId(listingId)) throw new ExpressError(400, "Choose a saved stay to add.");
 
-  const listing = await Listing.findById(listingId).select("_id");
+  const [listing, savedByCurrentUser] = await Promise.all([
+    Listing.findById(listingId).select("_id"),
+    User.exists({ _id: req.user._id, savedListings: listingId })
+  ]);
   if (!listing) throw new ExpressError(404, "That stay could not be found.");
+  if (!savedByCurrentUser) {
+    throw new ExpressError(403, "Save this stay to your WanderSite account before adding it to a trip.");
+  }
 
   const plannedDateInput = String(req.body.item?.plannedDate || "");
   const plannedDate = validatePlannedDate(plannedDateInput, trip);
@@ -225,6 +231,9 @@ module.exports.acceptInvite = async (req, res) => {
   const alreadyMember = String(trip.owner) === String(req.user._id) ||
     trip.collaborators.some((member) => String(member.user) === String(req.user._id));
   if (!alreadyMember) {
+    if (trip.collaborators.length >= 25) {
+      throw new ExpressError(400, "This trip has reached its 25-collaborator limit.");
+    }
     trip.collaborators.push({ user: req.user._id });
     await trip.save();
   }
