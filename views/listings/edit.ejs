@@ -19,7 +19,7 @@
                 <label class="form-label" for="existing-image">Current photo</label>
                 <img id="existing-image" src="<%= listing.image && listing.image.url ? listing.image.url : '' %>" alt="Current listing" class="img-fluid rounded mb-2" style="max-height:180px">
                 <label for="image" class="form-label d-block">Upload a new photo (optional)</label>
-                <input id="image" name="listing[image]" type="file" accept="image/png,image/jpeg,image/jpg" class="form-control">
+                <input id="image" name="listing[image]" type="file" accept="image/png,image/jpeg,image/jpg,image/webp" class="form-control">
             </div>
 
             <div class="mb-3">

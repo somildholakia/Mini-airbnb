@@ -3,14 +3,14 @@ const Schema = mongoose.Schema;
 const Review = require("./review.js");
 
 const listingSchema = new Schema({
-  title: { type: String, required: true, trim: true },
+  title: { type: String, required: true, trim: true, minlength: 3, maxlength: 100 },
   slug: { type: String, trim: true, index: { unique: true, sparse: true } },
-  description: { type: String, trim: true },
+  description: { type: String, trim: true, maxlength: 5000 },
   image: { url: String, filename: String },
-  price: { type: Number, min: 0, default: null },
+  price: { type: Number, min: 0, max: 10000000, default: null },
   priceCurrency: { type: String, default: "INR", trim: true },
-  location: { type: String, trim: true },
-  country: { type: String, trim: true },
+  location: { type: String, trim: true, maxlength: 120 },
+  country: { type: String, trim: true, maxlength: 80 },
   category: { type: String, trim: true, index: true },
   propertyType: { type: String, trim: true, default: "Stay" },
   isCurated: { type: Boolean, default: false, index: true },

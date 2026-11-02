@@ -3,6 +3,8 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const express = require("express");
+const helmet = require("helmet");
+const security = require("./security.js");
 const http = require("http");
 const { Server: SocketIOServer } = require("socket.io");
 const path = require("path");
@@ -60,12 +62,16 @@ let appReady = false;
 
 app.disable("x-powered-by");
 app.set("trust proxy", 1);
+
+// Keep existing CDN assets working while applying Helmet security headers.
+// A strict CSP needs a separate nonce/hash rollout across the current templates.
+app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false }));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", ejsMate);
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true, limit: "32kb", parameterLimit: 100 }));
+app.use(express.json({ limit: "32kb" }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -151,7 +157,7 @@ async function configureApplication() {
         res.locals.metaDescription = "Terms for using WanderSite's editorial hotel directory and community listings.";
         res.render("legal/terms.ejs");
     });
-    app.use("/listings", listingRouter);
+    app.use("/listings", security.browseLimiter, listingRouter);
     app.use("/listings/:id/reviews", reviewRouter);
     app.use("/", userRouter);
 
@@ -162,10 +168,15 @@ async function configureApplication() {
     app.use((error, req, res, next) => {
         if (res.headersSent) return next(error);
 
-        const statusCode = error.statusCode || 500;
-        const message = statusCode >= 500
-            ? "Something went wrong. Please try again."
-            : error.message || "Request failed.";
+        const isMulterError = error?.name === "MulterError" || String(error?.code || "").startsWith("LIMIT_");
+        const statusCode = isMulterError
+            ? (error.code === "LIMIT_FILE_SIZE" ? 413 : 400)
+            : (error.statusCode || error.status || 500);
+        const message = isMulterError && error.code === "LIMIT_FILE_SIZE"
+            ? "That photo is too large. Please upload an image smaller than 8 MB."
+            : statusCode >= 500
+                ? "Something went wrong. Please try again."
+                : error.message || "Request failed.";
 
         if (statusCode >= 500) {
             console.error("Request failed:", error.name || "UnknownError");

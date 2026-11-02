@@ -1,23 +1,29 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const reviewSchema = new Schema({
-    comment: String,
+    comment: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 1,
+        maxlength: 1500
+    },
     rating: {
         type: Number,
+        required: true,
         min: 1,
-        max: 5,
+        max: 5
     },
     createdAt: {
         type: Date,
-        default: Date.now,
+        default: Date.now
     },
     owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true
-}
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }
 });
 
 module.exports = mongoose.model("Review", reviewSchema);

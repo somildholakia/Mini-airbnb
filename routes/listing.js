@@ -9,8 +9,19 @@ const listingController = require("../controllers/listing.js");
 const { storage } = require("../cloudConfig.js");
 const { getKnownCoordinates } = require("../utils/geocode.js");
 const multer = require("multer");
+const security = require("../security.js");
 
-const upload = multer({ storage });
+const ALLOWED_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
+const upload = multer({
+  storage,
+  limits: { fileSize: 8 * 1024 * 1024, files: 1 },
+  fileFilter(_req, file, callback) {
+    if (!ALLOWED_IMAGE_TYPES.has(file.mimetype)) {
+      return callback(new ExpressError(400, "Please upload a JPG, PNG, or WebP image."));
+    }
+    callback(null, true);
+  }
+});
 const validateListing = (req, res, next) => {
   const { error } = listingSchema.validate(req.body);
   if (error) {
@@ -23,7 +34,7 @@ const validateListing = (req, res, next) => {
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 router.route("/")
   .get(wrapAsync(listingController.index))
-  .post(isLoggedIn, upload.single("listing[image]"), validateListing, wrapAsync(listingController.createListing));
+  .post(isLoggedIn, security.listingWriteLimiter, validateListing, upload.single("listing[image]"), wrapAsync(listingController.createListing));
 
 // This route must be above /:id so "map-data" is never treated as a listing id.
 router.get("/map-data", wrapAsync(async (_req, res) => {
@@ -54,7 +65,7 @@ router.get("/compare", wrapAsync(listingController.compareListings));
 
 router.route("/:id")
   .get(wrapAsync(listingController.showListing))
-  .put(isLoggedIn, isOwner, upload.single("listing[image]"), validateListing, wrapAsync(listingController.updateListing))
+  .put(isLoggedIn, security.listingWriteLimiter, isOwner, validateListing, upload.single("listing[image]"), wrapAsync(listingController.updateListing))
   .delete(isLoggedIn, isOwner, wrapAsync(listingController.destroyListing));
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
 
