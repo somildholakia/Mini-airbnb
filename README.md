@@ -27,7 +27,7 @@ The map uses Leaflet and OpenStreetMap tiles and does not require a paid map API
 
 ## Render
 
-Set the Render web service health check path to `/health`, use `npm install` or `npm ci` as the build command, and `npm start` as the start command. Render injects the listening port through `PORT`.
+Set the Render web service health check path to `/ready`, use `npm install` or `npm ci` as the build command, and `npm start` as the start command. Render injects the listening port through `PORT`. Use `/ready` for Render's health check because it only returns HTTP 200 after application initialization and MongoDB connectivity are ready; keep `/health` as the lightweight liveness endpoint for warm-up pings.
 
 A Render Free web service is not an always-on production service: it can spin down after 15 minutes without inbound traffic and can be restarted for platform maintenance. The GitHub Actions warm-up workflow in `.github/workflows/keep-alive.yml` now attempts a health check every 5 minutes and waits for `/ready` to confirm MongoDB is connected. This is a best-effort free-tier workaround only: GitHub scheduled runs can be delayed or skipped, and Render may still cold-start. The reliable always-on option is a paid instance; no paid service or external monitoring subscription is required by this repository.
 
