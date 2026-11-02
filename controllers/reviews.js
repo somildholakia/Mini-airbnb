@@ -12,16 +12,26 @@ module.exports.createReview = async (req, res) => {
 
     let newReview = new Review(req.body.review);
 
-    // 🔴 FIX 1: Save owner
     newReview.owner = req.user._id;
-
-    // 🔴 FIX 2: Save review first
     await newReview.save();
 
-    // 🔴 FIX 3: Push review ID
-    listing.reviews.push(newReview._id);
+    try {
+        const linkedListing = await Listing.findByIdAndUpdate(
+            listing._id,
+            { $push: { reviews: newReview._id } },
+            { new: false }
+        ).select("_id");
 
-    await listing.save();
+        if (!linkedListing) {
+            await Review.deleteOne({ _id: newReview._id });
+            req.flash("error", "This stay is no longer available.");
+            return res.redirect("/listings");
+        }
+    } catch (error) {
+        // Avoid leaving an unlinked review behind if the listing update fails.
+        await Review.deleteOne({ _id: newReview._id }).catch(() => undefined);
+        throw error;
+    }
 
     req.flash("success", "New Review Created");
     res.redirect(`/listings/${req.params.id}`);
