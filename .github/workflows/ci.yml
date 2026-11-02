@@ -10,36 +10,21 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - name: Install and refresh compatible dependency versions
-        run: npm install
-      - name: Apply remaining compatible security updates
-        run: npm audit fix || true
-      - name: Commit regenerated lockfile when needed
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package-lock.json
-          if ! git diff --cached --quiet; then
-            git commit -m "chore(deps): refresh patched package lockfile"
-            git push origin "HEAD:${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
-          fi
-      - name: Verify clean lockfile install
+      - name: Install locked dependencies
         run: npm ci
-      - run: npm test
+      - name: Run application checks
+        run: npm test
       - name: Report dependency audit findings
         shell: bash
         run: |
