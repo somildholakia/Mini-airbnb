@@ -179,7 +179,7 @@
           <span class="trip-map-count"><i class="fa-solid fa-location-dot"></i> <%= mapPoints.length %> of <%= items.length %> stops mapped</span>
         </div>
         <div id="trip-itinerary-map" class="wander-map trip-itinerary-map" data-points="<%= JSON.stringify(mapPoints) %>" role="region" aria-label="Approximate map of itinerary stops"></div>
-        <p class="trip-map-disclaimer"><i class="fa-solid fa-circle-info"></i> Pins show approximate city or destination-area locations, not exact property addresses. Directions and travel times are not provided.</p>
+        <p class="trip-map-disclaimer"><i class="fa-solid fa-circle-info"></i> Pins use each stay's saved coordinates or a known city-level fallback. Directions and travel times are not provided.</p>
       </section>
     <% } else if (items.length) { %>
       <p class="trip-map-unavailable"><i class="fa-regular fa-map"></i> A map will appear when at least one stay has a mappable city or destination.</p>
