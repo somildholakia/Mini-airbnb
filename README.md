@@ -38,6 +38,14 @@ A Render Free web service is not an always-on production service: it can spin do
 - Listing photos must be JPG, PNG or WebP and are capped at 8 MB per upload. Request bodies and listing/review fields also have server-side size limits.
 - Rate limits use the process memory store. They are a useful abuse barrier for the current single-instance deployment, not a distributed rate-limit system.
 
+## Trip planning and sharing
+
+- Create private trip plans with a destination and optional dates.
+- Add stays from your saved hotels to a dated itinerary, with personal notes.
+- Invite collaborators with a private, revocable invite link. Accepted collaborators can add and remove itinerary stays.
+- Enable a separate read-only public link when you want to share an itinerary without granting edit access.
+- Trip plans and membership are stored in the existing MongoDB database; no additional service or paid API is needed.
+
 ## Global hotel collection
 
 WanderSite includes an editorial discovery catalog of 576 named hotel properties across destinations worldwide. The first 100 entries follow the 2026 edition of The 50 Best Hotels; the broader collection is a WanderSite editorial selection and is not an independently ranked list.

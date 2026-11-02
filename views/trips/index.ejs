@@ -1,0 +1,52 @@
+<% layout("/layouts/boilerplate") %>
+<section class="trip-page">
+  <header class="trip-page-heading">
+    <div>
+      <span class="wander-eyebrow">YOUR JOURNEYS</span>
+      <h1>My trips</h1>
+      <p>Bring your saved stays together, map out your days and plan with people travelling alongside you.</p>
+    </div>
+    <a class="wander-primary-link" href="/trips/new"><i class="fa-solid fa-plus"></i> Create a trip</a>
+  </header>
+
+  <% if (!trips.length) { %>
+    <div class="trip-empty-state">
+      <i class="fa-regular fa-map"></i>
+      <h2>Your next journey starts here.</h2>
+      <p>Create a trip, add stays from your saved list and invite your travel companions.</p>
+      <a href="/trips/new" class="wander-primary-link">Plan your first trip <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  <% } else { %>
+    <div class="trip-card-grid">
+      <% for (const trip of trips) { %>
+        <article class="trip-card">
+          <div class="trip-card-topline">
+            <span class="trip-card-kicker"><i class="fa-regular fa-compass"></i> WANDERSITE TRIP</span>
+            <% if (String(trip.owner) === String(currUser._id)) { %>
+              <span class="trip-role-pill">Owner</span>
+            <% } else { %>
+              <span class="trip-role-pill">Collaborator</span>
+            <% } %>
+          </div>
+          <h2><%= trip.title %></h2>
+          <p class="trip-card-destination"><i class="fa-solid fa-location-dot"></i> <%= trip.destination || "Destination not set" %></p>
+          <div class="trip-card-meta">
+            <span><i class="fa-regular fa-calendar"></i>
+              <% if (trip.startDate && trip.endDate) { %>
+                <%= new Date(trip.startDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) %> – <%= new Date(trip.endDate).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) %>
+              <% } else if (trip.startDate) { %>
+                From <%= new Date(trip.startDate).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) %>
+              <% } else { %>Dates not set<% } %>
+            </span>
+            <span><i class="fa-solid fa-hotel"></i> <%= trip.items ? trip.items.length : 0 %> stays</span>
+            <span><i class="fa-solid fa-user-group"></i> <%= (trip.collaborators || []).length + 1 %> travellers</span>
+          </div>
+          <div class="trip-card-footer">
+            <span class="<%= trip.isPublic ? 'trip-sharing-on' : 'trip-sharing-off' %>"><i class="fa-solid fa-link"></i> <%= trip.isPublic ? "Public link enabled" : "Private trip" %></span>
+            <a href="/trips/<%= trip._id %>" class="trip-open-link">Open trip <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      <% } %>
+    </div>
+  <% } %>
+</section>

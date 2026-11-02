@@ -3,7 +3,7 @@ const Listing = require("../models/listing");
 
 function safeReturnTo(value) {
     if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//")) return "/saved";
-    if (value === "/saved" || value.startsWith("/listings")) return value;
+    if (value === "/saved" || value.startsWith("/listings") || value === "/trips" || value.startsWith("/trips/")) return value;
     return "/saved";
 }
 

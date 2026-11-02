@@ -26,6 +26,10 @@ module.exports = {
     limit: 8,
     message: "Too many listing changes from this connection. Please wait before trying again."
   }),
+  tripWriteLimiter: createLimiter({
+    limit: 50,
+    message: "Too many trip updates from this connection. Please wait a few minutes and try again."
+  }),
   reviewLimiter: createLimiter({
     limit: 5,
     message: "You have posted several reviews recently. Please wait before submitting another."
