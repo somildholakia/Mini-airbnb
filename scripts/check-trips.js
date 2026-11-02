@@ -4,6 +4,7 @@ const Trip = require("../models/trip");
 const { tripSchema, tripItemSchema, tripOrderSchema } = require("../schema");
 const { buildTripCalendar } = require("../utils/ical");
 const { applyItemOrder } = require("../utils/trip-order");
+const { getTripMapPoints } = require("../utils/trip-map");
 
 async function main() {
   const owner = new mongoose.Types.ObjectId();
@@ -123,6 +124,42 @@ async function main() {
     (error) => error.name === "ValidationError" && Boolean(error.errors.endDate),
     "trip end dates must not precede their start dates"
   );
+
+const mapPoints = getTripMapPoints([
+  {
+    _id: "itinerary-1",
+    listing: {
+      _id: "listing-1",
+      title: "Tokyo stay",
+      location: "Tokyo",
+      country: "Japan",
+      locationCoordinates: { type: "Point", coordinates: [139.6503, 35.6762] }
+    }
+  },
+  {
+    _id: "itinerary-2",
+    listing: {
+      _id: "listing-2",
+      title: "Another Tokyo stay",
+      location: "Tokyo",
+      country: "Japan"
+    }
+  },
+  {
+    _id: "itinerary-3",
+    listing: {
+      _id: "listing-3",
+      title: "Unknown destination",
+      location: "Atlantis",
+      country: "Ocean"
+    }
+  },
+  { _id: "itinerary-4", listing: null }
+]);
+assert.deepEqual(mapPoints.map((point) => point.itemId), ["itinerary-1", "itinerary-2"], "mapped stops should retain itinerary order and skip unknown locations");
+assert.deepEqual(mapPoints[0].coordinates, [139.6503, 35.6762], "stored GeoJSON coordinates should be used");
+assert.deepEqual(mapPoints[1].coordinates, [139.6503, 35.6762], "known city coordinates should be used as a fallback");
+assert.ok(mapPoints.every((point) => !("address" in point)), "trip map points should not expose property addresses");
 
 const calendar = buildTripCalendar({
     title: "Japan, spring",
