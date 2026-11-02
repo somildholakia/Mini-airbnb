@@ -2,6 +2,7 @@ const assert = require("node:assert/strict");
 const mongoose = require("mongoose");
 const Trip = require("../models/trip");
 const { tripSchema, tripItemSchema } = require("../schema");
+const { buildTripCalendar } = require("../utils/ical");
 
 async function main() {
   const owner = new mongoose.Types.ObjectId();
@@ -80,7 +81,42 @@ async function main() {
     "trip end dates must not precede their start dates"
   );
 
-  process.stdout.write("Validated trip access defaults, date ranges, invite tokens and itinerary input limits.\n");
+const calendar = buildTripCalendar({
+    title: "Japan, spring",
+    destination: "Japan",
+    items: [
+      {
+        _id: "stay123",
+        plannedDate: new Date("2027-03-12T00:00:00.000Z"),
+        listing: {
+          title: "Kyoto, Stay; Main\\Wing",
+          location: "Kyoto",
+          country: "Japan"
+        },
+        note: "Check in at 3pm\nBring pass; call desk\\first"
+      },
+      {
+        _id: "stay-unscheduled",
+        plannedDate: null,
+        listing: { title: "Unscheduled stay" }
+      }
+    ]
+  }, new Date("2027-01-01T00:00:00.000Z"));
+
+  assert.ok(calendar.includes("BEGIN:VCALENDAR\r\n"));
+  assert.ok(calendar.includes("DTSTART;VALUE=DATE:20270312"));
+  assert.ok(calendar.includes("DTEND;VALUE=DATE:20270313"));
+  assert.ok(calendar.includes("SUMMARY:Kyoto\\, Stay\\; Main\\\\Wing"));
+  assert.ok(calendar.includes("DESCRIPTION:Check in at 3pm\\nBring pass\\; call desk\\\\first\\nTrip: Japan"));
+  assert.equal((calendar.match(/BEGIN:VEVENT/g) || []).length, 1, "unscheduled stays should not become calendar events");
+  assert.ok(calendar.endsWith("END:VCALENDAR\r\n"));
+
+  const longCalendar = buildTripCalendar({ title: "Japan ".repeat(30), items: [] }, new Date("2027-01-01T00:00:00.000Z"));
+  const physicalLines = longCalendar.split("\r\n").filter(Boolean);
+  assert.ok(physicalLines.every((line) => Buffer.byteLength(line, "utf8") <= 75), "calendar lines should be folded at 75 UTF-8 octets");
+  assert.ok(longCalendar.includes("\r\n "), "folded continuation lines should start with a space");
+
+  process.stdout.write("Validated trip access defaults, date ranges, invite tokens, itinerary input limits and iCalendar export.\n");
 }
 
 main().catch((error) => {
