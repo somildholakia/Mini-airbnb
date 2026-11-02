@@ -76,6 +76,11 @@
         <h2>Itinerary</h2>
         <p>Keep the stays you want to visit together in one place.</p>
       </div>
+      <% if (items.some(item => item.plannedDate && item.listing)) { %>
+        <a class="btn btn-outline-dark trip-calendar-download" href="<%= calendarUrl %>">
+          <i class="fa-regular fa-calendar-check me-1"></i> Add to calendar
+        </a>
+      <% } %>
     </div>
 
     <% if (!items.length) { %>
