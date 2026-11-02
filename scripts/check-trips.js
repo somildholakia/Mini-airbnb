@@ -154,12 +154,23 @@ const mapPoints = getTripMapPoints([
       country: "Ocean"
     }
   },
-  { _id: "itinerary-4", listing: null }
+  {
+    _id: "itinerary-4",
+    listing: {
+      _id: "listing-4",
+      title: "Tokyo fallback",
+      location: "Tokyo",
+      country: "Japan",
+      locationCoordinates: { type: "Point", coordinates: [220, 95] }
+    }
+  },
+  { _id: "itinerary-5", listing: null }
 ]);
-assert.deepEqual(mapPoints.map((point) => point.itemId), ["itinerary-1", "itinerary-2"], "mapped stops should retain itinerary order and skip unknown locations");
+assert.deepEqual(mapPoints.map((point) => point.itemId), ["itinerary-1", "itinerary-2", "itinerary-4"], "mapped stops should retain itinerary order and skip unknown locations");
 assert.deepEqual(mapPoints[0].coordinates, [139.6503, 35.6762], "stored GeoJSON coordinates should be used");
 assert.deepEqual(mapPoints[1].coordinates, [139.6503, 35.6762], "known city coordinates should be used as a fallback");
-assert.ok(mapPoints.every((point) => !("address" in point)), "trip map points should not expose property addresses");
+assert.deepEqual(mapPoints[2].coordinates, [139.6503, 35.6762], "invalid stored coordinates should fall back to a known city location");
+assert.ok(mapPoints.every((point) => !("address" in point)), "trip map points should not expose raw address fields");
 
 const calendar = buildTripCalendar({
     title: "Japan, spring",
