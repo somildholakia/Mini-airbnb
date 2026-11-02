@@ -144,6 +144,8 @@ module.exports.addItem = async (req, res) => {
     return res.redirect("/trips/" + trip._id);
   }
 
+  if (trip.items.length >= 100) throw new ExpressError(400, "This trip already has 100 planned stays.");
+
   trip.items.push({
     listing: listing._id,
     plannedDate,
@@ -213,7 +215,7 @@ module.exports.inviteLanding = async (req, res) => {
   const alreadyMember = String(trip.owner) === String(req.user._id) ||
     trip.collaborators.some((member) => String(member.user) === String(req.user._id));
   res.locals.pageTitle = "Trip invitation · WanderSite";
-  res.render("trips/invite.ejs", { trip, alreadyMember });
+  res.render("trips/invite.ejs", { trip, alreadyMember, inviteToken: req.params.token });
 };
 
 module.exports.acceptInvite = async (req, res) => {
