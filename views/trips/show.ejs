@@ -126,7 +126,7 @@
       <% } %>
       <div class="trip-itinerary-list" data-sortable-list>
         <% for (const item of items) { %>
-          <article class="trip-itinerary-item" data-sortable-item data-item-id="<%= item._id %>" draggable="<%= canEdit ? 'true' : 'false' %>">
+          <article class="trip-itinerary-item <%= canEdit ? 'trip-itinerary-item-editable' : '' %>" data-sortable-item data-item-id="<%= item._id %>" draggable="<%= canEdit ? 'true' : 'false' %>">
             <% if (canEdit) { %>
               <div class="trip-item-order-controls">
                 <button type="button" data-drag-handle aria-label="Drag to reorder stop" title="Drag to reorder"><i class="fa-solid fa-grip-vertical"></i></button>
