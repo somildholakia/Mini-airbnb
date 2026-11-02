@@ -1,8 +1,9 @@
 const assert = require("node:assert/strict");
 const mongoose = require("mongoose");
 const Trip = require("../models/trip");
-const { tripSchema, tripItemSchema } = require("../schema");
+const { tripSchema, tripItemSchema, tripOrderSchema } = require("../schema");
 const { buildTripCalendar } = require("../utils/ical");
+const { applyItemOrder } = require("../utils/trip-order");
 
 async function main() {
   const owner = new mongoose.Types.ObjectId();
@@ -35,6 +36,48 @@ async function main() {
   assert.ok(
     tripSchema.validate({ trip: { ...validTripInput.trip, endDate: "2027-13-01" } }).error,
     "out-of-range calendar months should fail"
+  );
+
+  assert.equal(tripOrderSchema.validate({ itemIds: "0123456789abcdef01234567" }).error, undefined, "a single item order should pass");
+  assert.ok(tripOrderSchema.validate({ itemIds: "not-an-id" }).error, "malformed item IDs should fail");
+  assert.ok(tripOrderSchema.validate({ itemIds: "0123456789abcdef01234567," }).error, "empty order entries should fail");
+
+  const orderItems = [
+    { _id: "000000000000000000000001", position: 0 },
+    { _id: "000000000000000000000002", position: 1 },
+    { _id: "000000000000000000000003", position: 2 }
+  ];
+  applyItemOrder(orderItems, [
+    "000000000000000000000003",
+    "000000000000000000000001",
+    "000000000000000000000002"
+  ]);
+  assert.deepEqual(orderItems.map((item) => item.position), [1, 2, 0], "requested order should map to stable zero-based positions");
+  assert.throws(
+    () => applyItemOrder(orderItems, [
+      "000000000000000000000001",
+      "000000000000000000000001",
+      "000000000000000000000003"
+    ]),
+    /order is invalid/,
+    "duplicate stop IDs should be rejected"
+  );
+  assert.throws(
+    () => applyItemOrder(orderItems, [
+      "000000000000000000000001",
+      "000000000000000000000002"
+    ]),
+    /order is invalid/,
+    "partial order payloads should be rejected"
+  );
+  assert.throws(
+    () => applyItemOrder(orderItems, [
+      "000000000000000000000001",
+      "000000000000000000000002",
+      "ffffffffffffffffffffffff"
+    ]),
+    /order is invalid/,
+    "foreign stop IDs should be rejected"
   );
 
   const validItem = {
