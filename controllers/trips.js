@@ -7,6 +7,7 @@ const Listing = require("../models/listing");
 const User = require("../models/user");
 const ExpressError = require("../utils/ExpressError");
 const { buildTripCalendar } = require("../utils/ical");
+const { applyItemOrder } = require("../utils/trip-order");
 
 function tripAccessFilter(tripId, userId) {
   if (!mongoose.isValidObjectId(tripId)) throw new ExpressError(404, "Trip not found.");
@@ -62,11 +63,10 @@ async function renderTrip(req, res, trip, options = {}) {
     savedListings = (user?.savedListings || []).filter(Boolean);
   }
 
-  const items = [...trip.items].sort((a, b) => {
-    const aDate = a.plannedDate ? new Date(a.plannedDate).getTime() : Number.MAX_SAFE_INTEGER;
-    const bDate = b.plannedDate ? new Date(b.plannedDate).getTime() : Number.MAX_SAFE_INTEGER;
-    return aDate - bDate || new Date(a.addedAt) - new Date(b.addedAt);
-  });
+  const items = [...trip.items].sort((a, b) =>
+    (Number(a.position) - Number(b.position)) ||
+    (new Date(a.addedAt) - new Date(b.addedAt))
+  );
 
   const viewerId = options.viewerId || req.user?._id;
   const ownerView = isTripOwner(trip, viewerId);
@@ -129,6 +129,39 @@ module.exports.show = async (req, res) => {
   await renderTrip(req, res, trip, { canEdit: true, viewerId: req.user._id });
 };
 
+module.exports.updateDetails = async (req, res) => {
+  const trip = await getEditableTrip(req.params.id, req.user._id);
+  if (!isTripOwner(trip, req.user._id)) {
+    throw new ExpressError(403, "Only the trip owner can edit trip details.");
+  }
+
+  const { title, destination, startDate, endDate } = req.body.trip;
+  const nextStart = startDate ? new Date(startDate + "T00:00:00.000Z") : null;
+  const nextEnd = endDate ? new Date(endDate + "T00:00:00.000Z") : null;
+
+  if (nextStart && nextEnd && nextEnd < nextStart) {
+    throw new ExpressError(400, "The trip end date must be on or after its start date.");
+  }
+
+  const outsideRange = trip.items.some((item) => {
+    if (!item.plannedDate) return false;
+    const day = item.plannedDate.toISOString().slice(0, 10);
+    return (startDate && day < startDate) || (endDate && day > endDate);
+  });
+  if (outsideRange) {
+    req.flash("error", "Trip dates cannot exclude an existing planned stay. Update those stays first.");
+    return res.redirect("/trips/" + trip._id);
+  }
+
+  trip.title = title;
+  trip.destination = destination || "";
+  trip.startDate = nextStart;
+  trip.endDate = nextEnd;
+  await trip.save();
+  req.flash("success", "Trip details updated.");
+  res.redirect("/trips/" + trip._id);
+};
+
 module.exports.addItem = async (req, res) => {
   const trip = await getEditableTrip(req.params.id, req.user._id);
   const listingId = String(req.body.item?.listingId || "");
@@ -156,14 +189,34 @@ module.exports.addItem = async (req, res) => {
 
   if (trip.items.length >= 100) throw new ExpressError(400, "This trip already has 100 planned stays.");
 
+  const nextPosition = trip.items.reduce((max, item) => Math.max(max, Number(item.position) || 0), -1) + 1;
   trip.items.push({
     listing: listing._id,
     plannedDate,
     note: String(req.body.item?.note || "").trim().slice(0, 500),
-    addedBy: req.user._id
+    addedBy: req.user._id,
+    position: nextPosition
   });
   await trip.save();
   req.flash("success", "Stay added to your itinerary.");
+  res.redirect("/trips/" + trip._id);
+};
+
+module.exports.reorderItems = async (req, res) => {
+  const trip = await getEditableTrip(req.params.id, req.user._id);
+  const requestedIds = String(req.body.itemIds || "")
+    .split(",")
+    .map((id) => id.trim())
+    .filter(Boolean);
+
+  try {
+    applyItemOrder(trip.items, requestedIds);
+  } catch (error) {
+    throw new ExpressError(400, error.message);
+  }
+
+  await trip.save();
+  req.flash("success", "Itinerary order updated.");
   res.redirect("/trips/" + trip._id);
 };
 
