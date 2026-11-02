@@ -20,6 +20,7 @@ const User = require("./models/user.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const tripRouter = require("./routes/trip.js");
 const ExpressError = require("./utils/ExpressError.js");
 
 const app = express();
@@ -159,6 +160,7 @@ async function configureApplication() {
     });
     app.use("/listings", security.browseLimiter, listingRouter);
     app.use("/listings/:id/reviews", reviewRouter);
+    app.use("/trips", tripRouter);
     app.use("/", userRouter);
 
     app.use((req, res, next) => {
