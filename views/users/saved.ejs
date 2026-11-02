@@ -13,7 +13,7 @@
       <a href="/listings" class="wander-primary-link">Explore the collection <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   <% } else { %>
-    <p class="saved-results-count"><%= savedListings.length %> saved <%= savedListings.length === 1 ? "stay" : "stays" %></p>
+    <div class="saved-results-toolbar"><p class="saved-results-count"><%= savedListings.length %> saved <%= savedListings.length === 1 ? "stay" : "stays" %></p><a class="wander-primary-link" href="/trips">Plan a trip <i class="fa-solid fa-arrow-right"></i></a></div>
     <div class="hotel-grid">
       <% for (const listing of savedListings) { %>
         <article class="hotel-card saved-hotel-card">
