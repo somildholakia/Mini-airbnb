@@ -35,6 +35,12 @@ module.exports.tripSchema = Joi.object({
     }).required()
 });
 
+module.exports.tripUpdateSchema = module.exports.tripSchema;
+
+module.exports.tripOrderSchema = Joi.object({
+    itemIds: Joi.string().max(2400).required()
+});
+
 module.exports.tripItemSchema = Joi.object({
     item: Joi.object({
         listingId: Joi.string().hex().length(24).required(),
