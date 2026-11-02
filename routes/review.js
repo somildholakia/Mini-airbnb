@@ -7,6 +7,7 @@ const { listingSchema, reviewSchema } = require("../schema.js");
 const ExpressError = require("../utils/ExpressError.js");
 const reviewController = require("../controllers/reviews.js");
 const { isLoggedIn, isReviewOwner } = require("../middleware");
+const security = require("../security.js");
 
 
 
@@ -23,7 +24,7 @@ const validateReview = (req,res,next) => {
 
 
 // Reviews POST
-router.post("/", isLoggedIn, validateReview, wrapAsync(reviewController.createReview));
+router.post("/", isLoggedIn, security.reviewLimiter, validateReview, wrapAsync(reviewController.createReview));
 
 // Delete Review Route
 
