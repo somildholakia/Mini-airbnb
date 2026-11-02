@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require("express");
-const { tripSchema, tripItemSchema } = require("../schema");
+const { tripSchema, tripItemSchema, tripOrderSchema } = require("../schema");
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync");
 const { isLoggedIn } = require("../middleware");
@@ -30,6 +30,15 @@ function validateTripItem(req, _res, next) {
   next();
 }
 
+function validateTripOrder(req, _res, next) {
+  const { error, value } = tripOrderSchema.validate(req.body, { abortEarly: false });
+  if (error) {
+    return next(new ExpressError(400, error.details.map((item) => item.message).join(", ")));
+  }
+  req.body = value;
+  next();
+}
+
 // Token routes must precede /:id so they are not parsed as trip IDs.
 router.get("/shared/:token/calendar", security.browseLimiter, wrapAsync(tripController.downloadSharedCalendar));
 router.get("/shared/:token", security.browseLimiter, wrapAsync(tripController.shared));
@@ -40,6 +49,8 @@ router.get("/", isLoggedIn, wrapAsync(tripController.index));
 router.get("/new", isLoggedIn, tripController.renderNew);
 router.post("/", isLoggedIn, security.tripWriteLimiter, validateCreateTrip, wrapAsync(tripController.create));
 router.get("/:id/calendar", isLoggedIn, wrapAsync(tripController.downloadCalendar));
+router.post("/:id/details", isLoggedIn, security.tripWriteLimiter, validateCreateTrip, wrapAsync(tripController.updateDetails));
+router.post("/:id/items/order", isLoggedIn, security.tripWriteLimiter, validateTripOrder, wrapAsync(tripController.reorderItems));
 router.get("/:id", isLoggedIn, wrapAsync(tripController.show));
 router.post("/:id/items", isLoggedIn, security.tripWriteLimiter, validateTripItem, wrapAsync(tripController.addItem));
 router.delete("/:id/items/:itemId", isLoggedIn, security.tripWriteLimiter, wrapAsync(tripController.removeItem));

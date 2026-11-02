@@ -28,6 +28,29 @@
   </header>
 
   <% if (canEdit && isOwner) { %>
+    <details class="trip-edit-panel">
+      <summary><i class="fa-solid fa-sliders"></i> Edit trip details</summary>
+      <form method="POST" action="/trips/<%= trip._id %>/details" class="trip-edit-form">
+        <label class="trip-form-field">
+          <span>Trip name</span>
+          <input type="text" name="trip[title]" minlength="3" maxlength="100" value="<%= trip.title %>" required>
+        </label>
+        <label class="trip-form-field">
+          <span>Destination</span>
+          <input type="text" name="trip[destination]" maxlength="120" value="<%= trip.destination || '' %>" placeholder="City, region or country">
+        </label>
+        <label class="trip-form-field">
+          <span>Start date</span>
+          <input type="date" name="trip[startDate]" value="<%= trip.startDate ? new Date(trip.startDate).toISOString().slice(0,10) : '' %>">
+        </label>
+        <label class="trip-form-field">
+          <span>End date</span>
+          <input type="date" name="trip[endDate]" min="<%= trip.startDate ? new Date(trip.startDate).toISOString().slice(0,10) : '' %>" value="<%= trip.endDate ? new Date(trip.endDate).toISOString().slice(0,10) : '' %>">
+        </label>
+        <p class="trip-edit-hint">A new date range must still include every dated stay already on your itinerary.</p>
+        <button type="submit" class="btn btn-dark">Save trip details</button>
+      </form>
+    </details>
     <section class="trip-sharing-panel">
       <div>
         <span class="wander-eyebrow">SHARING CONTROLS</span>
@@ -76,11 +99,16 @@
         <h2>Itinerary</h2>
         <p>Keep the stays you want to visit together in one place.</p>
       </div>
-      <% if (items.some(item => item.plannedDate && item.listing)) { %>
-        <a class="btn btn-outline-dark trip-calendar-download" href="<%= calendarUrl %>">
-          <i class="fa-regular fa-calendar-check me-1"></i> Add to calendar
-        </a>
-      <% } %>
+      <div class="trip-itinerary-actions">
+        <% if (items.length > 1 && canEdit) { %>
+          <button type="submit" form="trip-item-order-form" class="btn btn-dark btn-sm">Save order</button>
+        <% } %>
+        <% if (items.some(item => item.plannedDate && item.listing)) { %>
+          <a class="btn btn-outline-dark trip-calendar-download" href="<%= calendarUrl %>">
+            <i class="fa-regular fa-calendar-check me-1"></i> Add to calendar
+          </a>
+        <% } %>
+      </div>
     </div>
 
     <% if (!items.length) { %>
@@ -91,9 +119,21 @@
         <a href="/listings" class="wander-primary-link">Explore stays <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     <% } else { %>
-      <div class="trip-itinerary-list">
+      <% if (canEdit) { %>
+        <form id="trip-item-order-form" method="POST" action="/trips/<%= trip._id %>/items/order">
+          <input type="hidden" name="itemIds" value="<%= items.map(item => String(item._id)).join(',') %>">
+        </form>
+      <% } %>
+      <div class="trip-itinerary-list" data-sortable-list>
         <% for (const item of items) { %>
-          <article class="trip-itinerary-item">
+          <article class="trip-itinerary-item <%= canEdit ? 'trip-itinerary-item-editable' : '' %>" data-sortable-item data-item-id="<%= item._id %>" draggable="<%= canEdit ? 'true' : 'false' %>">
+            <% if (canEdit) { %>
+              <div class="trip-item-order-controls">
+                <button type="button" data-drag-handle aria-label="Drag to reorder stop" title="Drag to reorder"><i class="fa-solid fa-grip-vertical"></i></button>
+                <button type="button" data-move-up aria-label="Move stop up" title="Move up"><i class="fa-solid fa-chevron-up"></i></button>
+                <button type="button" data-move-down aria-label="Move stop down" title="Move down"><i class="fa-solid fa-chevron-down"></i></button>
+              </div>
+            <% } %>
             <div class="trip-item-date">
               <% if (item.plannedDate) { %>
                 <strong><%= new Date(item.plannedDate).toLocaleDateString("en-IN", { day: "numeric" }) %></strong>
@@ -123,6 +163,9 @@
           </article>
         <% } %>
       </div>
+      <% if (canEdit && items.length > 1) { %>
+        <p class="trip-reorder-hint"><i class="fa-solid fa-hand-pointer"></i> Drag a stop to reorder it, or use the arrow buttons. Save your order when you're done.</p>
+      <% } %>
     <% } %>
   </section>
 
