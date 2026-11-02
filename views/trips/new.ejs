@@ -1,0 +1,32 @@
+<% layout("/layouts/boilerplate") %>
+<section class="trip-form-page">
+  <a href="/trips" class="trip-back-link"><i class="fa-solid fa-arrow-left"></i> All trips</a>
+  <div class="trip-form-card">
+    <span class="wander-eyebrow">START PLANNING</span>
+    <h1>Create a trip</h1>
+    <p>Give your journey a name. You can add saved stays, dates and travel companions next.</p>
+    <form method="POST" action="/trips" class="wander-form needs-validation" novalidate>
+      <div class="mb-3">
+        <label class="form-label" for="trip-title">Trip name</label>
+        <input class="form-control" id="trip-title" name="trip[title]" minlength="3" maxlength="100" placeholder="e.g. Summer in Japan" required>
+        <div class="invalid-feedback">Enter a trip name with at least three characters.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="trip-destination">Destination (optional)</label>
+        <input class="form-control" id="trip-destination" name="trip[destination]" maxlength="120" placeholder="e.g. Tokyo, Kyoto and Osaka">
+      </div>
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label class="form-label" for="trip-start">Start date (optional)</label>
+          <input class="form-control" id="trip-start" type="date" name="trip[startDate]">
+        </div>
+        <div class="mb-3 col-md-6">
+          <label class="form-label" for="trip-end">End date (optional)</label>
+          <input class="form-control" id="trip-end" type="date" name="trip[endDate]">
+        </div>
+      </div>
+      <p class="trip-form-hint"><i class="fa-solid fa-lock"></i> New trips are private. You decide when to invite collaborators or create a read-only share link.</p>
+      <button class="btn btn-dark px-4" type="submit">Create trip <i class="fa-solid fa-arrow-right ms-1"></i></button>
+    </form>
+  </div>
+</section>
