@@ -4,11 +4,12 @@ const wrapAsync = require("../utils/wrapAsync");
 const passport = require("passport");
 const { isLoggedIn, saveRedirectUrl } = require("../middleware.js");
 const userController = require("../controllers/users.js");
+const security = require("../security.js");
 
 router.get("/signup", userController.renderSignupForm);
-router.post("/signup", wrapAsync(userController.singup));
+router.post("/signup", security.authLimiter, wrapAsync(userController.singup));
 router.get("/login", userController.renderLoginForm);
-router.post("/login", saveRedirectUrl, passport.authenticate("local", { failureRedirect: "/login", failureFlash: true }), userController.login);
+router.post("/login", security.authLimiter, saveRedirectUrl, passport.authenticate("local", { failureRedirect: "/login", failureFlash: true }), userController.login);
 router.get("/logout", userController.logout);
 
 router.get("/saved", isLoggedIn, wrapAsync(userController.renderSaved));
