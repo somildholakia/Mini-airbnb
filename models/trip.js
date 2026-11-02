@@ -7,7 +7,8 @@ const itineraryItemSchema = new Schema({
   plannedDate: { type: Date, default: null },
   note: { type: String, trim: true, maxlength: 500, default: "" },
   addedBy: { type: Schema.Types.ObjectId, ref: "User", required: true },
-  addedAt: { type: Date, default: Date.now }
+  addedAt: { type: Date, default: Date.now },
+  position: { type: Number, min: 0, default: 0 }
 });
 
 const collaboratorSchema = new Schema({
