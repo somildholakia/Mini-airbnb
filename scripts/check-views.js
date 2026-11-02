@@ -26,11 +26,11 @@ function renderLayoutSmokeTest() {
 
   return new Promise((resolve, reject) => {
     ejsMate(viewPath, {
+      ...locals,
       settings: {
         views: viewsRoot,
         "view engine": "ejs"
-      },
-      locals
+      }
     }, (error, html) => {
       if (error) return reject(error);
       if (!html.includes("<!DOCTYPE html>") || !html.includes(locals.message)) {
