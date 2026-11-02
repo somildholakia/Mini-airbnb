@@ -264,7 +264,7 @@ module.exports.shared = async (req, res) => {
     .select("+shareToken")
     .populate({
       path: "items.listing",
-      select: "title image location country category isCurated"
+      select: "title image location country category isCurated locationCoordinates"
     });
   if (!trip) throw new ExpressError(404, "This shared trip link is no longer available.");
   await renderTrip(req, res, trip, {
