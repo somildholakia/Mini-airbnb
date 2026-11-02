@@ -27,6 +27,14 @@ async function main() {
     tripSchema.validate({ trip: { ...validTripInput.trip, startDate: "not-a-date" } }).error,
     "invalid trip dates should fail"
   );
+  assert.ok(
+    tripSchema.validate({ trip: { ...validTripInput.trip, startDate: "2027-02-30" } }).error,
+    "impossible calendar dates should fail"
+  );
+  assert.ok(
+    tripSchema.validate({ trip: { ...validTripInput.trip, endDate: "2027-13-01" } }).error,
+    "out-of-range calendar months should fail"
+  );
 
   const validItem = {
     item: {
@@ -39,6 +47,10 @@ async function main() {
   assert.ok(
     tripItemSchema.validate({ item: { ...validItem.item, listingId: "not-an-id" } }).error,
     "invalid listing IDs should fail"
+  );
+  assert.ok(
+    tripItemSchema.validate({ item: { ...validItem.item, plannedDate: "2027-02-30" } }).error,
+    "impossible itinerary dates should fail"
   );
   assert.ok(
     tripItemSchema.validate({ item: { ...validItem.item, note: "x".repeat(501) } }).error,
