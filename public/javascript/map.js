@@ -152,6 +152,59 @@
         marker.bindPopup(popup).openPopup();
     }
 
+    function initTripMap(element) {
+        let points;
+        try {
+            points = JSON.parse(element.dataset.points || "[]");
+        } catch (_error) {
+            element.classList.add("map-unavailable");
+            element.textContent = "The itinerary map could not be loaded.";
+            return;
+        }
+
+        const mappedPoints = (Array.isArray(points) ? points : [])
+            .map((point) => ({ point, latLng: coordinatesToLatLng(point.coordinates) }))
+            .filter((entry) => entry.latLng);
+
+        if (!mappedPoints.length) {
+            element.classList.add("map-unavailable");
+            element.textContent = "Map coordinates are not available for these stops yet.";
+            return;
+        }
+
+        const map = L.map(element, { scrollWheelZoom: false }).setView(mappedPoints[0].latLng, 9);
+        addBaseTiles(map);
+        const bounds = [];
+
+        mappedPoints.forEach(({ point, latLng }, index) => {
+            const markerIcon = L.divIcon({
+                className: "trip-map-marker-shell",
+                html: "<span>" + (index + 1) + "</span>",
+                iconSize: [34, 34],
+                iconAnchor: [17, 17]
+            });
+            const marker = L.marker(latLng, { icon: markerIcon }).addTo(map);
+            const popup = document.createElement("div");
+            const title = document.createElement("strong");
+            const location = document.createElement("div");
+            const link = document.createElement("a");
+
+            title.textContent = point.title || "WanderSite stay";
+            location.textContent = [point.location, point.country].filter(Boolean).join(", ");
+            link.href = "/listings/" + encodeURIComponent(point.listingId || "");
+            link.textContent = "View stay";
+            popup.append(title, location, link);
+            marker.bindPopup(popup);
+            bounds.push(latLng);
+        });
+
+        if (bounds.length === 1) {
+            map.setView(bounds[0], 10);
+        } else {
+            map.fitBounds(bounds, { padding: [36, 36], maxZoom: 10 });
+        }
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         if (typeof L === "undefined") return;
 
@@ -160,5 +213,8 @@
 
         const detailMap = document.getElementById("listing-detail-map");
         if (detailMap) initDetailMap(detailMap);
+
+        const tripMap = document.getElementById("trip-itinerary-map");
+        if (tripMap) initTripMap(tripMap);
     });
 })();
